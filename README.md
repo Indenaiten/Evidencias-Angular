@@ -72,6 +72,7 @@ Si lanzamos el siguiente comando, nos **lanzará la aplicación, además de abri
 
 ### 003 - Crear un nuevo componente
 _**[Commit 5666b18](https://github.com/Indenaiten/Evidencias-Angular/tree/5666b189d6e1e997f383852e4d5e1a59e847fb22)**_
+_**[Commit 1a533b5](https://github.com/Indenaiten/Evidencias-Angular/tree/1a533b568a9c16571b7aed513edbeec646fe7cbe)**_
 
 Los **componentes** se crean en el interior de la carpeta **"/src/app"**.
 
@@ -88,10 +89,50 @@ Los componentes se pueden crear a mano, pero **no hay que olvidarse de registrar
 
 En el fichero **"nameOfComponent.component.ts"** se encuetra la clase correspondiente al componente. Desde el **template** se podrá **acceder a los atributos y métodos públicos** de dicha clase (mediante **{{ nameOfAttribute }}**).  
 
-En el archivo **"nameOfComponent.component.html"** va el código html del componente. Se puede prescindir de éste archivo si en el **"component.ts"** en vez de añadir **"templateUrl"**, añadimos la propiedad **"template"** y entre las comillas ``` ``` va el código **HTML**.  
+En el archivo **"nameOfComponent.component.html"** va el código html del componente. Se puede prescindir de éste archivo si en el **"component.ts"** en vez de añadir **"templateUrl"**, añadimos la propiedad **"template"** y entre las comillas `` ` ` `` va el código **HTML**.  
 
 En el archivo **"nameOfComponent.component.css"** va el código css del componente.  
 
 El fichero **"/index.html"** es el fichero html principal, el cual llama al componente **"app-root"**.  
 
 En la carpeta **"/assets"** van situados todos los **recursos globales** de nuestra aplicación (_Hojas de estilo, ficheros JavaScript, librerías, imágenes, fuentes, etc..._).  
+
+
+
+### 004 - Data Binding
+_**[Commit c4aedf4](https://github.com/Indenaiten/Evidencias-Angular/tree/c4aedf4032bab4cc35b9182e2f59887c0615de6b)**_
+_Enlazar datos en el componente__  
+
+Hay varias técnicas:
+  1. **Interpolación**: De la fuente de datos a la vista (_**One Way Binding**_).
+  2. **Property Binding**: De la fuente de datos a la vista (_**One Way Binding**_).
+  3. **Event Binding**: De la vista a la fuente de datos  (_**One Way Binding**_).
+  4. **Two Way Binding**: De la fuente de datos a la vista y viceversa (_**Two Way Binding**_).  
+
+
+##### Interpolación
+
+Para pasar datos por **interpolación**, tendremos los datos declarados en la clase del componente como atributos de ésta, y para acceder a ellos desde la vista utilizaremos la **sintaxis "mustache"**:  
+  * **Dato simple**: ``{{ nameOfAttribute }}``  
+  * **Dato "object"**: ``{{ nameOfAttribute.name }}``  
+  * **Método**: ``{{ nameOfMethod() }}``  
+
+
+##### Property Binding  
+
+Para pasar datos por **property binding**, tendremos los datos declarados en la clase del componente como atributos de ésta, y para acceder a ellos desde la vista utilizaremos la siguiente sintaxis:  
+  ``<input type="text" [placeholder]="nameOfAttribute"/>``  
+
+
+##### Event Binding
+
+Sirve para **ejecutar un método** a partir de un **evento** en el **HTML**.  
+      <button id="eventBinding1" type="button" name="button" (click)="modText()">Modificar Texto</button>
+      <h5 id="textEventBinding1">{{ text }}</h5>  
+
+
+##### Two Way Binding
+
+Sirve para enviar y recibir datos desde la fuente de datos a la vista y viceversa:  
+      <input id="inputTwoBinding" type="text" [(ngModel)]="text"/>
+      <h5>{{ text }}</h5>
