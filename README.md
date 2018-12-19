@@ -71,7 +71,7 @@ Si lanzamos el siguiente comando, nos **lanzará la aplicación, además de abri
 
 
 ### 003 - Crear un nuevo componente
-_**[Commit 5666b18](https://github.com/Indenaiten/Evidencias-Angular/tree/5666b189d6e1e997f383852e4d5e1a59e847fb22)**_
+_**[Commit 5666b18](https://github.com/Indenaiten/Evidencias-Angular/tree/5666b189d6e1e997f383852e4d5e1a59e847fb22)**_  
 _**[Commit 1a533b5](https://github.com/Indenaiten/Evidencias-Angular/tree/1a533b568a9c16571b7aed513edbeec646fe7cbe)**_
 
 Los **componentes** se crean en el interior de la carpeta **"/src/app"**.
@@ -100,8 +100,8 @@ En la carpeta **"/assets"** van situados todos los **recursos globales** de nues
 
 
 ### 004 - Data Binding
-_**[Commit c4aedf4](https://github.com/Indenaiten/Evidencias-Angular/tree/c4aedf4032bab4cc35b9182e2f59887c0615de6b)**_
-_Enlazar datos en el componente__  
+_**[Commit c4aedf4](https://github.com/Indenaiten/Evidencias-Angular/tree/c4aedf4032bab4cc35b9182e2f59887c0615de6b)**_  
+_Enlazar datos en el componente_
 
 Hay varias técnicas:
   1. **Interpolación**: De la fuente de datos a la vista (_**One Way Binding**_).
@@ -110,7 +110,7 @@ Hay varias técnicas:
   4. **Two Way Binding**: De la fuente de datos a la vista y viceversa (_**Two Way Binding**_).  
 
 
-##### Interpolación
+#### Interpolación
 
 Para pasar datos por **interpolación**, tendremos los datos declarados en la clase del componente como atributos de ésta, y para acceder a ellos desde la vista utilizaremos la **sintaxis "mustache"**:  
   * **Dato simple**: ``{{ nameOfAttribute }}``  
@@ -118,20 +118,20 @@ Para pasar datos por **interpolación**, tendremos los datos declarados en la cl
   * **Método**: ``{{ nameOfMethod() }}``  
 
 
-##### Property Binding  
+#### Property Binding  
 
 Para pasar datos por **property binding**, tendremos los datos declarados en la clase del componente como atributos de ésta, y para acceder a ellos desde la vista utilizaremos la siguiente sintaxis:  
   ``<input type="text" [placeholder]="nameOfAttribute"/>``  
 
 
-##### Event Binding
+#### Event Binding
 
 Sirve para **ejecutar un método** a partir de un **evento** en el **HTML**.  
       <button id="eventBinding1" type="button" name="button" (click)="modText()">Modificar Texto</button>
       <h5 id="textEventBinding1">{{ text }}</h5>  
 
 
-##### Two Way Binding
+#### Two Way Binding
 
 Sirve para enviar y recibir datos desde la fuente de datos a la vista y viceversa:  
       <input id="inputTwoBinding" type="text" [(ngModel)]="text"/>
