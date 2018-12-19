@@ -1,14 +1,15 @@
 /*------------------------------------------------------------*/
-/*---| APP COMPONENT CSS |------------------------------------*/
+/*---| COPYRIGHT COMPONENT CSS |------------------------------*/
 /*------------------------------------------------------------*/
 
-  /* TITLE */
+  /* COPYRIGHT */
 /*------------------------------------------------------------*/
-  #wrapper01>.title{
-    font-family: arial;
-    text-transform: uppercase;
+  .copyright{
+    font-family: courier;
+    font-size: 12px;
+    font-weight: bold;
+    font-style: italic;
     text-align: center;
-    color: red;
   }
 /*------------------------------------------------------------*/
 
