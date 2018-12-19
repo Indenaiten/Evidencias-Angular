@@ -127,12 +127,15 @@ Para pasar datos por **property binding**, tendremos los datos declarados en la 
 #### Event Binding
 
 Sirve para **ejecutar un método** a partir de un **evento** en el **HTML**.  
-      <button id="eventBinding1" type="button" name="button" (click)="modText()">Modificar Texto</button>
-      <h5 id="textEventBinding1">{{ text }}</h5>  
-
+  ~~~
+  <button id="eventBinding1" type="button" name="button" (click)="modText()">Modificar Texto</button>
+  <h5 id="textEventBinding1">{{ text }}</h5>
+  ~~~
 
 #### Two Way Binding
 
-Sirve para enviar y recibir datos desde la fuente de datos a la vista y viceversa:  
-      <input id="inputTwoBinding" type="text" [(ngModel)]="text"/>
-      <h5>{{ text }}</h5>
+Sirve para enviar y recibir datos desde la fuente de datos a la vista y viceversa:
+  ~~~
+  <input id="inputTwoBinding" type="text" [(ngModel)]="text"/>
+  <h5>{{ text }}</h5>
+  ~~~
