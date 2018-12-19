@@ -1,0 +1,48 @@
+/*------------------------------------------------------------*/
+/*---| VIEW ALUMNO COMPONENT CSS |----------------------------*/
+/*------------------------------------------------------------*/
+
+  /* CONTAINER OF STUDENT INFO */
+/*------------------------------------------------------------*/
+  #contStudentInfo{ /* CONTAINER */
+    font-family: arial;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: solid 1px #AAA;
+    padding-top: 25px;
+  }
+
+  #contStudentInfo>h1{ /* TITLE */
+    text-align: center;
+  }
+
+  #contStudentInfo>ul{ /* LIST */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  #contStudentInfo>ul>li:first-child{ /* FIRST ELEMENT OF LIST */
+    border-top: solid 1px #AAA;
+  }
+
+  #contStudentInfo>ul>li{ /* ELEMENTS OF LIST */
+    text-align: center;
+    border-bottom: solid 1px #AAA;
+    padding: 5px 25px;
+    font-family: courier;
+    font-weight: bold;
+  }
+
+  #contStudentInfo>ul>li>.bold{ /* BOLD ELEMENTS OF LIST */
+    font-weight: bold;
+  }
+
+  #contStudentInfo>ul>li>.arial{ /* ARIAL ELEMENTS OF LIST */
+    font-family: arial;
+  }
+/*------------------------------------------------------------*/
+
+/*------------------------------------------------------------*/
+/*------------------------------------------------------------*/

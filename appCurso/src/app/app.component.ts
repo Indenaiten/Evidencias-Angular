@@ -14,12 +14,12 @@ export class AppComponent{
 
   //METHODS
   //CONSTRUCTOR
-  constructor(){
+  public constructor(){
 
   }
 
   //INIT
-  ngOnInit(){
+  public ngOnInit(){
 
   }
 }//END OF APP COMPONENT

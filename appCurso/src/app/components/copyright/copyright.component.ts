@@ -11,15 +11,15 @@ export class CopyrightComponent implements OnInit{
   //ATTRIBUTES
   public copyright:string = "© ACME S.A.";
   public date:any = new Date();
-  
+
   //METHODS
   //CONSTRUCTOR
-  constructor(){
+  public constructor(){
 
   }
 
   //INIT
-  ngOnInit(){
+  public ngOnInit(){
 
   }
 }//END OF COPYRIGHT COMPONENT

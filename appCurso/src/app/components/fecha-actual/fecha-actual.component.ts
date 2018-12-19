@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   selector: "app-fecha-actual", //NAME OF SELECTOR OF COMPONENT
   template: `
   <p class="date">A Coruña, {{ date | date: 'd/M/y H:m' }}</p>
-  
+
   <!-- COPYRIGHT -->
   <app-copyright></app-copyright>
   `, //HTML
@@ -18,12 +18,12 @@ export class FechaActualComponent implements OnInit{
 
   //METHODS
   //CONSTRUCTOR
-  constructor(){
+  public constructor(){
 
   }
 
   //INIT
-  ngOnInit(){
+  public ngOnInit(){
 
   }
 }//END OF FECHA ACTUAL COMPONENT
