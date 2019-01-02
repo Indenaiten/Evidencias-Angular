@@ -148,4 +148,89 @@ Sirve para enviar y recibir datos desde la fuente de datos a la vista y vicevers
   ~~~
   <input id="inputTwoBinding" type="text" [(ngModel)]="text"/>
   <h5>{{ text }}</h5>
+  ~~~  
+
+
+### 005 - Algunas Directivas
+
+Las directivas pueden ser de 3 tipos, _**componentes**_, _**estructurales**_ o de _**atributo**_.  
+
+Las **directivas estructurales van precedidas siempre de "*"**.  
+
+Las **directivas de atributo van entre corchetes "[]"**.
+
+#### NgIf _(Estructural)_  
+  _**[Commit 71a2955](https://github.com/Indenaiten/Evidencias-Angular/tree/71a2955b2e7c39ec8de0d67354f42ba8e4a75fdc)**_  
+
   ~~~
+  <label for="">¿Cuál es la capital de España?</label>
+  <input type="text" class="form-control" placeholder="Introduce tu respuesta" [(ngModel)]="capital"/>
+  <p *ngIf="!capital ; else correct">Por favor, complete su respusta</p>
+
+  <ng-template #correct>
+    <h4 *ngIf="setResult() ; else incorrect">¡Correcto!</h4>
+  </ng-template>
+
+  <ng-template #incorrect>
+    <h4>¡Incorrecto!</h4>
+  </ng-template>
+  ~~~  
+
+
+#### NgStyle _(Atributo)_  
+  _**[Commit a0022b4](https://github.com/Indenaiten/Evidencias-Angular/tree/a0022b44440c089c27d9597f9200d2b567ce69a6)**_  
+
+  ~~~
+  <input type="number" class="form-control" [(ngModel)]="puntuaction"/>
+  <hr/>
+  <h4>Puntuación obtenida:</h4>
+  <h4 [ngStyle]="{ color: setColor() }">{{ puntuaction }}</h4>
+  ~~~  
+
+
+#### NgClass _(Atributo)_  
+  _**[Commit fb21d68](https://github.com/Indenaiten/Evidencias-Angular/tree/fb21d6899cc4465209dd88ea14d20a9a7b8050e8)**_  
+
+  ``<h4 [ngClass]="{ aprobado : puntuaction >= 5, suspenso : puntuaction < 5 }">Puntuación obtenida: {{ puntuaction }}</h4>``  
+
+
+#### NgFor _(Estructural)_  
+  _**[Commit ea767e9](https://github.com/Indenaiten/Evidencias-Angular/tree/ea767e921aebfa6ba428953f849d903497beaddb)**_
+
+  ~~~
+  <ul>
+    <li *ngFor="let curso of cursos">{{ curso }}</li>
+  </ul>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr class="filters">
+        <th>Id</th>
+        <th>Name</th>
+        <th>Lastnames</th>
+        <th>City</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let alumno of alumnos">
+        <td>{{ alumno.id }}</td>
+        <td>{{ alumno.name }}</td>
+        <td>{{ alumno.lastnames }}</td>
+        <td>{{ alumno.city }}</td>
+      </tr>
+    </tbody>
+  </table>
+  ~~~  
+
+
+#### NgSwitch
+  _**[Commit 6b4547a](https://github.com/Indenaiten/Evidencias-Angular/tree/6b4547ac52ab618a16fd1cc404fac1478e9a4e6a)**_  
+
+  ~~~
+  <ul *ngFor="let player of players" [ngSwitch]="player.team">
+    <li *ngSwitchCase="'L.A. Lakers'" class="lakers"><h4>{{ player.name }} | {{ player.team }}</h4></li>
+    <li *ngSwitchCase="'Chicago Bulls'" class="bulls"><h4>{{ player.name }} | {{ player.team }}</h4></li>
+    <li *ngSwitchCase="'Boston Celtics'" class="celtics"><h4>{{ player.name }} | {{ player.team }}</h4></li>
+  </ul>
+  ~~~  
