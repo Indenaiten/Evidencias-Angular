@@ -14,6 +14,7 @@ import { EventBindingComponent } from './components/event-binding/event-binding.
 import { TwoBindingComponent } from './components/two-binding/two-binding.component';
 import { EjDirectivaNgIfComponent } from './components/ej-directiva-ng-if/ej-directiva-ng-if.component';
 import { EjDirectivaNgStyleComponent } from './components/ej-directiva-ng-style/ej-directiva-ng-style.component';
+import { EjDirectivaNgClassComponent } from './components/ej-directiva-ng-class/ej-directiva-ng-class.component';
 
 //APP MODULE CLASS
 @NgModule({
@@ -27,7 +28,8 @@ import { EjDirectivaNgStyleComponent } from './components/ej-directiva-ng-style/
     EventBindingComponent,
     TwoBindingComponent,
     EjDirectivaNgIfComponent,
-    EjDirectivaNgStyleComponent
+    EjDirectivaNgStyleComponent,
+    EjDirectivaNgClassComponent
   ],
   imports: [
     BrowserModule,
