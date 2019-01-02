@@ -16,8 +16,8 @@ Estas evidencias estan creadas con las siguientes versiones de las herramientas 
   * [003 - Crear un nuevo componente](https://github.com/Indenaiten/Evidencias-Angular#003---crear-un-nuevo-componente)
   * [004 - Data Binding](https://github.com/Indenaiten/Evidencias-Angular#004---data-binding)  
   * [005 - Algunas Directivas](https://github.com/Indenaiten/Evidencias-Angular#005---algunas-directivas)  
-  * [006 - Crear Directivas]()  
-  * [007 - Pasar datos entre componentes]()  
+  * [006 - Crear Directivas](https://github.com/Indenaiten/Evidencias-Angular#006---crear-directivas)  
+  * [007 - Pasar datos entre componentes](https://github.com/Indenaiten/Evidencias-Angular#007---pasar-datos-entre-componentes)  
 
 
 
