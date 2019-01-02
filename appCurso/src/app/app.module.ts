@@ -13,6 +13,7 @@ import { PropertyBindingComponent } from './components/property-binding/property
 import { EventBindingComponent } from './components/event-binding/event-binding.component';
 import { TwoBindingComponent } from './components/two-binding/two-binding.component';
 import { EjDirectivaNgIfComponent } from './components/ej-directiva-ng-if/ej-directiva-ng-if.component';
+import { EjDirectivaNgStyleComponent } from './components/ej-directiva-ng-style/ej-directiva-ng-style.component';
 
 //APP MODULE CLASS
 @NgModule({
@@ -25,7 +26,8 @@ import { EjDirectivaNgIfComponent } from './components/ej-directiva-ng-if/ej-dir
     PropertyBindingComponent,
     EventBindingComponent,
     TwoBindingComponent,
-    EjDirectivaNgIfComponent
+    EjDirectivaNgIfComponent,
+    EjDirectivaNgStyleComponent
   ],
   imports: [
     BrowserModule,

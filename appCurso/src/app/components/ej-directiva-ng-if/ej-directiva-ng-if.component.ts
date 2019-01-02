@@ -14,12 +14,12 @@ export class EjDirectivaNgIfComponent implements OnInit{
 
   //METHODS
   //CONSTRUCT
-  constructor(){
+  public constructor(){
 
   }
 
   //INIT
-  ngOnInit(){
+  public ngOnInit(){
 
   }
 
