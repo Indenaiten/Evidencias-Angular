@@ -16,6 +16,8 @@ Estas evidencias estan creadas con las siguientes versiones de las herramientas 
   * [003 - Crear un nuevo componente](https://github.com/Indenaiten/Evidencias-Angular#003---crear-un-nuevo-componente)
   * [004 - Data Binding](https://github.com/Indenaiten/Evidencias-Angular#004---data-binding)  
   * [005 - Algunas Directivas](https://github.com/Indenaiten/Evidencias-Angular#005---algunas-directivas)  
+  * [006 - Crear Directivas]()  
+  * [007 - Pasar datos entre componentes]()  
 
 
 
@@ -161,7 +163,7 @@ Las **directivas estructurales van precedidas siempre de "*"**.
 Las **directivas de atributo van entre corchetes "[]"**.
 
 #### NgIf _(Estructural)_  
-  _**[Commit 71a2955](https://github.com/Indenaiten/Evidencias-Angular/tree/71a2955b2e7c39ec8de0d67354f42ba8e4a75fdc)**_  
+  _**[Commit 71a2955](https://github.com/Indenaiten/Evidencias-Angular/tree/71a2955b2e7c39ec8de0d67354f42ba8e4a75fdc/appCurso/src/app/components/ej-directiva-ng-if)**_  
 
   ~~~
   <label for="">¿Cuál es la capital de España?</label>
@@ -179,7 +181,7 @@ Las **directivas de atributo van entre corchetes "[]"**.
 
 
 #### NgStyle _(Atributo)_  
-  _**[Commit a0022b4](https://github.com/Indenaiten/Evidencias-Angular/tree/a0022b44440c089c27d9597f9200d2b567ce69a6)**_  
+  _**[Commit a0022b4](https://github.com/Indenaiten/Evidencias-Angular/tree/a0022b44440c089c27d9597f9200d2b567ce69a6/appCurso/src/app/components/ej-directiva-ng-style)**_  
 
   ~~~
   <input type="number" class="form-control" [(ngModel)]="puntuaction"/>
@@ -190,13 +192,15 @@ Las **directivas de atributo van entre corchetes "[]"**.
 
 
 #### NgClass _(Atributo)_  
-  _**[Commit fb21d68](https://github.com/Indenaiten/Evidencias-Angular/tree/fb21d6899cc4465209dd88ea14d20a9a7b8050e8)**_  
+  _**[Commit fb21d68](https://github.com/Indenaiten/Evidencias-Angular/tree/fb21d6899cc4465209dd88ea14d20a9a7b8050e8/appCurso/src/app/components/ej-directiva-ng-class)**_  
 
-  ``<h4 [ngClass]="{ aprobado : puntuaction >= 5, suspenso : puntuaction < 5 }">Puntuación obtenida: {{ puntuaction }}</h4>``  
+  ~~~
+  <h4 [ngClass]="{ aprobado : puntuaction >= 5, suspenso : puntuaction < 5 }">Puntuación obtenida: {{ puntuaction }}</h4>
+  ~~~
 
 
 #### NgFor _(Estructural)_  
-  _**[Commit ea767e9](https://github.com/Indenaiten/Evidencias-Angular/tree/ea767e921aebfa6ba428953f849d903497beaddb)**_
+  _**[Commit ea767e9](https://github.com/Indenaiten/Evidencias-Angular/tree/ea767e921aebfa6ba428953f849d903497beaddb/appCurso/src/app/components/ej-directiva-ng-for)**_
 
   ~~~
   <ul>
@@ -226,7 +230,7 @@ Las **directivas de atributo van entre corchetes "[]"**.
 
 
 #### NgSwitch
-  _**[Commit 6b4547a](https://github.com/Indenaiten/Evidencias-Angular/tree/6b4547ac52ab618a16fd1cc404fac1478e9a4e6a)**_  
+  _**[Commit 6b4547a](https://github.com/Indenaiten/Evidencias-Angular/tree/6b4547ac52ab618a16fd1cc404fac1478e9a4e6a/appCurso/src/app/components/ej-directiva-ng-switch)**_  
 
   ~~~
   <ul *ngFor="let player of players" [ngSwitch]="player.team">
@@ -235,3 +239,18 @@ Las **directivas de atributo van entre corchetes "[]"**.
     <li *ngSwitchCase="'Boston Celtics'" class="celtics"><h4>{{ player.name }} | {{ player.team }}</h4></li>
   </ul>
   ~~~  
+
+
+### 006 - Crear Directivas
+  _**[Commit edbb929](https://github.com/Indenaiten/Evidencias-Angular/tree/edbb9294d99b08082425b29193f8be041e348a88)**_  
+
+Para crear una directiva ejecutaremos el siguiente comando:  
+  ``ng generate directive nameOfDirective``  
+  ``ng g directive nameOfDirective``  
+
+**[Directiva](https://github.com/Indenaiten/Evidencias-Angular/tree/edbb9294d99b08082425b29193f8be041e348a88/appCurso/src/app/directives)**  
+**[Componente](https://github.com/Indenaiten/Evidencias-Angular/tree/edbb9294d99b08082425b29193f8be041e348a88/appCurso/src/app/components/ej-mi-directiva1)**  
+
+
+### 007 - Pasar datos entre componentes
+  _**[Commit 6787852](https://github.com/Indenaiten/Evidencias-Angular/tree/678785294f58918128be145fe3601c554db41e1d/appCurso/src/app/components/data)**_  
