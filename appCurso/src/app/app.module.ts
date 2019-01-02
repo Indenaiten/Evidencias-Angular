@@ -16,6 +16,7 @@ import { EjDirectivaNgIfComponent } from './components/ej-directiva-ng-if/ej-dir
 import { EjDirectivaNgStyleComponent } from './components/ej-directiva-ng-style/ej-directiva-ng-style.component';
 import { EjDirectivaNgClassComponent } from './components/ej-directiva-ng-class/ej-directiva-ng-class.component';
 import { EjDirectivaNgForComponent } from './components/ej-directiva-ng-for/ej-directiva-ng-for.component';
+import { EjDirectivaNgSwitchComponent } from './components/ej-directiva-ng-switch/ej-directiva-ng-switch.component';
 
 //APP MODULE CLASS
 @NgModule({
@@ -31,7 +32,8 @@ import { EjDirectivaNgForComponent } from './components/ej-directiva-ng-for/ej-d
     EjDirectivaNgIfComponent,
     EjDirectivaNgStyleComponent,
     EjDirectivaNgClassComponent,
-    EjDirectivaNgForComponent
+    EjDirectivaNgForComponent,
+    EjDirectivaNgSwitchComponent
   ],
   imports: [
     BrowserModule,
