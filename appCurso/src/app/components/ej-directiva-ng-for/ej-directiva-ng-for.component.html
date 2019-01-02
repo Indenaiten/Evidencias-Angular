@@ -1,0 +1,27 @@
+<div id="ngForContainer1">
+  <h3>Cursos Disponibles</h3>
+
+  <ul>
+    <li *ngFor="let curso of cursos">{{ curso }}</li>
+  </ul>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr class="filters">
+        <th>Id</th>
+        <th>Name</th>
+        <th>Lastnames</th>
+        <th>City</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let alumno of alumnos">
+        <td>{{ alumno.id }}</td>
+        <td>{{ alumno.name }}</td>
+        <td>{{ alumno.lastnames }}</td>
+        <td>{{ alumno.city }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -15,6 +15,7 @@ import { TwoBindingComponent } from './components/two-binding/two-binding.compon
 import { EjDirectivaNgIfComponent } from './components/ej-directiva-ng-if/ej-directiva-ng-if.component';
 import { EjDirectivaNgStyleComponent } from './components/ej-directiva-ng-style/ej-directiva-ng-style.component';
 import { EjDirectivaNgClassComponent } from './components/ej-directiva-ng-class/ej-directiva-ng-class.component';
+import { EjDirectivaNgForComponent } from './components/ej-directiva-ng-for/ej-directiva-ng-for.component';
 
 //APP MODULE CLASS
 @NgModule({
@@ -29,7 +30,8 @@ import { EjDirectivaNgClassComponent } from './components/ej-directiva-ng-class/
     TwoBindingComponent,
     EjDirectivaNgIfComponent,
     EjDirectivaNgStyleComponent,
-    EjDirectivaNgClassComponent
+    EjDirectivaNgClassComponent,
+    EjDirectivaNgForComponent
   ],
   imports: [
     BrowserModule,
