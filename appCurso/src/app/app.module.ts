@@ -12,6 +12,7 @@ import { MetodoInterpolacionComponent } from './components/metodo-interpolacion/
 import { PropertyBindingComponent } from './components/property-binding/property-binding.component';
 import { EventBindingComponent } from './components/event-binding/event-binding.component';
 import { TwoBindingComponent } from './components/two-binding/two-binding.component';
+import { EjDirectivaNgIfComponent } from './components/ej-directiva-ng-if/ej-directiva-ng-if.component';
 
 //APP MODULE CLASS
 @NgModule({
@@ -23,7 +24,8 @@ import { TwoBindingComponent } from './components/two-binding/two-binding.compon
     MetodoInterpolacionComponent,
     PropertyBindingComponent,
     EventBindingComponent,
-    TwoBindingComponent
+    TwoBindingComponent,
+    EjDirectivaNgIfComponent
   ],
   imports: [
     BrowserModule,

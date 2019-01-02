@@ -1,0 +1,22 @@
+
+<div id="ngIfContainer1">
+  <label for="">Nombre y Apellidos</label>
+  <input type="text" class="form-control" placeholder="Complete su nombre y apellidos" [(ngModel)]="name"/>
+  <button type="submit" id="ngIfBtn1" class="btn btn-primary" *ngIf="name; else desactivado">Enviar</button>
+
+  <ng-template #desactivado>
+    <button type="submit" id="ngIfBtn1" class="btn btn-primary" disabled>Enviar</button>
+  </ng-template>
+
+  <label for="">¿Cuál es la capital de España?</label>
+  <input type="text" class="form-control" placeholder="Introduce tu respuesta" [(ngModel)]="capital"/>
+  <p *ngIf="!capital ; else correct">Por favor, complete su respusta</p>
+
+  <ng-template #correct>
+    <h4 *ngIf="setResult() ; else incorrect">¡Correcto!</h4>
+  </ng-template>
+
+  <ng-template #incorrect>
+    <h4>¡Incorrecto!</h4>
+  </ng-template>
+</div>

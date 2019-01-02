@@ -1,27 +1,44 @@
-<!-- CONTAINER -->
-<div id="wrapper01">
-  <!-- TITLE -->
-  <h1 class="title">Hola {{ destinity }} !</h1>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AppCurso</title>
+  <base href="/">
 
-  <!-- ACTUAL DATE -->
-  <app-fecha-actual></app-fecha-actual>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <!-- CONTAINER -->
+  <div id="wrapper01">
+    <!-- TITLE -->
+    <h1 class="title">Hola {{ destinity }} !</h1>
 
-  <!-- VIEW ALUMNO -->
-  <app-view-alumno></app-view-alumno>
+    <!-- ACTUAL DATE -->
+    <app-fecha-actual></app-fecha-actual>
 
-  <!-- EXAMPLE OF INTERPOLATION METHOD -->
-  <h6 style="text-align:center; font-family:arial;">EXAMPLE OF INTERPOLATION METHOD</h6>
-  <app-metodo-interpolacion></app-metodo-interpolacion>
+    <!-- VIEW ALUMNO -->
+    <app-view-alumno></app-view-alumno>
 
-  <!-- EXAMPLE OF PROPERTY BINDING -->
-  <h6 style="text-align:center; font-family:arial;">EXAMPLE OF PROPERTY BINDING</h6>
-  <app-property-binding></app-property-binding>
+    <!-- EXAMPLE OF INTERPOLATION METHOD -->
+    <h6 style="text-align:center; font-family:arial;">EXAMPLE OF INTERPOLATION METHOD</h6>
+    <app-metodo-interpolacion></app-metodo-interpolacion>
 
-  <!-- EXAMPLE OF EVENT BINDING -->
-  <h6 style="text-align:center; font-family:arial;">EXAMPLE OF EVENT BINDING</h6>
-  <app-event-binding></app-event-binding>
+    <!-- EXAMPLE OF PROPERTY BINDING -->
+    <h6 style="text-align:center; font-family:arial;">EXAMPLE OF PROPERTY BINDING</h6>
+    <app-property-binding></app-property-binding>
 
-  <!-- EXAMPLE OF TWO BINDING -->
-  <h6 style="text-align:center; font-family:arial;">EXAMPLE OF TWO BINDING</h6>
-  <app-two-binding></app-two-binding>
-</div><!-- END OF CONTAINER -->
+    <!-- EXAMPLE OF EVENT BINDING -->
+    <h6 style="text-align:center; font-family:arial;">EXAMPLE OF EVENT BINDING</h6>
+    <app-event-binding></app-event-binding>
+
+    <!-- EXAMPLE OF TWO BINDING -->
+    <h6 style="text-align:center; font-family:arial;">EXAMPLE OF TWO BINDING</h6>
+    <app-two-binding></app-two-binding>
+
+    <!-- EXAMPLE OF NGIF DIRECTIRVE -->
+    <h6 style="text-align:center; font-family:arial;">EXAMPLE OF NGIF DIRECTIVE</h6>
+    <app-ej-directiva-ng-if></app-ej-directiva-ng-if>
+  </div><!-- END OF CONTAINER -->
+</body>
+</html>
