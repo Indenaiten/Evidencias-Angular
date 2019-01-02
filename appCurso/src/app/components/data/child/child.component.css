@@ -16,6 +16,10 @@
     border-color: violet;
     padding: 10px;
   }
+
+  #childContainer1 .child .tachado{
+    text-decoration: line-through;
+  }
 /*------------------------------------------------------------*/
 
 /*------------------------------------------------------------*/

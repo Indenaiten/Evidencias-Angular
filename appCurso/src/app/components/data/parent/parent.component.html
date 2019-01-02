@@ -1,6 +1,7 @@
 <div id="parentContainer1">
   <h2>Componente padre</h2>
   <div class="parent">
-    <app-child [advice]="parentValue"></app-child>
+    <app-child *ngFor="let advice of advices" [advice]="advice" (markedMessage)="showMessage( $event )"></app-child>
+    <h3>{{ text }}</h3>
   </div>
 </div>

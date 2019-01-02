@@ -9,8 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParentComponent implements OnInit{
   //ATTRIBUTES
-  public parentValue:string = "Este texto se inyecta desde el Padre";
-  
+  public advices:string[] = [
+    "Aviso 1",
+    "Aviso 2",
+    "Aviso 3"
+  ];
+
+  public text:string;
+
   //METHODS
   //CONSTRUCT
   public constructor(){
@@ -20,5 +26,10 @@ export class ParentComponent implements OnInit{
   //INIT
   public ngOnInit(){
 
+  }
+
+  //SHOW MESSAGE
+  public showMessage( event ){
+    this.text = event + " espacio marcado como leído!";
   }
 }//END OF PARENT COMPONENT

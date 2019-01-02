@@ -1,5 +1,5 @@
 //IMPORTS
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 //CHILD COMPONENT
 @Component({
@@ -12,6 +12,12 @@ export class ChildComponent implements OnInit{
   @Input()
   public advice:string;
 
+  @Output()
+  public markedMessage:any = new EventEmitter();
+
+  public read:boolean = false;
+  public message:string;
+
   //METHODS
   //CONSTRUCT
   public constructor(){
@@ -21,5 +27,17 @@ export class ChildComponent implements OnInit{
   //INIT
   public ngOnInit(){
 
+  }
+
+  //MARK
+  public mark(){
+    //INVERT READ
+    this.read = !this.read;
+  }
+
+  //DETECTER
+  public detecter( event ){
+    this.message = this.advice;
+    this.markedMessage.emit( this.message );
   }
 }//END OF CHILD COMPONENT

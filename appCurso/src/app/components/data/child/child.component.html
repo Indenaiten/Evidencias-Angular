@@ -1,6 +1,8 @@
 <div id="childContainer1">
   <h4>Componente Hijo</h4>
   <div class="child">
-    <h6>{{ advice }}</h6>
+    <h6 [ngClass]="{ tachado : read == true }">{{ advice }}</h6>
+    <button class="btn btn-success" (click)="mark(); detecter( $event )" *ngIf="read == false">Marcar como leído</button>
+    <button class="btn btn-success" (click)="mark()" *ngIf="read == true">Desmarcar como leído</button>
   </div>
 </div>
