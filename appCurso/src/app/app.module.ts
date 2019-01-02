@@ -18,9 +18,14 @@ import { EjDirectivaNgClassComponent } from './components/ej-directiva-ng-class/
 import { EjDirectivaNgForComponent } from './components/ej-directiva-ng-for/ej-directiva-ng-for.component';
 import { EjDirectivaNgSwitchComponent } from './components/ej-directiva-ng-switch/ej-directiva-ng-switch.component';
 
+//DIRECTIVES
+import { MenuItemDirective } from './directives/menu-item.directive';
+import { EjMiDirectiva1Component } from './components/ej-mi-directiva1/ej-mi-directiva1.component';
+
 //APP MODULE CLASS
 @NgModule({
   declarations: [
+    //COMPONENTS
     AppComponent,
     FechaActualComponent,
     CopyrightComponent,
@@ -33,7 +38,12 @@ import { EjDirectivaNgSwitchComponent } from './components/ej-directiva-ng-switc
     EjDirectivaNgStyleComponent,
     EjDirectivaNgClassComponent,
     EjDirectivaNgForComponent,
-    EjDirectivaNgSwitchComponent
+    EjDirectivaNgSwitchComponent,
+
+    //DIRECTIVES
+    MenuItemDirective,
+
+    EjMiDirectiva1Component
   ],
   imports: [
     BrowserModule,
