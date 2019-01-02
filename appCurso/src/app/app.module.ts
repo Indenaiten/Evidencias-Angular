@@ -21,6 +21,8 @@ import { EjDirectivaNgSwitchComponent } from './components/ej-directiva-ng-switc
 //DIRECTIVES
 import { MenuItemDirective } from './directives/menu-item.directive';
 import { EjMiDirectiva1Component } from './components/ej-mi-directiva1/ej-mi-directiva1.component';
+import { ParentComponent } from './components/data/parent/parent.component';
+import { ChildComponent } from './components/data/child/child.component';
 
 //APP MODULE CLASS
 @NgModule({
@@ -43,7 +45,11 @@ import { EjMiDirectiva1Component } from './components/ej-mi-directiva1/ej-mi-dir
     //DIRECTIVES
     MenuItemDirective,
 
-    EjMiDirectiva1Component
+    EjMiDirectiva1Component,
+
+    ParentComponent,
+
+    ChildComponent
   ],
   imports: [
     BrowserModule,
