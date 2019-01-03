@@ -18,8 +18,8 @@ Estas evidencias estan creadas con las siguientes versiones de las herramientas 
   * [005 - Algunas Directivas](https://github.com/Indenaiten/Evidencias-Angular#005---algunas-directivas)  
   * [006 - Crear Directivas](https://github.com/Indenaiten/Evidencias-Angular#006---crear-directivas)  
   * [007 - Pasar datos entre componentes](https://github.com/Indenaiten/Evidencias-Angular#007---pasar-datos-entre-componentes)  
-  * [008 - Algunos Pipes]()  
-  * [009 - Crear Pipes]()  
+  * [008 - Algunos Pipes](https://github.com/Indenaiten/Evidencias-Angular#008---algunos-pipes)  
+  * [009 - Crear Pipes](https://github.com/Indenaiten/Evidencias-Angular#009---crear-pipes)  
 
 
 
@@ -307,7 +307,7 @@ Para crear una directiva ejecutaremos el siguiente comando:
 
 
 ### 009 - Crear Pipes
-    _**[Commit 8ba7630](https://github.com/Indenaiten/Evidencias-Angular/tree/8ba7630bb21fabca58dc452f7f27ae0c6c7dc566)**_  
+  _**[Commit 8ba7630](https://github.com/Indenaiten/Evidencias-Angular/tree/8ba7630bb21fabca58dc452f7f27ae0c6c7dc566)**_  
 
 Para crear un pipe ejecutaremos el siguiente comando:  
   ``ng generate pipe nameOfPipe``  
