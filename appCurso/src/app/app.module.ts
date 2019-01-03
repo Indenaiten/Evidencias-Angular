@@ -26,6 +26,7 @@ import { ChildComponent } from './components/data/child/child.component';
 import { DateComponent } from './components/pipes/date/date.component';
 import { UpperLowerComponent } from './components/pipes/upper-lower/upper-lower.component';
 import { DecimalComponent } from './components/pipes/decimal/decimal.component';
+import { CurrencyComponent } from './components/pipes/currency/currency.component';
 
 //APP MODULE CLASS
 @NgModule({
@@ -58,7 +59,9 @@ import { DecimalComponent } from './components/pipes/decimal/decimal.component';
 
     UpperLowerComponent,
 
-    DecimalComponent
+    DecimalComponent,
+
+    CurrencyComponent
   ],
   imports: [
     BrowserModule,
