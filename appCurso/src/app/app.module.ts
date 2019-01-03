@@ -17,9 +17,6 @@ import { EjDirectivaNgStyleComponent } from './components/ej-directiva-ng-style/
 import { EjDirectivaNgClassComponent } from './components/ej-directiva-ng-class/ej-directiva-ng-class.component';
 import { EjDirectivaNgForComponent } from './components/ej-directiva-ng-for/ej-directiva-ng-for.component';
 import { EjDirectivaNgSwitchComponent } from './components/ej-directiva-ng-switch/ej-directiva-ng-switch.component';
-
-//DIRECTIVES
-import { MenuItemDirective } from './directives/menu-item.directive';
 import { EjMiDirectiva1Component } from './components/ej-mi-directiva1/ej-mi-directiva1.component';
 import { ParentComponent } from './components/data/parent/parent.component';
 import { ChildComponent } from './components/data/child/child.component';
@@ -28,6 +25,13 @@ import { UpperLowerComponent } from './components/pipes/upper-lower/upper-lower.
 import { DecimalComponent } from './components/pipes/decimal/decimal.component';
 import { CurrencyComponent } from './components/pipes/currency/currency.component';
 import { I18nSelectComponent } from './components/pipes/i18n-select/i18n-select.component';
+import { CustomPipeComponent } from './components/pipes/custom-pipe/custom-pipe.component';
+
+//DIRECTIVES
+import { MenuItemDirective } from './directives/menu-item.directive';
+
+//PIPES
+import { EuroPipe } from './pipes/euro.pipe';
 
 //APP MODULE CLASS
 @NgModule({
@@ -46,25 +50,21 @@ import { I18nSelectComponent } from './components/pipes/i18n-select/i18n-select.
     EjDirectivaNgClassComponent,
     EjDirectivaNgForComponent,
     EjDirectivaNgSwitchComponent,
+    EjMiDirectiva1Component,
+    ParentComponent,
+    ChildComponent,
+    DateComponent,
+    UpperLowerComponent,
+    DecimalComponent,
+    CurrencyComponent,
+    I18nSelectComponent,
+    CustomPipeComponent,
 
     //DIRECTIVES
     MenuItemDirective,
 
-    EjMiDirectiva1Component,
-
-    ParentComponent,
-
-    ChildComponent,
-
-    DateComponent,
-
-    UpperLowerComponent,
-
-    DecimalComponent,
-
-    CurrencyComponent,
-
-    I18nSelectComponent
+    //PIPES
+    EuroPipe
   ],
   imports: [
     BrowserModule,
