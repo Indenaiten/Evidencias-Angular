@@ -27,6 +27,7 @@ import { DateComponent } from './components/pipes/date/date.component';
 import { UpperLowerComponent } from './components/pipes/upper-lower/upper-lower.component';
 import { DecimalComponent } from './components/pipes/decimal/decimal.component';
 import { CurrencyComponent } from './components/pipes/currency/currency.component';
+import { I18nSelectComponent } from './components/pipes/i18n-select/i18n-select.component';
 
 //APP MODULE CLASS
 @NgModule({
@@ -61,7 +62,9 @@ import { CurrencyComponent } from './components/pipes/currency/currency.componen
 
     DecimalComponent,
 
-    CurrencyComponent
+    CurrencyComponent,
+
+    I18nSelectComponent
   ],
   imports: [
     BrowserModule,
