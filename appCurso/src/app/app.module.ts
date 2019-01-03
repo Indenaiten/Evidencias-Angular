@@ -23,6 +23,7 @@ import { MenuItemDirective } from './directives/menu-item.directive';
 import { EjMiDirectiva1Component } from './components/ej-mi-directiva1/ej-mi-directiva1.component';
 import { ParentComponent } from './components/data/parent/parent.component';
 import { ChildComponent } from './components/data/child/child.component';
+import { DateComponent } from './components/pipes/date/date.component';
 
 //APP MODULE CLASS
 @NgModule({
@@ -49,7 +50,9 @@ import { ChildComponent } from './components/data/child/child.component';
 
     ParentComponent,
 
-    ChildComponent
+    ChildComponent,
+
+    DateComponent
   ],
   imports: [
     BrowserModule,
