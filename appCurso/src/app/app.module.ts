@@ -24,6 +24,7 @@ import { EjMiDirectiva1Component } from './components/ej-mi-directiva1/ej-mi-dir
 import { ParentComponent } from './components/data/parent/parent.component';
 import { ChildComponent } from './components/data/child/child.component';
 import { DateComponent } from './components/pipes/date/date.component';
+import { UpperLowerComponent } from './components/pipes/upper-lower/upper-lower.component';
 
 //APP MODULE CLASS
 @NgModule({
@@ -52,7 +53,9 @@ import { DateComponent } from './components/pipes/date/date.component';
 
     ChildComponent,
 
-    DateComponent
+    DateComponent,
+
+    UpperLowerComponent
   ],
   imports: [
     BrowserModule,
