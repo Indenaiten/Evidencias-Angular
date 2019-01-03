@@ -13,12 +13,12 @@ export class DateComponent implements OnInit{
 
   //METHODS
   //CONSTRUCT
-  constructor(){
+  public constructor(){
 
   }
 
   //INIT
-  ngOnInit(){
+  public ngOnInit(){
 
   }
 }//END OF DATE COMPONENT

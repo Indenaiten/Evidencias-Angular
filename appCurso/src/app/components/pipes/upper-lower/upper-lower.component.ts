@@ -10,15 +10,15 @@ import { Component, OnInit } from '@angular/core';
 export class UpperLowerComponent implements OnInit{
   //ATTRIBUTES
   public city:string = "Madrid";
-  
+
   //METHODS
   //CONSTRUCT
-  constructor(){
+  public constructor(){
 
   }
 
   //INIT
-  ngOnInit(){
+  public ngOnInit(){
 
   }
 }//END OF UPPER-LOWER COMPONENTS
