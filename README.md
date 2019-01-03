@@ -18,6 +18,8 @@ Estas evidencias estan creadas con las siguientes versiones de las herramientas 
   * [005 - Algunas Directivas](https://github.com/Indenaiten/Evidencias-Angular#005---algunas-directivas)  
   * [006 - Crear Directivas](https://github.com/Indenaiten/Evidencias-Angular#006---crear-directivas)  
   * [007 - Pasar datos entre componentes](https://github.com/Indenaiten/Evidencias-Angular#007---pasar-datos-entre-componentes)  
+  * [008 - Algunos Pipes]()  
+  * [009 - Crear Pipes]()  
 
 
 
@@ -259,3 +261,57 @@ Para crear una directiva ejecutaremos el siguiente comando:
 
   #### @Output  
    _**[Commit ca5e5a3](https://github.com/Indenaiten/Evidencias-Angular/tree/ca5e5a3200028053cf1901fdee6dbf2a98fb6a2e/appCurso/src/app/components/data)**_  
+
+
+
+### 008 - Algunos Pipes  
+
+#### Date
+  _**[Commit 0f0ea86](https://github.com/Indenaiten/Evidencias-Angular/tree/0f0ea86e707c6fbd1da251757ddb050bbd274af2/appCurso/src/app/components/pipes/date)**_  
+
+  ~~~
+  <h2>Madrid, {{ date | date: 'd/M/y' }} a las {{ date | date: 'H:m Z' }}</h2>
+  ~~~  
+
+
+#### Uppercase y Lowercase
+  _**[Commit 52937f5](https://github.com/Indenaiten/Evidencias-Angular/tree/52937f5fb21c360a5343dcb8f727de0dd312e981/appCurso/src/app/components/pipes/upper-lower)**_  
+
+  ~~~
+  <h2>Madrid => {{ city | uppercase }}, {{ city | lowercase }}</h2>
+  ~~~  
+
+
+#### Decimal
+  _**[Commit 2f5b0b3](https://github.com/Indenaiten/Evidencias-Angular/tree/2f5b0b30ace97d32e413a8d7c0890fbadf997bd4/appCurso/src/app/components/pipes/decimal)**_  
+
+  ~~~
+  <h2>Número 1.48 (3.2-2) => {{ n1 | number: '3.2-2' }}</h2>
+  ~~~  
+
+
+#### Currency
+  _**[Commit cc9a2c2](https://github.com/Indenaiten/Evidencias-Angular/tree/cc9a2c23b9203e6e859703b3f4f15dd9c1ba4a30/appCurso/src/app/components/pipes/currency)**_  
+
+  ~~~
+  <h2>La cotización actual del dolar es de {{ dolaEuro | currency: 'EUR': true }}</h2>
+  ~~~  
+
+
+#### i18nSelect
+  _**[Commit 86ef7d9](https://github.com/Indenaiten/Evidencias-Angular/tree/86ef7d909bc766c7033651a0b87ac9034923f8f1/appCurso/src/app/components/pipes/i18n-select)**_    
+
+  ~~~
+  <h2>{{ sex | i18nSelect: header }} {{ name }}</h2>
+  ~~~  
+
+
+### 009 - Crear Pipes
+    _**[Commit 8ba7630](https://github.com/Indenaiten/Evidencias-Angular/tree/8ba7630bb21fabca58dc452f7f27ae0c6c7dc566)**_  
+
+Para crear un pipe ejecutaremos el siguiente comando:  
+  ``ng generate pipe nameOfPipe``  
+  ``ng g pipe nameOfPipe``  
+
+**[Pipe](https://github.com/Indenaiten/Evidencias-Angular/tree/8ba7630bb21fabca58dc452f7f27ae0c6c7dc566/appCurso/src/app/pipes)**  
+**[Componente](https://github.com/Indenaiten/Evidencias-Angular/tree/8ba7630bb21fabca58dc452f7f27ae0c6c7dc566/appCurso/src/app/components/pipes/custom-pipe)**
