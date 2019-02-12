@@ -337,11 +337,13 @@ Para crear el _**routing**_ nos dirigiremos a _**app.module.ts**_ y allí import
   ``import { Routes, RouterModule } from '@angular/router';``  
 
 En el mismo archivo typeScript crearemos una constante con las rutas de nuestra aplicación, en nuestro caso esta constante se va a llamar _**routes**_. El atributo _**path**_ corresponde a la ruta, y el atributo _**component**_ al componente que tendrá que mostrar.  
-  ~~~const routes:Routes = [
+  ~~~
+  const routes:Routes = [
     { path: '', component: InicioComponent },
     { path: 'proveedores', component: ProveedoresComponent },
     { path: '**', component: InicioComponent } //** SIGNIFICA CUALQUIER PÁGINA QUE NO EXISTA
-  ];~~~   
+  ];
+  ~~~   
 
 Una vez especificadas las rutas, en el array de _**imports**_ añadimos lo siguiente:  
   ``RouterModule.forRoot( routes )``  
@@ -351,7 +353,8 @@ Ahora crearemos una barra de navegación. Creamos un nuevo componente y establec
 Si queremos poner una clase en algún elemento cuando la ruta este activa, utilizaremos el atributo "_**routerLinkActive="claseCss"**_".  
 Si queremos poner dicha clase, sólamente cuando esa ruta exacta este activa, utilizaremos "_**[routerLinkActiveOptions]="{exact:true}"**_".  
 Ej.:  
-  ~~~<nav>
+  ~~~
+  <nav>
     <ul>
       <li routerLinkActive="active"
           [routerLinkActiveOptions]="{exact:true}">
@@ -361,4 +364,5 @@ Ej.:
           <a routerLink="/proveedores">Proveedores</a>
       </li>
     </ul>
-  </nav>~~~
+  </nav>
+  ~~~
