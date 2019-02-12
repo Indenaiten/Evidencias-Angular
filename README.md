@@ -20,6 +20,7 @@ Estas evidencias estan creadas con las siguientes versiones de las herramientas 
   * [007 - Pasar datos entre componentes](https://github.com/Indenaiten/Evidencias-Angular#007---pasar-datos-entre-componentes)  
   * [008 - Algunos Pipes](https://github.com/Indenaiten/Evidencias-Angular#008---algunos-pipes)  
   * [009 - Crear Pipes](https://github.com/Indenaiten/Evidencias-Angular#009---crear-pipes)  
+  * [010 - Crear Servicios]()  
 
 
 
@@ -314,4 +315,48 @@ Para crear un pipe ejecutaremos el siguiente comando:
   ``ng g pipe nameOfPipe``  
 
 **[Pipe](https://github.com/Indenaiten/Evidencias-Angular/tree/8ba7630bb21fabca58dc452f7f27ae0c6c7dc566/appCurso/src/app/pipes)**  
-**[Componente](https://github.com/Indenaiten/Evidencias-Angular/tree/8ba7630bb21fabca58dc452f7f27ae0c6c7dc566/appCurso/src/app/components/pipes/custom-pipe)**
+**[Componente](https://github.com/Indenaiten/Evidencias-Angular/tree/8ba7630bb21fabca58dc452f7f27ae0c6c7dc566/appCurso/src/app/components/pipes/custom-pipe)**  
+
+
+### 010 - Crear Servicios  
+  _**[Commit 71e33fe]()**_  
+
+Para crear un servicio ejecutaremos el siguiente comando:
+  ``ng generate service nameOfService``  
+  ``ng g service nameOfService``  
+
+Una vez generado, tendrémos que registrarlo en _**app.module.ts**_ en el array de _**providers**_.  
+
+
+### 011 - Routing  
+  _**[Commit ]()**_  
+
+Para crear el _**routing**_ nos dirigiremos a _**app.module.ts**_ y allí importaremos los siguientes elementos:
+  ``import { Routes, RouterModule } from '@angular/router';``  
+
+En el mismo archivo typeScript crearemos una constante con las rutas de nuestra aplicación, en nuestro caso esta constante se va a llamar _**routes**_. El atributo _**path**_ corresponde a la ruta, y el atributo _**component**_ al componente que tendrá que mostrar.  
+  ``const routes:Routes = [
+    { path: '', component: InicioComponent },
+    { path: 'proveedores', component: ProveedoresComponent },
+    { path: '**', component: InicioComponent } //** SIGNIFICA CUALQUIER PÁGINA QUE NO EXISTA
+  ];``  
+
+Una vez especificadas las rutas, en el array de _**imports**_ añadimos lo siguiente:  
+  ``RouterModule.forRoot( routes )``  
+
+Con todo esto, las rutas de nuestra aplicación funcionaran correctamente.  
+Ahora crearemos una barra de navegación. Creamos un nuevo componente y establecemos el _**HTML**_ correspondiente. Una vez tenemos nuestro código _**HTML**_, para especificarle una ruta a una etiqueta "_**a**_" utilizaremos el atributo "_**routerLink="/ruta"**_".  
+Si queremos poner una clase en algún elemento cuando la ruta este activa, utilizaremos el atributo "_**routerLinkActive="claseCss"**_".  
+Si queremos poner dicha clase, sólamente cuando esa ruta exacta este activa, utilizaremos "_**[routerLinkActiveOptions]="{exact:true}"**_".  
+Ej.:  
+  ``<nav>
+    <ul>
+      <li routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact:true}">
+          <a routerLink="/">Inicio</a>
+      </li>
+      <li routerLinkActive="active">
+          <a routerLink="/proveedores">Proveedores</a>
+      </li>
+    </ul>
+  </nav>``
