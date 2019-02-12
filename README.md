@@ -21,6 +21,7 @@ Estas evidencias estan creadas con las siguientes versiones de las herramientas 
   * [008 - Algunos Pipes](https://github.com/Indenaiten/Evidencias-Angular#008---algunos-pipes)  
   * [009 - Crear Pipes](https://github.com/Indenaiten/Evidencias-Angular#009---crear-pipes)  
   * [010 - Crear Servicios]()  
+  * [011 - Routing]()  
 
 
 
@@ -319,7 +320,8 @@ Para crear un pipe ejecutaremos el siguiente comando:
 
 
 ### 010 - Crear Servicios  
-  _**[Commit 71e33fe]()**_  
+  _**[Commit 71e33fe](https://github.com/Indenaiten/Evidencias-Angular/tree/71e33fe2f53084649c5003aeaabee5362126ff0e)**_  
+  _**[Commit 680a8a2](https://github.com/Indenaiten/Evidencias-Angular/tree/680a8a2f2ba835f63cfd4ae0010cb6a758b4913f)**_
 
 Para crear un servicio ejecutaremos el siguiente comando:
   ``ng generate service nameOfService``  
@@ -329,7 +331,7 @@ Una vez generado, tendrémos que registrarlo en _**app.module.ts**_ en el array 
 
 
 ### 011 - Routing  
-  _**[Commit ]()**_  
+  _**[Commit 8ecc2b0](https://github.com/Indenaiten/Evidencias-Angular/tree/8ecc2b0b4d57c00c8ff218d11f495caa4d4d6110)**_  
 
 Para crear el _**routing**_ nos dirigiremos a _**app.module.ts**_ y allí importaremos los siguientes elementos:
   ``import { Routes, RouterModule } from '@angular/router';``  
