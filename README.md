@@ -323,7 +323,7 @@ Para crear un pipe ejecutaremos el siguiente comando:
   _**[Commit 71e33fe](https://github.com/Indenaiten/Evidencias-Angular/tree/71e33fe2f53084649c5003aeaabee5362126ff0e)**_  
   _**[Commit 680a8a2](https://github.com/Indenaiten/Evidencias-Angular/tree/680a8a2f2ba835f63cfd4ae0010cb6a758b4913f)**_
 
-Para crear un servicio ejecutaremos el siguiente comando:
+Para crear un servicio ejecutaremos el siguiente comando:  
   ``ng generate service nameOfService``  
   ``ng g service nameOfService``  
 
@@ -333,15 +333,15 @@ Una vez generado, tendrémos que registrarlo en _**app.module.ts**_ en el array 
 ### 011 - Routing  
   _**[Commit 8ecc2b0](https://github.com/Indenaiten/Evidencias-Angular/tree/8ecc2b0b4d57c00c8ff218d11f495caa4d4d6110)**_  
 
-Para crear el _**routing**_ nos dirigiremos a _**app.module.ts**_ y allí importaremos los siguientes elementos:
+Para crear el _**routing**_ nos dirigiremos a _**app.module.ts**_ y allí importaremos los siguientes elementos:  
   ``import { Routes, RouterModule } from '@angular/router';``  
 
 En el mismo archivo typeScript crearemos una constante con las rutas de nuestra aplicación, en nuestro caso esta constante se va a llamar _**routes**_. El atributo _**path**_ corresponde a la ruta, y el atributo _**component**_ al componente que tendrá que mostrar.  
-  ``const routes:Routes = [
+  ~~~const routes:Routes = [
     { path: '', component: InicioComponent },
     { path: 'proveedores', component: ProveedoresComponent },
     { path: '**', component: InicioComponent } //** SIGNIFICA CUALQUIER PÁGINA QUE NO EXISTA
-  ];``  
+  ];~~~   
 
 Una vez especificadas las rutas, en el array de _**imports**_ añadimos lo siguiente:  
   ``RouterModule.forRoot( routes )``  
@@ -351,7 +351,7 @@ Ahora crearemos una barra de navegación. Creamos un nuevo componente y establec
 Si queremos poner una clase en algún elemento cuando la ruta este activa, utilizaremos el atributo "_**routerLinkActive="claseCss"**_".  
 Si queremos poner dicha clase, sólamente cuando esa ruta exacta este activa, utilizaremos "_**[routerLinkActiveOptions]="{exact:true}"**_".  
 Ej.:  
-  ``<nav>
+  ~~~<nav>
     <ul>
       <li routerLinkActive="active"
           [routerLinkActiveOptions]="{exact:true}">
@@ -361,4 +361,4 @@ Ej.:
           <a routerLink="/proveedores">Proveedores</a>
       </li>
     </ul>
-  </nav>``
+  </nav>~~~
