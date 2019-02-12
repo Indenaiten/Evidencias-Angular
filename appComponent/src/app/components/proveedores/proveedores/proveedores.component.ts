@@ -12,7 +12,7 @@ import { ProveedoresService } from '../../../services/proveedores.service';
 })
 export class ProveedoresComponent implements OnInit{
   //ATTRIBUTES
-  public msg:string;
+  public proveedores:any[ any ];
 
   //METHODS
   //CONSTRUCTOR
@@ -25,6 +25,6 @@ export class ProveedoresComponent implements OnInit{
   //INIT
   ngOnInit(){
     //SET MESSAGE
-    this.msg = this.proveedoresService.getProveedores();
+    this.proveedores = this.proveedoresService.getProveedores();
   }
 }//END OF PROVEEDORES COMPONENT

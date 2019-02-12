@@ -7,6 +7,31 @@ import { Injectable } from '@angular/core';
 })
 export class ProveedoresService{
   //ATTRIBUTES
+  private proveedores:any[ any ] = [
+    {
+      nombre: 'Telefónica',
+      cif: 'B12345678',
+      direccion: 'Paseo de la Castellana, 100',
+      cp: '28.010',
+      localidad: 'Madrid',
+      provincia: 'Madrid',
+      telefono: 911111111,
+      email: 'info@telefonica.com',
+      contacto: 'Juan Pérez'
+    },
+
+    {
+      nombre: 'Iberdrola',
+      cif: 'B87654321',
+      direccion: 'Príncipe de Vergara, 200',
+      cp: '28.015',
+      localidad: 'Madrid',
+      provincia: 'Madrid',
+      telefono: 922222222,
+      email: 'info@iberdrola.com',
+      contacto: 'Laura Martínez'
+    }
+  ];
 
   //METHODS
   //CONSTRUCTOR
@@ -17,6 +42,6 @@ export class ProveedoresService{
   //GET PROVEEDORES
   public getProveedores(){
     //RETURN
-    return "Mensaje desde el Servicio";
+    return this.proveedores;
   }
 }//END OF PROVEEDORES SERVICE
