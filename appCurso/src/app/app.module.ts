@@ -26,6 +26,7 @@ import { DecimalComponent } from './components/pipes/decimal/decimal.component';
 import { CurrencyComponent } from './components/pipes/currency/currency.component';
 import { I18nSelectComponent } from './components/pipes/i18n-select/i18n-select.component';
 import { CustomPipeComponent } from './components/pipes/custom-pipe/custom-pipe.component';
+import { JsonComponent } from './components/pipes/json/json.component';
 
 //DIRECTIVES
 import { MenuItemDirective } from './directives/menu-item.directive';
@@ -59,6 +60,7 @@ import { EuroPipe } from './pipes/euro.pipe';
     CurrencyComponent,
     I18nSelectComponent,
     CustomPipeComponent,
+    JsonComponent,
 
     //DIRECTIVES
     MenuItemDirective,
