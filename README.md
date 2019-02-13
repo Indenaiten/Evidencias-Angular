@@ -22,6 +22,7 @@ Estas evidencias estan creadas con las siguientes versiones de las herramientas 
   * [009 - Crear Pipes](https://github.com/Indenaiten/Evidencias-Angular#009---crear-pipes)  
   * [010 - Crear Servicios](https://github.com/Indenaiten/Evidencias-Angular#010---crear-servicios)  
   * [011 - Routing](https://github.com/Indenaiten/Evidencias-Angular#011---routing)  
+  * [012 - Formularios]()  
 
 
 
@@ -308,6 +309,14 @@ Para crear una directiva ejecutaremos el siguiente comando:
   ~~~  
 
 
+#### JSON  
+  _**[Commit b7d33d1]()**_    
+
+  ~~~
+  <h2>{{ nameOfObject | json }}</h2>
+  ~~~  
+
+
 ### 009 - Crear Pipes
   _**[Commit 8ba7630](https://github.com/Indenaiten/Evidencias-Angular/tree/8ba7630bb21fabca58dc452f7f27ae0c6c7dc566)**_  
 
@@ -365,4 +374,60 @@ Ej.:
       </li>
     </ul>
   </nav>
+  ~~~  
+
+
+### 012 - Formularios  
+
+#### FormsModule  
+  _**[Commit 337806a]()**_  
+
+Para utilizar el módulo de formularios de Angular, necesitaremos importar el siguiente módulo en el _**app.module.ts**_ y registrarlo en el array de imports.  
+  ``import { FormsModule } from '@angular/forms';``  
+
+Una vez tenemos el módulo importato en el _**app.module.ts**_, creamos nuestro formulario. En el la etiqueta "_**form**_" de apertura, establecemos un método a ejecutar cuando se haga "_**submit**_" del formulario de la siguiente manera:  
+  ``(ngSubmit)="methodToExec()""``
+
+También estableceremos una "_**id**_" al formulario para que podamos refererirnos a él con angular de la siguiente forma:  
+  ``#idOfForm="ngForm``  
+
+Una vez hecho esto, nos dirigiremos al archivo "_**.ts**_" del componente de nuestro formulario. Allí, importaremos el "_**NgForm**_".  
+  ``import { NgForm } from "@angular/forms";``  
+
+Ahora crearemos un atributo de tipo "_**NgForm**_" y le pondremos la anotación "_**@ViewChild( "idOfForm" )**_". En la anotación se le especificará la id establecida anteriormente al formulario, esto vinculará el objeto con el formulario.  
   ~~~
+  @ViewChild( "idOfForm" )
+  public form:NgForm;
+  ~~~  
+
+Una vez vinculado el formulario con el objeto "_**NgForm**_" nos dirigimos al formulario y en los campos que se quieran recoger, les indicamos con que nombre nos vamos a referir a dicho campo indicándoselo en la etiqueta del campo con "_**ngModel**_":  
+  ``ngModel name="nameOfField"``  
+
+Una vez preparado todo esto, crearemos el método al que le especificamos al formulario anteriormente que tendría que ejecutar cuando este hiciese "_**submit**_". En este método recogeremos el valor del formulario en un atributo que creemos para guardarlo y reiniciaremos los campos para volverlos a dejar en blanco.  
+  ~~~
+  public methodToExec(){
+    //MAP DATA WITH OBJECT
+    this.nameOfAttribute = this.form.value.nameOfField;
+
+    //RESET FORM
+    this.form.reset();
+  }
+  ~~~  
+
+
+#### Validaciones  
+  _**[Commit b1d6642]()**_  
+
+Angular tiene unos estados para los formularios. Existe 5 tipos de estados y todos son de tipo "_**boolean**_".  
+  * **Dirty**: Es cuando el usuario comienza a utilizar el campo. ``form.controls.nameOfField.dirty``  
+  * **Pristine**: Es cuando el usuario aun no ha tocado el campo. ``form.controls.nameOfField.pristine``  
+  * **Touched**: Es cuando el usuario a tocado un campo y deje de usarlo. ``form.controls.nameOfField.touched``   
+  * **Valid**: Es cuando el usuario a insertado unos datos en el campo acordes con unas condiciones (mismamente las de HTML5). ``form.controls.nameOfField.valid``  
+  * **Invalid**: Es cuando el usuario a insertado unos datos en el campo no acordes con unas condiciones (mismamente las de HTML5). ``form.controls.nameOfField.invalid``
+
+Estos estados estan asociados con unas clases CSS de Angular, lo que nos permite crear estilos para los elementos según su estado. Las clases son las siguientes:  
+  ``ng-dirty``  
+  ``ng-pristine``  
+  ``ng-touched``  
+  ``ng-valid``  
+  ``ng-invalid``  
