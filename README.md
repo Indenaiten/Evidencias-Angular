@@ -22,7 +22,7 @@ Estas evidencias estan creadas con las siguientes versiones de las herramientas 
   * [009 - Crear Pipes](https://github.com/Indenaiten/Evidencias-Angular#009---crear-pipes)  
   * [010 - Crear Servicios](https://github.com/Indenaiten/Evidencias-Angular#010---crear-servicios)  
   * [011 - Routing](https://github.com/Indenaiten/Evidencias-Angular#011---routing)  
-  * [012 - Formularios]()  
+  * [012 - Formularios](https://github.com/Indenaiten/Evidencias-Angular#012---formularios)  
 
 
 
@@ -310,7 +310,7 @@ Para crear una directiva ejecutaremos el siguiente comando:
 
 
 #### JSON  
-  _**[Commit b7d33d1]()**_    
+  _**[Commit b7d33d1](https://github.com/Indenaiten/Evidencias-Angular/tree/b7d33d1c7b81a4a3f9afa7802b419d59b852863b/appCurso/src/app/components/pipes/json)**_    
 
   ~~~
   <h2>{{ nameOfObject | json }}</h2>
@@ -380,7 +380,7 @@ Ej.:
 ### 012 - Formularios  
 
 #### FormsModule  
-  _**[Commit 337806a]()**_  
+  _**[Commit 337806a](https://github.com/Indenaiten/Evidencias-Angular/tree/337806afcb600f0cba7453729e8ed15aedd67d7d)**_  
 
 Para utilizar el módulo de formularios de Angular, necesitaremos importar el siguiente módulo en el _**app.module.ts**_ y registrarlo en el array de imports.  
   ``import { FormsModule } from '@angular/forms';``  
@@ -416,7 +416,7 @@ Una vez preparado todo esto, crearemos el método al que le especificamos al for
 
 
 #### Validaciones  
-  _**[Commit b1d6642]()**_  
+  _**[Commit b1d6642](https://github.com/Indenaiten/Evidencias-Angular/tree/b1d6642cdc55d1c59f648fad2aae6ffc224e1528)**_  
 
 Angular tiene unos estados para los formularios. Existe 5 tipos de estados y todos son de tipo "_**boolean**_".  
   * **Dirty**: Es cuando el usuario comienza a utilizar el campo. ``form.controls.nameOfField.dirty``  
