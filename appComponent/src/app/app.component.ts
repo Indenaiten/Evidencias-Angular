@@ -1,10 +1,12 @@
+//IMPORTS
 import { Component } from '@angular/core';
 
+//APP COMPONENT
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: "app-root", //NAME OF COMPONENT
+  templateUrl: "./app.component.html", //NAME OF TEMPLATE OF COMPONENT
+  styleUrls: [ "./app.component.css" ] //NAMES OF STYLESHEETS OF COMPONENT
 })
-export class AppComponent {
-  title = 'appComponent';
-}
+export class AppComponent{
+  //public title:string = "Curso Definitivo de Angular";
+}//END OF APP COMPONENT

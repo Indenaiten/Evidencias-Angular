@@ -1,19 +1,29 @@
+<!-- NAVBAR -->
 <nav class="navbar navbar-dark bg-dark bg-faded rounded navbar-toggleable-md">
+    <!-- HAMBURGUER BUTTON -->
     <button class="navbar-toggler navbar-toggler-right"
       type="button" data-toggle="collapse" data-target="#containerNavbar"
       aria-controls="containerNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-    </button>
+    </button><!-- END OF HAMBURGUER BUTTON -->
+
+    <!-- TITLE OF APP -->
     <a class="navbar-brand" href="#">Compras App</a>
+
+    <!-- OPTIONS -->
     <div class="collapse navbar-collapse" id="containerNavbar">
-      <ul class="navbar-nav mr-auto w-100 justify-content-end">
-        <li class="nav-item" routerLinkActive="active"
-            [routerLinkActiveOptions]="{exact:true}">
-            <a class="nav-link" routerLink="/">Inicio </a>
-        </li>
-        <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link" routerLink="/proveedores">Proveedores</a>
-        </li>
-      </ul>
-  </div>
- </nav>
+        <!-- LIST OF OPTIONS -->
+        <ul class="navbar-nav mr-auto w-100 justify-content-end">
+            <!-- OPTION OF INICIO -->
+            <li class="nav-item" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact:true}">
+                <a class="nav-link" routerLink="/">Inicio </a>
+            </li><!-- END OF OPTION OF INICIO -->
+
+            <!-- OPTION OF PROVEEDORES -->
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/proveedores">Proveedores</a>
+            </li><!-- END OF OPTION OF PROVEEDORES -->
+        </ul><!-- END OF LIST OF OPTIONS -->
+    </div><!-- END OF OPTIONS -->
+</nav><!-- END OF NAVBAR -->

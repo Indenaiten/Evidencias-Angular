@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col col-md"></div>
+  <div class="col-10 col-md-8">
+    <h2>Añadir nuevo Proveedor</h2>
+
+    <form (ngSubmit)="onSubmit()" #formAddPro="ngForm">
+      <div class="form-group">
+        <label for="inputNombre">Nombre</label>
+        <input type="text" class="form-control" id="inputNombre" ngModel name="nombre"/>
+      </div>
+
+      <div class="form-group">
+        <label for="inputCif">C.I.F.</label>
+        <input type="text" class="form-control" id="inputCif" ngModel name="cif"/>
+      </div>
+
+      <div class="form-group">
+        <label for="inputDireccion">Direccion</label>
+        <input type="text" class="form-control" id="inputDireccion" ngModel name="direccion"/>
+      </div>
+
+      <div class="form-group">
+        <label for="inputCp">Código Postal</label>
+        <input type="text" class="form-control" id="inputCp" ngModel name="cp"/>
+      </div>
+
+      <div class="form-group">
+        <label for="inputLocalidad">Localidad</label>
+        <input type="text" class="form-control" id="inputLocalidad" ngModel name="localidad"/>
+      </div>
+
+      <div class="form-group">
+        <label for="inputProvincia">Provincia</label>
+        <select id="inputProvincia" class="form-control" ngModel name="provincia">
+          <option value="">Seleccione la provincia</option>
+          <option *ngFor="let provincia of provincias" [value]="provincia">{{ provincia }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="inputTelefono">Teléfono</label>
+        <input type="number" class="form-control" id="inputTelefono" ngModel name="telefono"/>
+      </div>
+
+      <div class="form-group">
+        <label for="inputEmail">Email</label>
+        <input type="email" class="form-control" id="inputEmail" ngModel name="email" required email/>
+      </div>
+
+      <div class="form-group">
+        <label for="inputContacto">Persona de Contacto</label>
+        <input type="text" class="form-control" id="inputContacto" ngModel name="contacto"/>
+      </div>
+
+      <button type="submit" class="btn btn-success">Añadir Proveedor</button>
+    </form>
+
+    <hr/>
+
+    <pre>
+      {{ proveedor | json }}
+    </pre>
+  </div>
+  <div class="col col-md"></div>
+</div>
