@@ -416,7 +416,7 @@ Una vez preparado todo esto, crearemos el método al que le especificamos al for
 
 
 #### Validaciones
-  _**[Commit 2a53e65]()**_   
+  _**[Commit 2a53e65](https://github.com/Indenaiten/Evidencias-Angular/tree/2a53e6596f424e26469fa09e31a094c15189a33b)**_   
   _**[Commit b1d6642](https://github.com/Indenaiten/Evidencias-Angular/tree/b1d6642cdc55d1c59f648fad2aae6ffc224e1528)**_  
 
 Angular tiene unos estados para los formularios. Existe 5 tipos de estados y todos son de tipo "_**boolean**_".  
@@ -435,7 +435,7 @@ Estos estados estan asociados con unas clases CSS de Angular, lo que nos permite
 
 
 #### Reactive  
-  _**[Commit 4270ae4]()**_  
+  _**[Commit 4270ae4](https://github.com/Indenaiten/Evidencias-Angular/tree/4270ae40c63985f26a5dc0cc2220f7e976129d8d)**_  
 
 Esto es otra técnica para manipular formularios con Angular. Para poder trabajar con "_**ReactiveForms**_" necesitaremos ir a "_**app.module.ts**_" e importar el siguiente modulo y agregar la clase al array de "_**imports**_":  
   ``import { ReactiveFormsModule } from '@angular/forms';``  
