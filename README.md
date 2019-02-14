@@ -415,7 +415,7 @@ Una vez preparado todo esto, crearemos el método al que le especificamos al for
   ~~~  
 
 
-#### Validaciones
+#### Validaciones HTML5 y Angular
   _**[Commit 2a53e65](https://github.com/Indenaiten/Evidencias-Angular/tree/2a53e6596f424e26469fa09e31a094c15189a33b)**_   
   _**[Commit b1d6642](https://github.com/Indenaiten/Evidencias-Angular/tree/b1d6642cdc55d1c59f648fad2aae6ffc224e1528)**_  
 
@@ -434,7 +434,7 @@ Estos estados estan asociados con unas clases CSS de Angular, lo que nos permite
   ``ng-invalid``  
 
 
-#### Reactive  
+#### Reactive Forms
   _**[Commit 4270ae4](https://github.com/Indenaiten/Evidencias-Angular/tree/4270ae40c63985f26a5dc0cc2220f7e976129d8d)**_  
 
 Esto es otra técnica para manipular formularios con Angular. Para poder trabajar con "_**ReactiveForms**_" necesitaremos ir a "_**app.module.ts**_" e importar el siguiente modulo y agregar la clase al array de "_**imports**_":  
@@ -477,7 +477,6 @@ Ahora en el método "_**ngOnInit**_" construímos el formulario en nuestro "_**F
 Solo nos falta crear el método que será ejecutado al enviar el formulario.  
   ~~~
   public methodToExec(){
-    //CREATE CONSTANT WITH DATA
     this.finalObject = {
       nameOfField1: this.nameOfObjectToVinculateForm.get( "nameOfField1" ).value,
       nameOfField2: this.nameOfObjectToVinculateForm.get( "nameOfField2" ).value,
@@ -489,3 +488,34 @@ Solo nos falta crear el método que será ejecutado al enviar el formulario.
 Para mostrar los valores del formulario del objeto "_**FormGroup**_", utilizaremos la propiedad "_**value**_" y si queremos ver el estado del formulario (válido o invalido) utilizaremos la proppiedad "_**status*_".  
   ``nameOfObjectToVinculateForm.value``  
   ``nameOfObjectToVinculateForm.status``  
+
+
+#### Validaciones con Reactive Forms y Validators
+  _**[Commit 03d97a6](https://github.com/Indenaiten/Evidencias-Angular/tree/03d97a62c02d001d5e8920d63c2a37b40a3ef58f)**_  
+
+Con "_**ReactiveForms**_" para validar, necesitaremos importar la clase "_**Validators**_".  
+  ``import { FormGroup, FormBuilder, Validators } from '@angular/forms';``  
+
+Ahora en el método "_**ngOnInit**_", donde construimos el formulario, le establecemos las validaciones mediante la clase "_**Validators**_".  
+  ~~~
+  this.nameOfObjectToVinculateForm = this.pf.group({
+    nameOfField1: [ "ValorPorDefecto", Validators.required ],
+    nameOfField2: [ "ValorPorDefecto", Validators.required  ],
+    nameOfField3: [ "ValorPorDefecto", [ Validators.required, Validators.minLength( 10 ) ] ],
+    nameOfField4: [ 0, Validators.required ],
+    nameOfField5: [ 0, Validators.required ],
+    nameOfField6: 0
+  });
+  ~~~  
+
+Si queremos que por ejemplo, un par de campos númericos, cuando el usuario los modifique nos muestre la suma de estos en otro campo, en el mismo método "_**ngOnInit**_" añadiremos lo siguiente:  
+  ~~~
+  this.nameOfObjectToVinculateForm.valueChanges.subscribe( value => {
+    var nameOfField4:number = value.nameOfField4;
+    var nameOfField5:number = value.nameOfField5;
+    this.nameOfObjectToVinculateForm.value.nameOfField6 = nameOfField4 + nameOfField5 );
+  });
+  ~~~  
+
+Por último, para visualizar los cambios en el HTML necesitaremos añadir un "_**ngModel**_" al campo correspondiente.  
+  `` [(ngModel)]="nameOfObjectToVinculateForm.value.nameOfField6"``  
