@@ -415,7 +415,8 @@ Una vez preparado todo esto, crearemos el método al que le especificamos al for
   ~~~  
 
 
-#### Validaciones  
+#### Validaciones
+  _**[Commit 2a53e65]()**_   
   _**[Commit b1d6642](https://github.com/Indenaiten/Evidencias-Angular/tree/b1d6642cdc55d1c59f648fad2aae6ffc224e1528)**_  
 
 Angular tiene unos estados para los formularios. Existe 5 tipos de estados y todos son de tipo "_**boolean**_".  
@@ -431,3 +432,60 @@ Estos estados estan asociados con unas clases CSS de Angular, lo que nos permite
   ``ng-touched``  
   ``ng-valid``  
   ``ng-invalid``  
+
+
+#### Reactive  
+  _**[Commit 4270ae4]()**_  
+
+Esto es otra técnica para manipular formularios con Angular. Para poder trabajar con "_**ReactiveForms**_" necesitaremos ir a "_**app.module.ts**_" e importar el siguiente modulo y agregar la clase al array de "_**imports**_":  
+  ``import { ReactiveFormsModule } from '@angular/forms';``  
+
+Una vez establecido el módulo "_**ReactiveForms**_" nos creamos el formulario. En la etiqueta "_**form**_" de apertura del formulario, establecemos el nombre del objeto "_**FormGroup**_" al cual va a estar vinculado el formulario y el método que queremos que ejecute cuando el formulario se envíe.  
+  ``[formGroup]="nameOfObjectToVinculateForm"``  
+  ``(ngSubmit)="methodToExec()"``  
+
+Ahora en cada campo que queramos recoger su valor, le establecemos un nombre para poder acceder a él.  
+  ``formControlName="nameOfField1"``  
+
+Una vez tenemos el formulario construido, nos vamos a la clase del componente e importamos las siguientes clases:  
+  ``import { FormGroup, FormBuilder } from '@angular/forms';``  
+
+Ya podemos trabajar con estas clases, ahora crearemos 2 objetos.  
+  ~~~
+  public nameOfObjectToVinculateForm:FormGroup;
+  public finalObject:any;
+  ~~~  
+
+A continuación inyectamos por el constructor un objeto FormBuilder.  
+  ~~~
+  public constructor( private pf:FormBuilder ){
+
+  }
+  ~~~  
+
+Ahora en el método "_**ngOnInit**_" construímos el formulario en nuestro "_**FormGroup**_".  
+  ~~~
+  public ngOnInit(){
+    this.nameOfObjectToVinculateForm = this.pf.group({
+      nameOfField1: "",
+      nameOfField2: "",
+      nameOfField3: ""
+    });
+  }
+  ~~~  
+
+Solo nos falta crear el método que será ejecutado al enviar el formulario.  
+  ~~~
+  public methodToExec(){
+    //CREATE CONSTANT WITH DATA
+    this.finalObject = {
+      nameOfField1: this.nameOfObjectToVinculateForm.get( "nameOfField1" ).value,
+      nameOfField2: this.nameOfObjectToVinculateForm.get( "nameOfField2" ).value,
+      nameOfField3: this.nameOfObjectToVinculateForm.get( "nameOfField3" ).value
+    };
+  }
+  ~~~  
+
+Para mostrar los valores del formulario del objeto "_**FormGroup**_", utilizaremos la propiedad "_**value**_" y si queremos ver el estado del formulario (válido o invalido) utilizaremos la proppiedad "_**status*_".  
+  ``nameOfObjectToVinculateForm.value``  
+  ``nameOfObjectToVinculateForm.status``  
