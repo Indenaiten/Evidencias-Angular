@@ -15,14 +15,39 @@ Estas evidencias estan creadas con las siguientes versiones de las herramientas 
   * [002 - Generar un nuevo proyecto Angular](https://github.com/Indenaiten/Evidencias-Angular#002---generar-un-nuevo-proyecto-angular)
   * [003 - Crear un nuevo componente](https://github.com/Indenaiten/Evidencias-Angular#003---crear-un-nuevo-componente)
   * [004 - Data Binding](https://github.com/Indenaiten/Evidencias-Angular#004---data-binding)  
+    * [Interpolación](https://github.com/Indenaiten/Evidencias-Angular#interpolaci%C3%B3n)  
+    * [Property Binding](https://github.com/Indenaiten/Evidencias-Angular#property-binding)  
+    * [Event Binding](https://github.com/Indenaiten/Evidencias-Angular#event-binding)
+    * [Two Way Binding](https://github.com/Indenaiten/Evidencias-Angular#two-way-binding)  
+
   * [005 - Algunas Directivas](https://github.com/Indenaiten/Evidencias-Angular#005---algunas-directivas)  
+    * [NgIf](https://github.com/Indenaiten/Evidencias-Angular#ngif-estructural)  
+    * [NgStyle](https://github.com/Indenaiten/Evidencias-Angular#ngstyle-atributo)  
+    * [NgClass](https://github.com/Indenaiten/Evidencias-Angular#ngclass-atributo)  
+    * [NgFor](https://github.com/Indenaiten/Evidencias-Angular#ngfor-estructural)  
+    * [NgSwitch](https://github.com/Indenaiten/Evidencias-Angular#ngswitch)  
+
   * [006 - Crear Directivas](https://github.com/Indenaiten/Evidencias-Angular#006---crear-directivas)  
   * [007 - Pasar datos entre componentes](https://github.com/Indenaiten/Evidencias-Angular#007---pasar-datos-entre-componentes)  
+    * [@Input](https://github.com/Indenaiten/Evidencias-Angular#input)  
+    * [@Output](https://github.com/Indenaiten/Evidencias-Angular#output)  
+
   * [008 - Algunos Pipes](https://github.com/Indenaiten/Evidencias-Angular#008---algunos-pipes)  
+    * [Date](https://github.com/Indenaiten/Evidencias-Angular#date)  
+    * [Uppercase & Lowercase](https://github.com/Indenaiten/Evidencias-Angular#uppercase-y-lowercase)  
+    * [Decimal](https://github.com/Indenaiten/Evidencias-Angular#decimal)  
+    * [Currency](https://github.com/Indenaiten/Evidencias-Angular#currency)  
+    * [i18nSelect](https://github.com/Indenaiten/Evidencias-Angular#i18nselect)  
+    * [json](https://github.com/Indenaiten/Evidencias-Angular#json)  
+
   * [009 - Crear Pipes](https://github.com/Indenaiten/Evidencias-Angular#009---crear-pipes)  
   * [010 - Crear Servicios](https://github.com/Indenaiten/Evidencias-Angular#010---crear-servicios)  
   * [011 - Routing](https://github.com/Indenaiten/Evidencias-Angular#011---routing)  
   * [012 - Formularios](https://github.com/Indenaiten/Evidencias-Angular#012---formularios)  
+    * [FormsModule](https://github.com/Indenaiten/Evidencias-Angular#formsmodule)  
+    * [Validaciones HTML5 y Angular](https://github.com/Indenaiten/Evidencias-Angular#validaciones-html5-y-angular)  
+    * [ReactiveForms](https://github.com/Indenaiten/Evidencias-Angular#reactive-forms)  
+    * [Validaciones con Reactive Forms y Validators](https://github.com/Indenaiten/Evidencias-Angular#validaciones-con-reactive-forms-y-validators)  
 
 
 
