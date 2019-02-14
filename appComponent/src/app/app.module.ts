@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 //COMPONENTS
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { ProveedoresComponent } from './components/proveedores/proveedores/prove
 import { InicioComponent } from './components/inicio/inicio.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AddProveedorComponent } from './components/proveedores/add-proveedor/add-proveedor.component';
+import { AddPresupuestoComponent } from './components/presupuestos/add-presupuesto/add-presupuesto.component';
 
 //SERVICES
 import { ProveedoresService } from './services/proveedores.service';
@@ -19,6 +21,7 @@ const routes:Routes = [
   { path: '', component: InicioComponent },
   { path: 'proveedores', component: ProveedoresComponent },
   { path: 'addprovee', component: AddProveedorComponent },
+  { path: 'addpres', component: AddPresupuestoComponent },
   { path: '**', component: InicioComponent } //** SIGNIFICA CUALQUIER PÁGINA QUE NO EXISTA
 ];
 
@@ -29,12 +32,14 @@ const routes:Routes = [
     ProveedoresComponent,
     InicioComponent,
     HeaderComponent,
-    AddProveedorComponent
+    AddProveedorComponent,
+    AddPresupuestoComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot( routes ),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ ProveedoresService ],
   bootstrap: [ AppComponent ]

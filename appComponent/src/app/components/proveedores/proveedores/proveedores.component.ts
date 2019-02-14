@@ -16,14 +16,14 @@ export class ProveedoresComponent implements OnInit{
 
   //METHODS
   //CONSTRUCTOR
-  constructor(
+  public constructor(
     private proveedoresService:ProveedoresService
   ){
 
   }
 
   //INIT
-  ngOnInit(){
+  public ngOnInit(){
     //SET MESSAGE
     this.proveedores = this.proveedoresService.getProveedores();
   }

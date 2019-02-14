@@ -12,12 +12,12 @@ export class InicioComponent implements OnInit{
 
   //METHODS
   //CONSTRUCT
-  constructor(){
+  public constructor(){
 
   }
 
   //INIT
-  ngOnInit(){
+  public ngOnInit(){
 
   }
 }//END OF INICIO COMPONENT
