@@ -6,28 +6,43 @@
 
     <form [formGroup]="presupuestoForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="inputProveedor">Proveedor</label>
+        <label for="inputProveedor">*Proveedor</label>
+        <i class="fa fa-check-circle check" *ngIf="presupuestoForm.controls.proveedor.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck" *ngIf="presupuestoForm.controls.proveedor.invalid && presupuestoForm.controls.proveedor.touched"></i>
         <input type="text" class="form-control" id="inputProveedor" formControlName="proveedor"/>
-      </div>
+        <p class="alert alert-danger" *ngIf="presupuestoForm.controls.proveedor.invalid && presupuestoForm.controls.proveedor.touched">El campo proveedor es obligatorio</p>
+    </div>
 
       <div class="form-group">
-        <label for="inputFecha">Fecha</label>
+        <label for="inputFecha">*Fecha</label>
+        <i class="fa fa-check-circle check" *ngIf="presupuestoForm.controls.fecha.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck" *ngIf="presupuestoForm.controls.fecha.invalid && presupuestoForm.controls.fecha.touched"></i>
         <input type="date" class="form-control" id="inputFecha" formControlName="fecha"/>
+        <p class="alert alert-danger" *ngIf="presupuestoForm.controls.fecha.invalid && presupuestoForm.controls.fecha.touched">El campo fecha es obligatorio</p>
       </div>
 
       <div class="form-group">
-        <label for="inputConcepto">Concepto</label>
+        <label for="inputConcepto">*Concepto</label>
+        <i class="fa fa-check-circle check" *ngIf="presupuestoForm.controls.concepto.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck" *ngIf="presupuestoForm.controls.concepto.invalid && presupuestoForm.controls.concepto.touched"></i>
         <input type="text" class="form-control" id="inputConcepto" formControlName="concepto"/>
+        <p class="alert alert-danger" *ngIf="presupuestoForm.controls.concepto.invalid && presupuestoForm.controls.concepto.touched">El campo concepto es obligatorio</p>
       </div>
 
       <div class="form-group">
-        <label for="inputBase">Base Imponible</label>
+        <label for="inputBase">*Base Imponible</label>
+        <i class="fa fa-check-circle check" *ngIf="presupuestoForm.controls.base.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck" *ngIf="presupuestoForm.controls.base.invalid && presupuestoForm.controls.base.touched"></i>
         <input type="number" class="form-control" id="inputBase" formControlName="base"/>
+        <p class="alert alert-danger" *ngIf="presupuestoForm.controls.base.invalid && presupuestoForm.controls.base.touched">El campo base es obligatorio</p>
       </div>
 
       <div class="form-group">
-        <label for="inputTipoIva">Tipo de IVA</label>
+        <label for="inputTipoIva">*Tipo de IVA</label>
+        <i class="fa fa-check-circle check" *ngIf="presupuestoForm.controls.tipo.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck" *ngIf="presupuestoForm.controls.tipo.invalid && presupuestoForm.controls.tipo.touched"></i>
         <select class="form-control" id="inputTipoIva"  formControlName="tipo">
+          <p class="alert alert-danger" *ngIf="presupuestoForm.controls.tipo.invalid && presupuestoForm.controls.tipo.touched">El campo tipo es obligatorio</p>
           <option value="">Seleccione...</option>
           <option value=0>0 %</option>
           <option value=0.04>4 %</option>
@@ -37,16 +52,17 @@
       </div>
 
       <div class="form-group">
-        <label for="inputIva">Import IVA</label>
-        <input type="number" class="form-control" id="inputIva" formControlName="iva"/>
+        <label for="inputIva">*Import IVA</label>
+        <input type="number" class="form-control" id="inputIva" disabled formControlName="iva" [(ngModel)]="presupuestoForm.value.iva"/>
       </div>
 
       <div class="form-group">
-        <label for="inputTotal">Total Presupuesto</label>
-        <input type="number" class="form-control" id="inputTotal" formControlName="total"/>
+        <label for="inputTotal">*Total Presupuesto</label>
+        <input type="number" class="form-control" id="inputTotal" disabled formControlName="total" [(ngModel)]="presupuestoForm.value.total"/>
       </div>
 
-      <button type="submit" class="btn btn-primary">Añadir Presupuesto</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!presupuestoForm.valid">Añadir Presupuesto</button>
+      <p class="alert alert-danger" *ngIf="!presupuestoForm.valid">Por favor complete todos los campos obligatorios</p>
     </form>
 
     <pre>

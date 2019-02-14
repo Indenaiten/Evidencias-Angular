@@ -1,6 +1,6 @@
 //IMPORTS
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 //ADD PRESUPUESTO COMPONENT
 @Component({
@@ -12,6 +12,8 @@ export class AddPresupuestoComponent implements OnInit{
   //ATTRIBUTES
   public presupuestoForm:FormGroup;
   public presupuesto:any;
+  public iva:any = 0;
+  public total:any = 0;
 
   //METHODS
   //CONSTRUCT
@@ -20,28 +22,31 @@ export class AddPresupuestoComponent implements OnInit{
   }
 
   //INIT
-  public ngOnInit(){
+  public ngOnInit():void{
+    //CREATE FORM GROUP
     this.presupuestoForm = this.pf.group({
-      proveedor: "",
-      fecha: "",
-      concepto: "",
-      base: null,
-      tipo: null,
-      iva: null,
-      total: null
+      proveedor: [ "", Validators.required ],
+      fecha: [ "", Validators.required  ],
+      concepto: [ "", [ Validators.required, Validators.minLength( 10 ) ] ],
+      base: [ "", Validators.required ],
+      tipo: [ "", Validators.required ],
+      iva: this.iva,
+      total: this.total
+    });
+
+    //ON CHANGES IN VALUES
+    this.presupuestoForm.valueChanges.subscribe( value => {
+      var base:number = value.base;
+      var tipo:number = value.tipo;
+      this.presupuestoForm.value.iva = base * tipo;
+      this.presupuestoForm.value.total = base + ( base * tipo );
     });
   }
 
-  //ON SUBMIT
-  public onSubmit(){
-      //SET PRESUPUESTO
-      this.presupuesto = this.savePresupuesto();
-  }
-
   //SAVE PRESUPUESTO
-  public savePresupuesto(){
-    //CREATE CONSTANT WITH DATA
-    const savePresupuesto:any = {
+  public savePresupuesto():void{
+    //CREATE PRESUPUESTO
+    this.presupuesto = {
       proveedor: this.presupuestoForm.get( "proveedor" ).value,
       fecha: this.presupuestoForm.get( "fecha" ).value,
       concepto: this.presupuestoForm.get( "concepto" ).value,
@@ -50,8 +55,5 @@ export class AddPresupuestoComponent implements OnInit{
       iva: this.presupuestoForm.get( "iva" ).value,
       total: this.presupuestoForm.get( "total" ).value
     };
-
-    //RETURN
-    return savePresupuesto;
   }
 }//END OF ADD PRESUPUESTO COMPONENT
