@@ -44,7 +44,13 @@
 
       <div class="form-group">
         <label for="inputEmail">Email</label>
-        <input type="email" class="form-control" id="inputEmail" ngModel name="email" required email/>
+
+        <i class="fa fa-check-circle check" *ngIf="email.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck" *ngIf="email.invalid && email.touched"></i>
+
+        <input type="email" class="form-control" id="inputEmail" ngModel name="email" #email="ngModel" required email/>
+
+        <p class="alert alert-danger" *ngIf="email.invalid && email.touched">Por favor introduzca una dirección de correo válida !</p>
       </div>
 
       <div class="form-group">
@@ -52,7 +58,9 @@
         <input type="text" class="form-control" id="inputContacto" ngModel name="contacto"/>
       </div>
 
-      <button type="submit" class="btn btn-success">Añadir Proveedor</button>
+      <button type="submit" class="btn btn-success" [disabled]="!formpro.valid">Añadir Proveedor</button>
+
+      <p class="alert alert-danger" *ngIf="!formpro.valid">Por favor complete todo los campos obligatorios !</p>
     </form>
 
     <hr/>
