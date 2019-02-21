@@ -35,15 +35,15 @@ export class AddProveedorComponent implements OnInit{
       email: "",
       contacto: ""
     };
-  }
+  }//END OF CONSTRUCT
 
-  //INIT
-  public ngOnInit(){
+  //INIT METHOD
+  public ngOnInit():void{
 
-  }
+  }//END OF INIT METHOD
 
-  //ON SUBMIT
-  public onSubmit(){
+  //ON SUBMIT METHOD
+  public onSubmit():void{
     //MAP DATA WITH OBJECT
     this.proveedor.nombre = this.formpro.value.nombre;
     this.proveedor.cif = this.formpro.value.cif;
@@ -57,5 +57,5 @@ export class AddProveedorComponent implements OnInit{
 
     //RESET FORM
     this.formpro.reset();
-  }
+  }//END OF ON SUBMIT METHOD
 }//END OF ADD PROVEEDOR COMPONENT

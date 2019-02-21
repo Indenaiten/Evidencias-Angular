@@ -20,11 +20,11 @@ export class ProveedoresComponent implements OnInit{
     private proveedoresService:ProveedoresService
   ){
 
-  }
+  }//END OF CONSTRUCT
 
-  //INIT
-  public ngOnInit(){
+  //INIT METHOD
+  public ngOnInit():void{
     //SET MESSAGE
     this.proveedores = this.proveedoresService.getProveedores();
-  }
+  }//END OF INIT METHOD
 }//END OF PROVEEDORES COMPONENT

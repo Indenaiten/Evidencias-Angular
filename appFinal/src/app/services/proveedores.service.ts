@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 //PROVEEDORES SERVICE
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' //NAME OF SERVICE
 })
 export class ProveedoresService{
   //ATTRIBUTES
@@ -37,11 +37,11 @@ export class ProveedoresService{
   //CONSTRUCTOR
   public constructor(){
 
-  }
+  }//END OF CONSTRUCTOR
 
-  //GET PROVEEDORES
+  //GET PROVEEDORES METHOD
   public getProveedores(){
     //RETURN
     return this.proveedores;
-  }
+  }//END OF PROVEEDORES METHOD
 }//END OF PROVEEDORES SERVICE

@@ -1,21 +1,30 @@
+<!-- TITLE OF SECTION -->
 <h3>Listado de Proveedores</h3>
 
+<!-- BUTTON TO ADD NEW PROVEEDOR -->
 <a href="#" class="btn btn-primary float-md-right" routerLink="/addprovee">Añadir Nuevo Proveedor</a>
 
+<br/>
+
+<!-- TABLE OF PROVEEORES -->
 <table class="table table-bordered table-striped" style="margin-top: 40px;">
+  <!-- HEAD OF TABLE -->
   <thead>
+    <!-- ROW OF FILTERS -->
     <tr class="filters">
       <th>Nombre</th>
       <th>Correo</th>
       <th>Teléfono</th>
-    </tr>
-  </thead>
+    </tr><!-- END OF ROW OF FILTERS -->
+  </thead><!-- END OF HEAD OF TABLE -->
 
+  <!-- BODY OF TABLE -->
   <tbody>
+    <!-- ROW OF PROVEEDOR -->
     <tr *ngFor="let proveedor of proveedores">
       <td>{{ proveedor.nombre }}</td>
       <td><a href="mailto:{{ proveedor.email }}">{{ proveedor.email }}</a></td>
       <th>{{ proveedor.telefono }}</th>
-    </tr>
-  </tbody>
-</table>
+    </tr><!-- END OF ROW OF PROVEEDOR -->
+  </tbody><!-- END OF BODY OF TABLE -->
+</table><!-- END OF TABLE OF PROVEEORES -->

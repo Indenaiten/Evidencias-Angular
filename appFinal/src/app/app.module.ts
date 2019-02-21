@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 //COMPONENTS
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { AddPresupuestoComponent } from './components/presupuestos/add-presupues
 
 //SERVICES
 import { ProveedoresService } from './services/proveedores.service';
+import { PresupuestosService } from './services/presupuestos.service';
 
 //ROUTES
 const routes:Routes = [
@@ -39,9 +41,13 @@ const routes:Routes = [
     BrowserModule,
     RouterModule.forRoot( routes ),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [ ProveedoresService ],
+  providers: [
+    ProveedoresService,
+    PresupuestosService
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule{

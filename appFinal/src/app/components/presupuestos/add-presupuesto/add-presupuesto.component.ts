@@ -1,6 +1,7 @@
 //IMPORTS
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { PresupuestosService } from '../../../services/presupuestos.service';
 
 //ADD PRESUPUESTO COMPONENT
 @Component({
@@ -17,11 +18,14 @@ export class AddPresupuestoComponent implements OnInit{
 
   //METHODS
   //CONSTRUCT
-  public constructor( private pf:FormBuilder ){
+  public constructor(
+    private pf:FormBuilder,
+    private presupuestosService:PresupuestosService
+  ){
 
-  }
+  }//END OF CONSTRUCT
 
-  //INIT
+  //INIT METHOD
   public ngOnInit():void{
     //CREATE FORM GROUP
     this.presupuestoForm = this.pf.group({
@@ -41,10 +45,10 @@ export class AddPresupuestoComponent implements OnInit{
       this.presupuestoForm.value.iva = base * tipo;
       this.presupuestoForm.value.total = base + ( base * tipo );
     });
-  }
+  }//END OF INIT METHOD
 
-  //SAVE PRESUPUESTO
-  public savePresupuesto():void{
+  //ON SUBMIT METHOD
+  public onSubmit():void{
     //CREATE PRESUPUESTO
     this.presupuesto = {
       proveedor: this.presupuestoForm.get( "proveedor" ).value,
@@ -55,5 +59,12 @@ export class AddPresupuestoComponent implements OnInit{
       iva: this.presupuestoForm.get( "iva" ).value,
       total: this.presupuestoForm.get( "total" ).value
     };
-  }
+
+    //PERSIST
+    this.presupuestosService.postPresupuesto( this.presupuesto )
+      .subscribe( ( response ) => {
+        //SHOW IN CONSOLE
+        console.log( response );
+      });
+  }//END OF ON SUBMIT
 }//END OF ADD PRESUPUESTO COMPONENT

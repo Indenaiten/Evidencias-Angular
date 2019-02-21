@@ -14,9 +14,10 @@ export class HeaderComponent implements OnInit{
   //CONSTRUCT
   public constructor(){
 
-  }
-  //INIT
-  public ngOnInit(){
+  }//END OF CONSTRUCT
 
-  }
+  //INIT METHOD
+  public ngOnInit():void{
+
+  }//END OF INIT METHOD
 }//END OF HEADER COMPONENT

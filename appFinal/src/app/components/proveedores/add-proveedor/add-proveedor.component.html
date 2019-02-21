@@ -1,73 +1,124 @@
+<!-- CONTENT OF FORM -->
 <div class="row">
-  <div class="col col-md"></div>
+  <!-- LEFT SIDE -->
+  <div class="col col-md">
+
+  </div><!-- END OF LEFT SIDE -->
+
+  <!-- CENTER SIDE -->
   <div class="col-10 col-md-8">
+    <!-- TITLE OF SECTION -->
     <h2>Añadir nuevo Proveedor</h2>
 
+    <!-- FORM TO ADD PROVEEDOR -->
     <form (ngSubmit)="onSubmit()" #formAddPro="ngForm">
+      <!-- FIELD OF NOMBRE -->
       <div class="form-group">
+        <!-- NAME -->
         <label for="inputNombre">Nombre</label>
+
+        <!-- INPUT -->
         <input type="text" class="form-control" id="inputNombre" ngModel name="nombre"/>
-      </div>
+      </div><!-- END OF FIELD OF NOMBRE -->
 
+      <!-- FIELD OF CIF -->
       <div class="form-group">
+        <!-- NAME -->
         <label for="inputCif">C.I.F.</label>
+
+        <!-- INPUT -->
         <input type="text" class="form-control" id="inputCif" ngModel name="cif"/>
-      </div>
+      </div><!-- END OF FIELD OF CIF -->
 
+      <!-- FIELD OF DIRECCION -->
       <div class="form-group">
+        <!-- NAME -->
         <label for="inputDireccion">Direccion</label>
+
+        <!-- INPUT -->
         <input type="text" class="form-control" id="inputDireccion" ngModel name="direccion"/>
-      </div>
+      </div><!-- END OF FIELD OF DIRECCION -->
 
+      <!-- FIELD OF CÓDIGO POSTAL -->
       <div class="form-group">
+        <!-- NAME -->
         <label for="inputCp">Código Postal</label>
+
+        <!-- INPUT -->
         <input type="text" class="form-control" id="inputCp" ngModel name="cp"/>
-      </div>
+      </div><!-- END OF FIELD OF CÓDIGO POSTAL -->
 
+      <!-- END OF FIELD OF LOCALIDAD -->
       <div class="form-group">
+        <!-- NAME -->
         <label for="inputLocalidad">Localidad</label>
-        <input type="text" class="form-control" id="inputLocalidad" ngModel name="localidad"/>
-      </div>
 
+        <!-- INPUT -->
+        <input type="text" class="form-control" id="inputLocalidad" ngModel name="localidad"/>
+      </div><!-- END OF FIELD OF LOCALIDAD -->
+
+      <!-- END OF FIELD OF PROVINCIA -->
       <div class="form-group">
+        <!-- NAME -->
         <label for="inputProvincia">Provincia</label>
+
+        <!-- SELECT -->
         <select id="inputProvincia" class="form-control" ngModel name="provincia">
           <option value="">Seleccione la provincia</option>
           <option *ngFor="let provincia of provincias" [value]="provincia">{{ provincia }}</option>
-        </select>
-      </div>
+        </select><!-- END OF SELECT -->
+      </div><!-- END OF FIELD OF PROVINCIA -->
 
+      <!-- END OF FIELD OF TELÉFONO -->
       <div class="form-group">
+        <!-- NAME -->
         <label for="inputTelefono">Teléfono</label>
-        <input type="number" class="form-control" id="inputTelefono" ngModel name="telefono"/>
-      </div>
 
+        <!-- INPUT -->
+        <input type="number" class="form-control" id="inputTelefono" ngModel name="telefono"/>
+      </div><!-- END OF FIELD OF TELÉFONO -->
+
+      <!-- END OF FIELD OF EMAIL -->
       <div class="form-group">
+        <!-- NAME -->
         <label for="inputEmail">*Email</label>
 
+        <!-- ICONS OF VALIDATE -->
         <i class="fa fa-check-circle check" *ngIf="email.valid"></i>
         <i class="fa fa-exclamation-circle uncheck" *ngIf="email.invalid && email.touched"></i>
 
+        <!-- INPUT -->
         <input type="email" class="form-control" id="inputEmail" ngModel name="email" #email="ngModel" required email/>
 
+        <!-- MESSAGE OF ERROR -->
         <p class="alert alert-danger" *ngIf="email.invalid && email.touched">Por favor introduzca una dirección de correo válida !</p>
-      </div>
+      </div><!-- END OF FIELD OF EMAIL -->
 
+      <!-- END OF FIELD OF PERSONA DE CONTACTO -->
       <div class="form-group">
+        <!-- NAME -->
         <label for="inputContacto">Persona de Contacto</label>
-        <input type="text" class="form-control" id="inputContacto" ngModel name="contacto"/>
-      </div>
 
+        <!-- INPUT -->
+        <input type="text" class="form-control" id="inputContacto" ngModel name="contacto"/>
+      </div><!-- END OF FIELD OF PERSONA DE CONTACTO -->
+
+      <!-- SUBMIT BUTTON -->
       <button type="submit" class="btn btn-success" [disabled]="!formpro.valid">Añadir Proveedor</button>
 
+      <!-- MESSAGE OF INFORMATION -->
       <p class="alert alert-danger" *ngIf="!formpro.valid">Por favor complete todo los campos obligatorios !</p>
-    </form>
+    </form><!-- END OF FORM TO ADD PROVEEDOR -->
 
     <hr/>
 
     <pre>
       {{ proveedor | json }}
     </pre>
-  </div>
-  <div class="col col-md"></div>
-</div>
+  </div><!-- END OF CENTER SIDE -->
+
+  <!-- RIGHT SIDE -->
+  <div class="col col-md">
+
+  </div><!-- END OF RIGHT SIDE -->
+</div><!-- END OF CONTENT OF FORM -->

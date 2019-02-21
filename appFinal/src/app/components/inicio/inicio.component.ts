@@ -14,10 +14,10 @@ export class InicioComponent implements OnInit{
   //CONSTRUCT
   public constructor(){
 
-  }
+  }//END OF CONSTRUCT
 
-  //INIT
-  public ngOnInit(){
+  //INIT METHOD
+  public ngOnInit():void{
 
-  }
+  }//END OF INIT METHOD
 }//END OF INICIO COMPONENT
