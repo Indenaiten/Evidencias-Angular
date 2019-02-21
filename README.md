@@ -50,7 +50,8 @@ Estas evidencias estan creadas con las siguientes versiones de las herramientas 
     * [Validaciones con Reactive Forms y Validators](https://github.com/Indenaiten/Evidencias-Angular#validaciones-con-reactive-forms-y-validators)  
   * [013 - Configurar la base de datos de Firebase](https://github.com/Indenaiten/Evidencias-Angular#013---configurar-la-base-de-datos-de-firebase)  
   * [014 - Hacer un C.R.U.D. con Firebase](https://github.com/Indenaiten/Evidencias-Angular#014---hacer-un-crud-con-firebase)  
-    * [POST](https://github.com/Indenaiten/Evidencias-Angular#post)
+    * [POST](https://github.com/Indenaiten/Evidencias-Angular#post)  
+    * [GET](https://github.com/Indenaiten/Evidencias-Angular#get)
 
 
 
@@ -625,5 +626,49 @@ En el método convertimos el objeto a texto y creamos las cabeceras de la petici
 
         return response;
       }));
+  }
+  ~~~  
+
+
+
+#### GET  
+  _**[Commit 58ad081]()**_  
+
+Para recuperar datos, crearemos un método que va a retornarnos el resultado de la petición **"GET"**. Este resultado será una lista de objetos **"JSON"** de la colección de **Firebase** indicada.  
+    ~~~
+    public getElementsJSON(){
+      //RETURN
+      return this.http.get( this.url )
+        .pipe( map( ( response:any ) => {
+          //SHOW IN CONSOLE
+          console.log( response );
+
+          //RETURN
+          return response;
+        }));
+    }
+    ~~~  
+
+Para usar éste método recién creado en un componente, lo haremos de la siguiente manera:  
+  ~~~
+  constructor( private nameService:NameService ){
+    //GET ELEMENTS JSON
+    this.nameService.getElementsJSON()
+      .subscribe( ( response:any ) => {
+        //SHOW IN CONSOLE
+        console.log( response );
+
+        //BROWSE RESPONSE
+        for( var id in response ){
+          //GET ELEMENT
+          var elementJSON = response[ id ];
+
+          //SET ID OF ELEMENT JSON
+          elementJSON.id = id;
+
+          //SAVE ELEMENT JSON IN ARRAY
+          this.elementJSON.push( elementJSON );
+        }
+      });
   }
   ~~~  
