@@ -52,7 +52,8 @@ Estas evidencias estan creadas con las siguientes versiones de las herramientas 
   * [014 - Hacer un C.R.U.D. con Firebase](https://github.com/Indenaiten/Evidencias-Angular#014---hacer-un-crud-con-firebase)  
     * [POST](https://github.com/Indenaiten/Evidencias-Angular#post)  
     * [GET](https://github.com/Indenaiten/Evidencias-Angular#get)  
-    * [PUT](https://github.com/Indenaiten/Evidencias-Angular#put)
+    * [PUT](https://github.com/Indenaiten/Evidencias-Angular#put)  
+    * [DELETE](https://github.com/Indenaiten/Evidencias-Angular#delete)  
 
 
 
@@ -778,4 +779,30 @@ Por último en el método que se ejecuta cuando se envía el formulario, irá lo
     //RESET FORM
     this.nameOfForm.reset();
   }
+  ~~~  
+
+
+
+#### DELETE  
+  _**[Commit 809cc90]()**_  
+
+Para borrar datos, crearemos un método que va a recibir como parámetro la id correspondiente a ese elemento, éste elemento será enviado a **Firebase** a través de una petición **"DELETE"**. La url correspondiente estará formada de la siguiente manera:  
+  ``url/nameOfCollection/idOfElement.json``  
+
+El método del servicio se verá algo así:  
   ~~~
+  public deleteElementJSON( id:string ){
+    //VARIABLES
+    var url = `${this.urlId}/${id}.json`;
+
+    //RETURN
+    return this.http.delete( url )
+      .pipe( map( ( response:any ) => {
+        //SHOW IN CONSOLE
+        console.log( response );
+
+        //RETURN
+        return response;
+      }));
+  }
+  ~~~  
