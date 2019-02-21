@@ -8,14 +8,14 @@
   <!-- CENTER SIDE -->
   <div class="col-10 col-md-8">
     <!-- TITLE OF SECTION -->
-    <h2>Añadir nuevo Presupuesto</h2>
+    <h2>Editar Presupuesto</h2>
 
     <!-- BUTTON TO GO TO LIST OF PRESUPUESTOS -->
     <a href="#" class="btn btn-primary float-md-right" role="btn" routerLink="/presupuestos">Ver Presupuestos</a>
 
     <br/>
 
-    <!-- FORM TO ADD PRESUPUESTO -->
+    <!-- FORM TO EDIT PRESUPUESTO -->
     <form [formGroup]="presupuestoForm" (ngSubmit)="onSubmit()">
       <!-- FIELD OF PROVEEDOR -->
       <div class="form-group">
@@ -27,7 +27,7 @@
         <i class="fa fa-exclamation-circle uncheck" *ngIf="presupuestoForm.controls.proveedor.invalid && presupuestoForm.controls.proveedor.touched"></i>
 
         <!-- INPUT -->
-        <input type="text" class="form-control" id="inputProveedor" formControlName="proveedor"/>
+        <input type="text" class="form-control" id="inputProveedor" formControlName="proveedor" [(ngModel)]="presupuesto.proveedor"/>
 
         <!-- MESSAGE OF ERROR -->
         <p class="alert alert-danger" *ngIf="presupuestoForm.controls.proveedor.invalid && presupuestoForm.controls.proveedor.touched">El campo proveedor es obligatorio</p>
@@ -43,7 +43,7 @@
         <i class="fa fa-exclamation-circle uncheck" *ngIf="presupuestoForm.controls.fecha.invalid && presupuestoForm.controls.fecha.touched"></i>
 
         <!-- INPUT -->
-        <input type="date" class="form-control" id="inputFecha" formControlName="fecha"/>
+        <input type="date" class="form-control" id="inputFecha" formControlName="fecha" [(ngModel)]="presupuesto.fecha"/>
 
         <!-- MESSAGE OF ERROR -->
         <p class="alert alert-danger" *ngIf="presupuestoForm.controls.fecha.invalid && presupuestoForm.controls.fecha.touched">El campo fecha es obligatorio</p>
@@ -59,7 +59,7 @@
         <i class="fa fa-exclamation-circle uncheck" *ngIf="presupuestoForm.controls.concepto.invalid && presupuestoForm.controls.concepto.touched"></i>
 
         <!-- INPUT -->
-        <input type="text" class="form-control" id="inputConcepto" formControlName="concepto"/>
+        <input type="text" class="form-control" id="inputConcepto" formControlName="concepto" [(ngModel)]="presupuesto.concepto"/>
 
         <!-- MESSAGE OF ERROR -->
         <p class="alert alert-danger" *ngIf="presupuestoForm.controls.concepto.invalid && presupuestoForm.controls.concepto.touched">El campo concepto es obligatorio</p>
@@ -75,7 +75,7 @@
         <i class="fa fa-exclamation-circle uncheck" *ngIf="presupuestoForm.controls.base.invalid && presupuestoForm.controls.base.touched"></i>
 
         <!-- INPUT -->
-        <input type="number" class="form-control" id="inputBase" formControlName="base"/>
+        <input type="number" class="form-control" id="inputBase" formControlName="base" [(ngModel)]="presupuesto.base"/>
 
         <!-- MESSAGE OF ERROR -->
         <p class="alert alert-danger" *ngIf="presupuestoForm.controls.base.invalid && presupuestoForm.controls.base.touched">El campo base es obligatorio</p>
@@ -91,7 +91,7 @@
         <i class="fa fa-exclamation-circle uncheck" *ngIf="presupuestoForm.controls.tipo.invalid && presupuestoForm.controls.tipo.touched"></i>
 
         <!-- SELECT -->
-        <select class="form-control" id="inputTipoIva"  formControlName="tipo">
+        <select class="form-control" id="inputTipoIva" formControlName="tipo"  [(ngModel)]="presupuesto.tipo">
           <option value="">Seleccione...</option>
           <option value=0>0 %</option>
           <option value=0.04>4 %</option>
@@ -122,14 +122,14 @@
       </div><!-- END OF FIELD OF TOTAL PRESUPUESTO -->
 
       <!-- SUBMIT BUTTON -->
-      <button type="submit" class="btn btn-primary" [disabled]="!presupuestoForm.valid">Añadir Presupuesto</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!presupuestoForm.valid">Editar Presupuesto</button>
 
       <!-- MESSAGE OF INFORMATION -->
       <p class="alert alert-danger" *ngIf="!presupuestoForm.valid">Por favor complete todos los campos obligatorios</p>
 
       <!-- BUTTON TO CANCEL -->
       <a href="#" class="btn btn-danger float-md-right" role="btn" routerLink="/presupuestos">Cancelar</a>
-    </form><!-- END OF FORM TO ADD PRESUPUESTO -->
+    </form><!-- END OF FORM TO EDIT PRESUPUESTO -->
   </div><!-- END OF CENTER SIDE -->
 
   <!-- RIGHT SIDE -->

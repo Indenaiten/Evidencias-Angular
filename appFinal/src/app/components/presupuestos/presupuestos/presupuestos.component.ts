@@ -14,13 +14,14 @@ export class PresupuestosComponent implements OnInit{
 
   //METHODS
   //CONSTRUCT
-  constructor( private presupuestosService:PresupuestosService ){
+  public constructor( private presupuestosService:PresupuestosService ){
     //GET PRESUPUESTOS
     this.presupuestosService.getPresupuestos()
       .subscribe( ( response:any ) => {
         //SHOW IN CONSOLE
+        console.log( "COMPONENT" );
         console.log( response );
-        
+
         //BROWSE RESPONSE
         for( var id in response ){
           //GET PRESUPUESTO
@@ -36,7 +37,7 @@ export class PresupuestosComponent implements OnInit{
   }//END OF CONSTRUCT
 
   //INIT METHOD
-  ngOnInit(){
+  public ngOnInit(){
 
   }//END OF INIT METHOD
 }//END OF PRESUPUESTOS COMPONENT

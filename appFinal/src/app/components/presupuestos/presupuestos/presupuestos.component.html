@@ -2,7 +2,7 @@
 <h3>Listado de Presupuestos</h3>
 
 <!-- BUTTON TO ADD NEW PRESUPUESTO -->
-<a href="#" class="btn btn-primary float-md-right" routerLink="/addpres">Añadir Nuevo Presupuesto</a>
+<a href="#" class="btn btn-primary float-md-right" role="btn" routerLink="/addpres">Añadir Nuevo Presupuesto</a>
 
 <br/>
 
@@ -18,6 +18,7 @@
       <th>Importe sin IVA</th>
       <th>IVA</th>
       <th>Total</th>
+      <th>Editar</th>
     </tr><!-- END OF ROW OF FILTERS -->
   </thead><!-- END OF HEAD OF TABLE -->
 
@@ -31,6 +32,7 @@
       <td>{{ presupuesto.base }}</td>
       <td>{{ presupuesto.iva }}</td>
       <td>{{ presupuesto.total }}</td>
+      <td><a href="#" class="btn btn-success float-md-right" role="btn" routerLink="/editpres/{{ presupuesto.id }}">Editar</a></td>
     </tr><!-- END OF ROW OF PRESUPUESTO -->
   </tbody><!-- END OF BODY OF TABLE -->
 </table><!-- END OF TABLE OF PRESUPUESTOS -->

@@ -2,27 +2,47 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PresupuestosService } from '../../../services/presupuestos.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
-//ADD PRESUPUESTO COMPONENT
+//EDIT PRESUPUESTO COMPONENTº
 @Component({
-  selector: "app-add-presupuesto", //NAME OF COMPONENT
-  templateUrl: "./add-presupuesto.component.html", //NAME OF TEMPLATE OF COMPONENT
-  styleUrls: [ "./add-presupuesto.component.css" ] //NAMES OF STYLESHEETS OF COMPONENT
+  selector: "app-edit-presupuesto", //NAME OF COMPONENT
+  templateUrl: "./edit-presupuesto.component.html", //NAME OF TEMPLATE OF COMPONENT
+  styleUrls: [ "./edit-presupuesto.component.css" ] //NAMES OF STYLESHEETS OF COMPONENT
 })
-export class AddPresupuestoComponent implements OnInit{
+export class EditPresupuestoComponent implements OnInit{
   //ATTRIBUTES
   public presupuestoForm:FormGroup;
   public presupuesto:any;
   public iva:any = 0;
   public total:any = 0;
+  public id:string;
 
   //METHODS
   //CONSTRUCT
   public constructor(
     private pf:FormBuilder,
-    private presupuestosService:PresupuestosService
+    private presupuestosService:PresupuestosService,
+    private router:Router,
+    private activatedRoute:ActivatedRoute
   ){
+    //GET ACTIVATED ROUTE
+    this.activatedRoute.params
+      .subscribe( ( parameters:any ) => {
+        //SAVE ID
+        this.id = parameters[ 'id' ];
 
+        //GET PRESUPUESTO
+        this.presupuestosService.getPresupuesto( this.id )
+          .subscribe( ( response:any ) => {
+            //SHOW IN CONSOLE
+            console.log( "SERVICIO" );
+            console.log( response );
+
+            //SAVE PRESUPUESTO
+            this.presupuesto = response;
+          });
+      });
   }//END OF CONSTRUCT
 
   //INIT METHOD
@@ -61,14 +81,17 @@ export class AddPresupuestoComponent implements OnInit{
     };
 
     //PERSIST
-    this.presupuestosService.postPresupuesto( this.presupuesto )
+    this.presupuestosService.putPresupuesto( this.presupuesto, this.id )
       .subscribe( ( response ) => {
         //SHOW IN CONSOLE
         console.log( "COMPONENT" );
         console.log( response );
+
+        //REDIRECT
+        this.router.navigate([ "/presupuestos" ]);
       });
 
     //RESET FORM
     this.presupuestoForm.reset();
   }//END OF ON SUBMIT
-}//END OF ADD PRESUPUESTO COMPONENT
+}//END OF EDIT PRESUPUESTO COMPONENTº
