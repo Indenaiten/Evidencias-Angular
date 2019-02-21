@@ -553,7 +553,7 @@ Por último, para visualizar los cambios en el HTML necesitaremos añadir un "_*
 ### 013 - Configurar la base de datos de Firebase  
   _**[Commit 6cd7e30](https://github.com/Indenaiten/Evidencias-Angular/tree/6cd7e30d66cf90ca7bb559a0961588a7ce1da59a)**_  
 
-Nos dirigimos a (https://firebase.google.com)[https://firebase.google.com]. Una vez allí nos dirigimos a la opción **"ir a la consola"** y en la pantalla resultante le damos a **"añadir proyecto"**.  
+Nos dirigimos a [https://firebase.google.com](https://firebase.google.com). Una vez allí nos dirigimos a la opción **"ir a la consola"** y en la pantalla resultante le damos a **"añadir proyecto"**.  
 
 ![013-001](https://github.com/Indenaiten/Evidencias-Angular/blob/master/img/013-001.PNG)  
 
