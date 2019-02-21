@@ -636,19 +636,19 @@ En el método convertimos el objeto a texto y creamos las cabeceras de la petici
 
 Para recuperar datos, crearemos un método que va a retornarnos el resultado de la petición **"GET"**. Este resultado será una lista de objetos **"JSON"** de la colección de **Firebase** indicada.  
 
-    ~~~
-    public getElementsJSON(){
-      //RETURN
-      return this.http.get( this.url )
-        .pipe( map( ( response:any ) => {
-          //SHOW IN CONSOLE
-          console.log( response );
+  ~~~
+  public getElementsJSON(){
+    //RETURN
+    return this.http.get( this.url )
+      .pipe( map( ( response:any ) => {
+        //SHOW IN CONSOLE
+        console.log( response );
 
-          //RETURN
-          return response;
-        }));
-    }
-    ~~~
+        //RETURN
+        return response;
+      }));
+  }
+  ~~~
 
 Para usar éste método recién creado en un componente, lo haremos de la siguiente manera:  
   ~~~
