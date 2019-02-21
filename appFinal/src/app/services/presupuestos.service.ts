@@ -1,6 +1,6 @@
 //IMPORTS
 import { Injectable } from '@angular/core';
-import { HttpHeaders, HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpHeaders, HttpClient, } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 //PRESUPUESTOS SERVICE
@@ -89,4 +89,21 @@ export class PresupuestosService{
         return response;
       }));
   }//END OF PUT PRESUPUESTO METHOD
+
+  //DELETE PRESUPUESTO METHOD
+  public deletePresupuesto( id:string ){
+    //VARIABLES
+    var url = `${this.urlId}/${id}.json`;
+
+    //RETURN
+    return this.http.delete( url )
+      .pipe( map( ( response:any ) => {
+        //SHOW IN CONSOLE
+        console.log( "SERVICE" );
+        console.log( response );
+
+        //RETURN
+        return response;
+      }));
+  }//END OF DELETE PRESUPUESTO METHOD
 }//END OF PRESUPUESTOS SERVICE

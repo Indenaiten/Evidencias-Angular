@@ -16,6 +16,17 @@ export class PresupuestosComponent implements OnInit{
   //CONSTRUCT
   public constructor( private presupuestosService:PresupuestosService ){
     //GET PRESUPUESTOS
+    this.getPresupuestos();
+  }//END OF CONSTRUCT
+
+  //INIT METHOD
+  public ngOnInit(){
+
+  }//END OF INIT METHOD
+
+  //GET PRESUPUESTOS
+  private getPresupuestos():void{
+    //GET PRESUPUESTOS
     this.presupuestosService.getPresupuestos()
       .subscribe( ( response:any ) => {
         //SHOW IN CONSOLE
@@ -34,10 +45,22 @@ export class PresupuestosComponent implements OnInit{
           this.presupuestos.push( presupuesto );
         }
       });
-  }//END OF CONSTRUCT
+  }//END OF GET PRESUPUESTOS
 
-  //INIT METHOD
-  public ngOnInit(){
+  //DELETE PRESUPUESTO METHOD
+  public deletePresupuesto( id:string ):void{
+    //DELETE PREUPUESTO
+    this.presupuestosService.deletePresupuesto( id )
+      .subscribe( ( response:any ) => {
+        //SHOW IN CONSOLE
+        console.log( "COMPONENT" );
+        console.log( response );
 
-  }//END OF INIT METHOD
+        //RESET ARRAY OF PRESUPUESTOS
+        this.presupuestos = [];
+
+        //GET PRESUPUESTOS
+        this.getPresupuestos();
+      });
+  }//END OF DELETE PRESUPUESTO METHOD
 }//END OF PRESUPUESTOS COMPONENT

@@ -18,7 +18,7 @@
       <th>Importe sin IVA</th>
       <th>IVA</th>
       <th>Total</th>
-      <th>Editar</th>
+      <th class="text-center">Acciones</th>
     </tr><!-- END OF ROW OF FILTERS -->
   </thead><!-- END OF HEAD OF TABLE -->
 
@@ -32,7 +32,10 @@
       <td>{{ presupuesto.base }}</td>
       <td>{{ presupuesto.iva }}</td>
       <td>{{ presupuesto.total }}</td>
-      <td><a href="#" class="btn btn-success float-md-right" role="btn" routerLink="/editpres/{{ presupuesto.id }}">Editar</a></td>
+      <td class="d-flex justify-content-center align-items-center">
+        <a href="#" class="btn btn-success" style="margin-right:10px;" role="btn" routerLink="/editpres/{{ presupuesto.id }}">Editar</a>
+        <button class="btn btn-danger" (click)="deletePresupuesto( presupuesto.id )">Eliminar</button>
+      </td>
     </tr><!-- END OF ROW OF PRESUPUESTO -->
   </tbody><!-- END OF BODY OF TABLE -->
 </table><!-- END OF TABLE OF PRESUPUESTOS -->
