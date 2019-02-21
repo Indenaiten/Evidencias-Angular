@@ -635,6 +635,7 @@ En el método convertimos el objeto a texto y creamos las cabeceras de la petici
   _**[Commit 58ad081](https://github.com/Indenaiten/Evidencias-Angular/tree/58ad08107ec8bea6a3488d5a5db926ed42f3e7ee)**_  
 
 Para recuperar datos, crearemos un método que va a retornarnos el resultado de la petición **"GET"**. Este resultado será una lista de objetos **"JSON"** de la colección de **Firebase** indicada.  
+
     ~~~
     public getElementsJSON(){
       //RETURN
@@ -647,7 +648,7 @@ Para recuperar datos, crearemos un método que va a retornarnos el resultado de 
           return response;
         }));
     }
-    ~~~  
+    ~~~
 
 Para usar éste método recién creado en un componente, lo haremos de la siguiente manera:  
   ~~~
