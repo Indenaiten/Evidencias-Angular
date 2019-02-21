@@ -51,7 +51,8 @@ Estas evidencias estan creadas con las siguientes versiones de las herramientas 
   * [013 - Configurar la base de datos de Firebase](https://github.com/Indenaiten/Evidencias-Angular#013---configurar-la-base-de-datos-de-firebase)  
   * [014 - Hacer un C.R.U.D. con Firebase](https://github.com/Indenaiten/Evidencias-Angular#014---hacer-un-crud-con-firebase)  
     * [POST](https://github.com/Indenaiten/Evidencias-Angular#post)  
-    * [GET](https://github.com/Indenaiten/Evidencias-Angular#get)
+    * [GET](https://github.com/Indenaiten/Evidencias-Angular#get)  
+    * [PUT](https://github.com/Indenaiten/Evidencias-Angular#put)
 
 
 
@@ -673,3 +674,108 @@ Para usar éste método recién creado en un componente, lo haremos de la siguie
       });
   }
   ~~~  
+
+
+
+#### PUT  
+  _**[Commit 5d37d4d]()**_  
+
+Para actualizar datos, crearemos un método que va a recibir como parametros el elemento actualizado en formato **JSON** y la id correspondiente a ese elemento, estos 2 elementos serán enviados a **Firebase** a través de una petición **"PUT"**. La url correspondiente estará formada de la siguiente manera:  
+  ``url/nameOfCollection/idOfElement.json``  
+
+  ~~~
+  public putElementJSON( elementJSON:any, id:string ){
+    //VARIABLES
+    var newElementJSON:string = JSON.stringify( elementJSON );
+    var headers:any = new HttpHeaders({
+      'ContentType': 'application/json'
+    });
+    var url = `${this.urlId}/${id}.json`;
+
+    //RETURN
+    return this.http.put( url, newElementJSON, { headers } )
+      .pipe( map( ( response:any ) => {
+        //SHOW IN CONSOLE
+        console.log( response );
+
+        //RETURN
+        return response;
+      }));
+  }
+  ~~~  
+
+Entonces en el servicio, necesitaremos a parte un método para recuperar un elemento en concreto a partir de su id.  
+  ~~~
+  public getElementJSON( id:string ){
+    //VARIABLES
+    var url = `${this.urlId}/${id}.json`;
+
+    //RETURN
+    return this.http.get( url )
+      .pipe( map( ( response:any ) => {
+        //SHOW IN CONSOLE
+        console.log( response );
+
+        //RETURN
+        return response;
+      }));
+  }
+  ~~~  
+
+En el componente, tendrémos que obtener la id del elemento a editar, esa id la pasaremos a través de la url y para poderla obtener necesitaremos importar las siguientes clases:  
+  ``import { Router, ActivatedRoute } from '@angular/router';``  
+
+Ahora en el constructor inyectaremos las 2 clases y obtendrémos en él la id que viene por la url y el elemento correspondiente de Firebase.  
+  ~~~
+  public constructor(
+    private pf:FormBuilder,
+    private nameService:NameService,
+    private router:Router,
+    private activatedRoute:ActivatedRoute
+  ){
+    //GET ACTIVATED ROUTE
+    this.activatedRoute.params
+      .subscribe( ( parameters:any ) => {
+        //SAVE ID
+        this.id = parameters[ 'id' ];
+
+        //GET ELEMENT JSON
+        this.nameService.getElementJSON( this.id )
+          .subscribe( ( response:any ) => {
+            //SHOW IN CONSOLE
+            console.log( response );
+
+            //SAVE NAME JSON
+            this.nameJSON = response;
+          });
+      });
+  }
+  ~~~  
+
+Por último en el método que se ejecuta cuando se envía el formulario, irá lo siguiente:  
+  ~~~
+  public execMethod():void{
+    //CREATE ELEMENT JSON
+    this.elementJSON = {
+      nameOfField1: [ "ValorPorDefecto", Validators.required ],
+      nameOfField2: [ "ValorPorDefecto", Validators.required  ],
+      nameOfField3: [ "ValorPorDefecto", [ Validators.required, Validators.minLength( 10 ) ] ],
+      nameOfField4: [ 0, Validators.required ],
+      nameOfField5: [ 0, Validators.required ],
+      nameOfField6: 0
+    };
+
+    //PERSIST
+    this.nameService.putElementJSON( this.elementJSON, this.id )
+      .subscribe( ( response ) => {
+        //SHOW IN CONSOLE
+        console.log( response );
+
+        //REDIRECT
+        this.router.navigate([ "/nameOfRoute" ]);
+      });
+
+    //RESET FORM
+    this.nameOfForm.reset();
+  }
+  ~~~
