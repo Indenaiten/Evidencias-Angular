@@ -10,6 +10,11 @@
     <!-- TITLE OF SECTION -->
     <h2>Añadir nuevo Presupuesto</h2>
 
+    <!-- BUTTON TO GO TO LIST OF PRESUPUESTOS -->
+    <a href="#" class="btn btn-primary float-md-right" routerLink="/presupuestos">Ver Presupuestos</a>
+
+    <br/>
+
     <!-- FORM TO ADD PRESUPUESTO -->
     <form [formGroup]="presupuestoForm" (ngSubmit)="onSubmit()">
       <!-- FIELD OF PROVEEDOR -->
@@ -121,19 +126,10 @@
 
       <!-- MESSAGE OF INFORMATION -->
       <p class="alert alert-danger" *ngIf="!presupuestoForm.valid">Por favor complete todos los campos obligatorios</p>
+
+      <!-- BUTTON TO CANCEL -->
+      <a href="#" class="btn btn-danger float-md-right" routerLink="/presupuestos">Cancelar</a>
     </form><!-- END OF FORM TO ADD PRESUPUESTO -->
-
-    <pre>
-      Valor del formulario: {{ presupuestoForm.value | json }}
-    </pre>
-
-    <pre>
-      Estado del formulario: {{ presupuestoForm.status | json }}
-    </pre>
-
-    <pre>
-      Valor del objeto Presupuesto: {{ presupuesto | json }}
-    </pre>
   </div><!-- END OF CENTER SIDE -->
 
   <!-- RIGHT SIDE -->

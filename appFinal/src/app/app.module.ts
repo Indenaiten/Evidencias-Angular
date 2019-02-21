@@ -13,6 +13,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AddProveedorComponent } from './components/proveedores/add-proveedor/add-proveedor.component';
 import { AddPresupuestoComponent } from './components/presupuestos/add-presupuesto/add-presupuesto.component';
+import { PresupuestosComponent } from './components/presupuestos/presupuestos/presupuestos.component';
 
 //SERVICES
 import { ProveedoresService } from './services/proveedores.service';
@@ -23,6 +24,7 @@ const routes:Routes = [
   { path: '', component: InicioComponent },
   { path: 'proveedores', component: ProveedoresComponent },
   { path: 'addprovee', component: AddProveedorComponent },
+  { path: 'presupuestos', component: PresupuestosComponent },
   { path: 'addpres', component: AddPresupuestoComponent },
   { path: '**', component: InicioComponent } //** SIGNIFICA CUALQUIER PÁGINA QUE NO EXISTA
 ];
@@ -35,7 +37,8 @@ const routes:Routes = [
     InicioComponent,
     HeaderComponent,
     AddProveedorComponent,
-    AddPresupuestoComponent
+    AddPresupuestoComponent,
+    PresupuestosComponent
   ],
   imports: [
     BrowserModule,

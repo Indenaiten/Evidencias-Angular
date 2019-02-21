@@ -1,0 +1,36 @@
+<!-- TITLE OF SECTION -->
+<h3>Listado de Presupuestos</h3>
+
+<!-- BUTTON TO ADD NEW PRESUPUESTO -->
+<a href="#" class="btn btn-primary float-md-right" routerLink="/addpres">Añadir Nuevo Presupuesto</a>
+
+<br/>
+
+<!-- TABLE OF PRESUPUESTOS -->
+<table class="table table-bordered table-striped" style="margin-top: 40px;">
+  <!-- HEAD OF TABLE -->
+  <thead>
+    <!-- ROW OF FILTERS -->
+    <tr class="filters">
+      <th>Proveedor</th>
+      <th>Fecha</th>
+      <th>Concepto</th>
+      <th>Importe sin IVA</th>
+      <th>IVA</th>
+      <th>Total</th>
+    </tr><!-- END OF ROW OF FILTERS -->
+  </thead><!-- END OF HEAD OF TABLE -->
+
+  <!-- BODY OF TABLE -->
+  <tbody>
+    <!-- ROW OF PRESUPUESTO -->
+    <tr *ngFor="let presupuesto of presupuestos">
+      <td>{{ presupuesto.proveedor }}</td>
+      <td>{{ presupuesto.fecha }}</td>
+      <td>{{ presupuesto.concepto }}</td>
+      <td>{{ presupuesto.base }}</td>
+      <td>{{ presupuesto.iva }}</td>
+      <td>{{ presupuesto.total }}</td>
+    </tr><!-- END OF ROW OF PRESUPUESTO -->
+  </tbody><!-- END OF BODY OF TABLE -->
+</table><!-- END OF TABLE OF PRESUPUESTOS -->

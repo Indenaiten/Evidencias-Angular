@@ -35,4 +35,17 @@ export class PresupuestosService{
         return response;
       }));
   }//END OF POST PRESUPUESTO METHOD
+
+  //GET PRESUPUESTOS METHOD
+  public getPresupuestos(){
+    //RETURN
+    return this.http.get( this.url )
+      .pipe( map( ( response:any ) => {
+        //SHOW IN CONSOLE
+        console.log( response );
+
+        //RETURN
+        return response;
+      }));
+  }//END OF GET PRESUPUESTOS METHOD
 }//END OF PRESUPUESTOS SERVICE

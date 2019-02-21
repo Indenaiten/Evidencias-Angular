@@ -10,6 +10,11 @@
     <!-- TITLE OF SECTION -->
     <h2>Añadir nuevo Proveedor</h2>
 
+    <!-- BUTTON TO GO TO LIST OF PROVEEDORES -->
+    <a href="#" class="btn btn-primary float-md-right" routerLink="/proveedores">Ver Proveedores</a>
+
+    <br/>
+
     <!-- FORM TO ADD PROVEEDOR -->
     <form (ngSubmit)="onSubmit()" #formAddPro="ngForm">
       <!-- FIELD OF NOMBRE -->
@@ -108,6 +113,9 @@
 
       <!-- MESSAGE OF INFORMATION -->
       <p class="alert alert-danger" *ngIf="!formpro.valid">Por favor complete todo los campos obligatorios !</p>
+
+      <!-- BUTTON TO CANCEL -->
+      <a href="#" class="btn btn-danger float-md-right" routerLink="/proveedores">Cancelar</a>
     </form><!-- END OF FORM TO ADD PROVEEDOR -->
 
     <hr/>
