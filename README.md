@@ -48,6 +48,9 @@ Estas evidencias estan creadas con las siguientes versiones de las herramientas 
     * [Validaciones HTML5 y Angular](https://github.com/Indenaiten/Evidencias-Angular#validaciones-html5-y-angular)  
     * [ReactiveForms](https://github.com/Indenaiten/Evidencias-Angular#reactive-forms)  
     * [Validaciones con Reactive Forms y Validators](https://github.com/Indenaiten/Evidencias-Angular#validaciones-con-reactive-forms-y-validators)  
+  * [013 - Configurar la base de datos de Firebase]()  
+  * [014 - Hacer un C.R.U.D. con Firebase]()  
+    * [POST]()
 
 
 
@@ -544,3 +547,70 @@ Si queremos que por ejemplo, un par de campos númericos, cuando el usuario los 
 
 Por último, para visualizar los cambios en el HTML necesitaremos añadir un "_**ngModel**_" al campo correspondiente.  
   `` [(ngModel)]="nameOfObjectToVinculateForm.value.nameOfField6"``  
+
+
+
+### 013 - Configurar la base de datos de Firebase  
+  _**[Commit 6cd7e30](https://github.com/Indenaiten/Evidencias-Angular/tree/6cd7e30d66cf90ca7bb559a0961588a7ce1da59a)**_  
+
+Nos dirigimos a (https://firebase.google.com)[https://firebase.google.com]. Una vez allí nos dirigimos a la opción **"ir a la consola"** y en la pantalla resultante le damos a **"añadir proyecto"**.  
+![013-001]()
+![013-002]()  
+En la ventana emergente establecemos el nombre y la ubicación del proyecto, aceptamos las condiciones y creamos el proyecto.
+![013-003]()
+![013-004]()
+Con el proyecto creado y dentro de él, abrimos la opción **"database"** y creamos la base de datos (_**"Realtime Database"**_) y establecemos las reglas en modo de prueba ( **para el curso** ).
+![013-005]()
+![013-006]()  
+Ya tenemos configurada nuestra base de datos de **Firebase**.
+El link que aparece donde la pestaña **"datos"** dentro de nuesta base de datos, es la direccion de nuestra base de datos.  
+![013-007]()
+
+
+
+### 014 - Hacer un C.R.U.D. con Firebase  
+  _**[Commit 6cd7e30](https://github.com/Indenaiten/Evidencias-Angular/blob/6cd7e30d66cf90ca7bb559a0961588a7ce1da59a/appFinal/src/app/app.module.ts)**_  
+
+Para poder hacer peticiones **http** necesitaremos importar en el archivo _**app.module.ts**_ los siguientes módulos:  
+  ``import { HttpClientModule } from '@angular/common/http';``  
+
+Ahora en el servicio donde vayamos hacer peticiones http, necesitaremos las siguientes importaciones:  
+  ~~~
+  import { HttpHeaders, HttpClient, HttpResponse } from '@angular/common/http';
+  import { map } from 'rxjs/operators';
+  ~~~  
+
+Establecemos una propiedad al servicio con la url de **Firebase** añadiéndole el nombre que queramos para la colección para guardar los datos (en fomato **JSON**).  
+  ``url/nameOfCollection.json``  
+
+Por último, inyectamos en el constructor del servicio el objeto **HttpClient** y ya tendrémos listo el servicio para crear los métodos necesarios para realizar el **C.R.U.D.**  
+  ~~~
+  constructor( private http:HttpClient ){
+
+  }
+  ~~~
+
+
+
+#### POST  
+  _**[Commit 6cd7e30](https://github.com/Indenaiten/Evidencias-Angular/blob/6cd7e30d66cf90ca7bb559a0961588a7ce1da59a/appFinal/src/app/services/presupuestos.service.ts)**_  
+
+Para guardar datos, crearemos un método que va a recibir un objeto **JSON** como parámetro (el objeto que queramos guardar).  
+En el método convertimos el objeto a texto y creamos las cabeceras de la petición y finalmente retornamos el resultado de la petición **"POST"**.  
+  ~~~
+  public postElementJSON( elementJSON:any ){
+    //VARIABLES
+    var newElementJSON:string = JSON.stringify( elementJSON );
+    var headers:any = new HttpHeaders({
+      'ContentType': 'application/json'
+    });
+
+    //RETURN
+    return this.http.post( this.url, newElementJSON, { headers } )
+      .pipe( map( ( response:any ) => {
+        console.log( response );
+
+        return response;
+      }));
+  }
+  ~~~  
