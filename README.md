@@ -678,7 +678,7 @@ Para usar éste método recién creado en un componente, lo haremos de la siguie
 
 
 #### PUT  
-  _**[Commit 5d37d4d]()**_  
+  _**[Commit 5d37d4d](https://github.com/Indenaiten/Evidencias-Angular/tree/5d37d4d6c0acb9b4a258de83d0d68b06a38c6d69)**_  
 
 Para actualizar datos, crearemos un método que va a recibir como parametros el elemento actualizado en formato **JSON** y la id correspondiente a ese elemento, estos 2 elementos serán enviados a **Firebase** a través de una petición **"PUT"**. La url correspondiente estará formada de la siguiente manera:  
   ``url/nameOfCollection/idOfElement.json``  
