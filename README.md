@@ -784,7 +784,7 @@ Por último en el método que se ejecuta cuando se envía el formulario, irá lo
 
 
 #### DELETE  
-  _**[Commit 809cc90]()**_  
+  _**[Commit 809cc90](https://github.com/Indenaiten/Evidencias-Angular/tree/809cc90cce856952f8312908cf80a5b7567266f7)**_  
 
 Para borrar datos, crearemos un método que va a recibir como parámetro la id correspondiente a ese elemento, éste elemento será enviado a **Firebase** a través de una petición **"DELETE"**. La url correspondiente estará formada de la siguiente manera:  
   ``url/nameOfCollection/idOfElement.json``  
