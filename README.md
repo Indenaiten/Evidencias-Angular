@@ -48,9 +48,9 @@ Estas evidencias estan creadas con las siguientes versiones de las herramientas 
     * [Validaciones HTML5 y Angular](https://github.com/Indenaiten/Evidencias-Angular#validaciones-html5-y-angular)  
     * [ReactiveForms](https://github.com/Indenaiten/Evidencias-Angular#reactive-forms)  
     * [Validaciones con Reactive Forms y Validators](https://github.com/Indenaiten/Evidencias-Angular#validaciones-con-reactive-forms-y-validators)  
-  * [013 - Configurar la base de datos de Firebase]()  
-  * [014 - Hacer un C.R.U.D. con Firebase]()  
-    * [POST]()
+  * [013 - Configurar la base de datos de Firebase](https://github.com/Indenaiten/Evidencias-Angular#013---configurar-la-base-de-datos-de-firebase)  
+  * [014 - Hacer un C.R.U.D. con Firebase](https://github.com/Indenaiten/Evidencias-Angular#014---hacer-un-crud-con-firebase)  
+    * [POST](https://github.com/Indenaiten/Evidencias-Angular#post)
 
 
 
@@ -554,17 +554,17 @@ Por último, para visualizar los cambios en el HTML necesitaremos añadir un "_*
   _**[Commit 6cd7e30](https://github.com/Indenaiten/Evidencias-Angular/tree/6cd7e30d66cf90ca7bb559a0961588a7ce1da59a)**_  
 
 Nos dirigimos a (https://firebase.google.com)[https://firebase.google.com]. Una vez allí nos dirigimos a la opción **"ir a la consola"** y en la pantalla resultante le damos a **"añadir proyecto"**.  
-![013-001]()
-![013-002]()  
-En la ventana emergente establecemos el nombre y la ubicación del proyecto, aceptamos las condiciones y creamos el proyecto.
-![013-003]()
-![013-004]()
-Con el proyecto creado y dentro de él, abrimos la opción **"database"** y creamos la base de datos (_**"Realtime Database"**_) y establecemos las reglas en modo de prueba ( **para el curso** ).
-![013-005]()
-![013-006]()  
+![013-001](https://github.com/Indenaiten/Evidencias-Angular/blob/master/img/013-001.PNG)
+![013-002](https://github.com/Indenaiten/Evidencias-Angular/blob/master/img/013-002.PNG)  
+En la ventana emergente establecemos el nombre y la ubicación del proyecto, aceptamos las condiciones y creamos el proyecto.  
+![013-003](https://github.com/Indenaiten/Evidencias-Angular/blob/master/img/013-003.PNG)
+![013-004](https://github.com/Indenaiten/Evidencias-Angular/blob/master/img/013-004.PNG)  
+Con el proyecto creado y dentro de él, abrimos la opción **"database"** y creamos la base de datos (_**"Realtime Database"**_) y establecemos las reglas en modo de prueba ( **para el curso** ).  
+![013-005](https://github.com/Indenaiten/Evidencias-Angular/blob/master/img/013-005.PNG)
+![013-006](https://github.com/Indenaiten/Evidencias-Angular/blob/master/img/013-006.PNG)  
 Ya tenemos configurada nuestra base de datos de **Firebase**.
 El link que aparece donde la pestaña **"datos"** dentro de nuesta base de datos, es la direccion de nuestra base de datos.  
-![013-007]()
+![013-007](https://github.com/Indenaiten/Evidencias-Angular/blob/master/img/013-007.PNG)  
 
 
 
