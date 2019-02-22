@@ -551,7 +551,68 @@ Si queremos que por ejemplo, un par de campos númericos, cuando el usuario los 
   ~~~  
 
 Por último, para visualizar los cambios en el HTML necesitaremos añadir un "_**ngModel**_" al campo correspondiente.  
-  `` [(ngModel)]="nameOfObjectToVinculateForm.value.nameOfField6"``  
+  `` [(ngModel)]="nameOfObjectToVinculateForm.value.nameOfField6"``
+
+Para mostrar mensajes personalizados de error según la validación crearemos 2 atributos en el componente.  
+  _**[Commit e33648a](https://github.com/Indenaiten/Evidencias-Angular/tree/e33648a1d8b91b9a71ae06f0182242e850dce7be/appFinal/src/app/components/auth/registro)**_
+  ~~~
+  public erroresForm:any = {
+    'email': '',
+    'password': ''
+  }
+
+  public msgValidation:any = {
+    'email': {
+      'required': "Email Obligatorio",
+      'email': "Introuzca un email correcto"
+    },
+
+    'password': {
+      'required': "Contraseña obligatoria",
+      'pattern': "La contraseña debe tener al menos un número y una letra",
+      'minlength': "y más de 6 caracteres"
+    }
+  }
+  ~~~  
+
+Creamos el siguiente método:  
+  ~~~
+  public onValueChanged( data?:any ){
+    //CHECK IF EXISTS A FORM
+    if( !this.registroForm ){ return; }
+
+    //GET FORM
+    var form = this.registroForm;
+
+    //BROWSE erroresForm
+    for( var field in this.erroresForm ){
+      //CLEAR FIELD
+      this.erroresForm[ field ] = '';
+
+      //GET FIELD OF FORM
+      var control = form.get( field );
+
+      //CHECK IF EXISTS AND IT'S CORRECT
+      if( control && control.dirty && !control.valid ){
+        //GET MESSAGE OF VALIDATION
+        var msgs = this.msgValidation[ field ];
+
+        //BROWSE ERROR OF FIELD
+        for( var key in control.errors ){
+          //SET MESSAGES OF VALIDATION IN erroresForm
+          this.erroresForm[ field ] += msgs[ key ] + " ";
+        }
+      }
+    }
+  }
+  ~~~  
+
+Ahora en el método _**"ngOnInit()"**_ añadimos el siguiente código:  
+  ~~~
+  //SET MESSAGES OF ERROR WHEN VALUES CHANGED
+  this.registroForm.valueChanges.subscribe( ( data ) => this.onValueChanged( data ) );
+  this.onValueChanged(); //CLEAR MESSAGES
+  ~~~  
 
 
 
