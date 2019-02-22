@@ -54,8 +54,8 @@ Estas evidencias estan creadas con las siguientes versiones de las herramientas 
     * [GET](https://github.com/Indenaiten/Evidencias-Angular#get)  
     * [PUT](https://github.com/Indenaiten/Evidencias-Angular#put)  
     * [DELETE](https://github.com/Indenaiten/Evidencias-Angular#delete)  
-  * [015 - Authenticación]()  
-    * [Registro de Usuarios mediante email/contraseña]()  
+  * [015 - Authenticación](https://github.com/Indenaiten/Evidencias-Angular#015---authenticaci%C3%B3n)  
+    * [Registro de Usuarios mediante email/contraseña](https://github.com/Indenaiten/Evidencias-Angular#registro-de-usuarios-mediante-emailcontrase%C3%B1a)  
 
 
 
