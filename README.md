@@ -54,6 +54,8 @@ Estas evidencias estan creadas con las siguientes versiones de las herramientas 
     * [GET](https://github.com/Indenaiten/Evidencias-Angular#get)  
     * [PUT](https://github.com/Indenaiten/Evidencias-Angular#put)  
     * [DELETE](https://github.com/Indenaiten/Evidencias-Angular#delete)  
+  * [015 - Authenticación]()  
+    * [Registro de Usuarios mediante email/contraseña]()  
 
 
 
@@ -804,5 +806,73 @@ El método del servicio se verá algo así:
         //RETURN
         return response;
       }));
+  }
+  ~~~  
+
+
+
+### 015 - Authenticación  
+  _**[Commit 5af7229](https://github.com/Indenaiten/Evidencias-Angular/tree/5af7229a5449cb6fccb29277b9d26b2961aa3a32)**_  
+
+Para poder establecer un authenticación con usuarios guardados en nuestra base de datos de **Firebase**, necesitaremos configurar nuestro método de inicio de sesión en **Firebase**.  
+Esta configuración la haremos en el apartado _**"Authentication"**_, y en la pantalla resultante, en la pestaña _**"Método de Inicio de Sesión"**_.  
+
+  ![015-001](https://github.com/Indenaiten/Evidencias-Angular/blob/master/img/015-001.PNG)  
+
+  ![015-002](https://github.com/Indenaiten/Evidencias-Angular/blob/master/img/015-002.PNG)  
+
+
+Ahora, elegimos nuestro método o métodos de inicio de sesión (en nuestro caso elegiremos sólamente el de **"Correo electrónico/contraseña"**). Lo editamos, y lo habilitamos.  
+
+  ![015-003](https://github.com/Indenaiten/Evidencias-Angular/blob/master/img/015-003.PNG)  
+
+
+A partir de ahora, todos los usuarios registrados mediante **"Correo electrónico/contraseña"** nos aparecerán en la pestaña _**"Usuarios"**_.  
+
+  ![015-004](https://github.com/Indenaiten/Evidencias-Angular/blob/master/img/015-004.PNG)  
+
+
+Una vez configurado nuestro método de inicio de sesión en **Firebase** crearemos nuestro servicio de autenticación e instalaremos el módulo de **Firebase** mediante el siguiente comando.  
+  ``npm install firebase angularfire2 --save``  
+
+Ya instalado el módulo de **Firebase**, en el servicio de autenticación realizaremos el siguiente _**"import"**_:  
+  ``import * as firebase from 'firebase';``  
+
+Nos dirigimos al componente _**"app.component.ts"**_ y en ella importamos **Firebase** y la clase _**"OnInit"**_.  
+  ``import { Component, OnInit } from '@angular/core';``  
+  ``import * as firebase from 'firebase';``  
+
+Una vez habiendo echo los _**"imports"**_, hacemos que la clase _**"AppComponent"**_ implement la clase _**"OnInit"**_.  
+Creamos el método correspondiente de la clase _**"OnInit"**_ y dentro inicializamos al app de _**"Firebase"**_ con la configuración de nuestro firebase.  
+  ~~~
+  public ngOnInit():void{
+    //INITIALIZE FIREBASE APP
+    firebase.initializeApp({
+      apiKey: "PIzaSzDgHvUfiNzGB3taStV8MG9SBvADuzeb808",
+      authDomain: "nameOfProject-e1b05.firebaseapp.com",
+    });
+  }
+  ~~~  
+
+La configuración se encuentra en el apartado de _**"Autenticatión"**_, en _**"Configuración Web"**_.  
+
+  ![015-005](https://github.com/Indenaiten/Evidencias-Angular/blob/master/img/015-005.PNG)  
+
+  ![015-006](https://github.com/Indenaiten/Evidencias-Angular/blob/master/img/015-006.PNG)  
+
+
+
+#### Registro de Usuarios mediante email/contraseña  
+  _**[Commit 5af7229](https://github.com/Indenaiten/Evidencias-Angular/tree/5af7229a5449cb6fccb29277b9d26b2961aa3a32)**_  
+
+Crearemos en el servicio de autentificación el método para guardar un usuario en **Firebase** que se va autenticar mediante email y passowrd:  
+  ~~~
+  public registerUser( userData:any ):void{
+    //REGISTER
+    firebase.auth().createUserWithEmailAndPassword( userData.email, userData.password )
+      .catch( ( error ) => {
+        //SHOW IN CONSOLE
+        console.log( error );
+      });
   }
   ~~~  
