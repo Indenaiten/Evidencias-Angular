@@ -57,6 +57,7 @@ Estas evidencias estan creadas con las siguientes versiones de las herramientas 
   * [015 - Authenticación](https://github.com/Indenaiten/Evidencias-Angular#015---authenticaci%C3%B3n)  
     * [Registro de Usuarios mediante email/contraseña](https://github.com/Indenaiten/Evidencias-Angular#registro-de-usuarios-mediante-emailcontrase%C3%B1a)  
     * [Login de Usuarios mediante email/contraseña](https://github.com/Indenaiten/Evidencias-Angular#login-de-usuarios-mediante-emailcontrase%C3%B1a)  
+    * [Comprobar si el usuario esta autentificado]()  
 
 
 
@@ -961,3 +962,26 @@ Crearemos en el servicio de autentificación el método para autentificar a un u
     });
   }
   ~~~  
+
+
+
+#### Comprobar si el usuario esta autentificado
+  _**[Commit e6fa565]()**_  
+
+Para comprobar si el usuario esta autentificado, necesitaremos crear el siguiente método en el servicio de autentificación:  
+  ~~~
+  public iAuth():boolean{
+    //VARIABLES
+    var result:boolean = false;
+    var user:any = firebase.auth().currentUser; //GET AUTHENTICATED USER
+
+    //CHECK USER
+    if( user ){ //IF EXISTS THE USER
+      //SET result IN TRUE
+      result = true;
+    }
+
+    //RETURN RESULT
+    return result;
+  }
+  ~~~
