@@ -13,27 +13,27 @@
     <!-- LIST OF OPTIONS -->
     <ul class="navbar-nav mr-auto col-12 d-flex justify-content-end">
       <!-- INICIO OPTION -->
-      <li class="nav-item active" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <li class="nav-item active" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" *ngIf="isAuth()">
         <a class="nav-link" routerLink="/">Inicio</a>
       </li><!-- END OF INICIO OPTION -->
 
       <!-- PROVEEDORES OPTION -->
-      <li class="nav-item" routerLinkActive="active">
+      <li class="nav-item" routerLinkActive="active" *ngIf="isAuth()">
         <a class="nav-link" routerLink="/proveedores">Proveedores</a>
       </li><!-- END OF PROVEEDORES OPTION -->
 
       <!-- PRESUPUESTOS OPTION -->
-      <li class="nav-item" routerLinkActive="active">
+      <li class="nav-item" routerLinkActive="active" *ngIf="isAuth()">
         <a class="nav-link" routerLink="/presupuestos">Presupuestos</a>
       </li><!-- END OF PRESUPUESTOS OPTION -->
 
       <!-- LOGIN OPTION -->
-      <li class="nav-item" routerLinkActive="active">
+      <li class="nav-item" routerLinkActive="active" *ngIf="!isAuth()">
         <a class="nav-link" class="btn btn-primary" role="btn" style="margin-right: 10px;" routerLink="/login">Log in</a>
       </li><!-- END OF LOGIN OPTION -->
 
       <!-- REGISTRO OPTION -->
-      <li class="nav-item" routerLinkActive="active">
+      <li class="nav-item" routerLinkActive="active" *ngIf="!isAuth()">
         <a class="nav-link" class="btn btn-primary" role="btn" routerLink="/registro">Registro</a>
       </li><!-- END OF REGISTRO OPTION -->
     </ul><!-- END OF LIST OF OPTIONS -->

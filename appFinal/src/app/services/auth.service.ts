@@ -40,4 +40,20 @@ export class AuthService{
       console.log( error );
     });
   }//END OF LOGIN METHOD
+
+  //IS AUTH METHOD
+  public iAuth():boolean{
+    //VARIABLES
+    var result:boolean = false;
+    var user:any = firebase.auth().currentUser; //GET AUTHENTICATED USER
+
+    //CHECK USER
+    if( user ){ //IF EXISTS THE USER
+      //SET result IN TRUE
+      result = true;
+    }
+
+    //RETURN RESULT
+    return result;
+  }//END OF IS AUTH METHOD
 }//END OF AUTH SERVICE
