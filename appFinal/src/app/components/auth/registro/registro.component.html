@@ -1,0 +1,45 @@
+<!-- CONTENT OF SECTION -->
+<div class="row">
+  <!-- LEFT SIDE -->
+  <div class="col col-md left side">
+
+  </div><!-- END OF LEFT SIDE -->
+
+  <!-- CENTER SIDE -->
+  <div class="col-10 col-md-6 center side">
+    <!-- FORM TO REGISTER -->
+    <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+      <!-- TITLE OF FORM -->
+      <h4>Registro</h4>
+
+      <!-- FIELD OF EMAIL -->
+      <div class="form-group">
+        <!-- NAME -->
+        <label for="inputEmail">*Email</label>
+
+        <!-- INPUT -->
+        <input type="mail" class="form-control" id="inputEmail" autofocus formControlName="email"/>
+      </div><!-- END OF FIELD OF EMAIL -->
+
+      <!-- FIELD OF PASSWORD -->
+      <div class="form-group">
+        <!-- NAME -->
+        <label for="inputPassword">*Password</label>
+
+        <!-- INPUT -->
+        <input type="password" class="form-control" id="inputPassword" formControlName="password"/>
+      </div><!-- END OF FIELD OF PASSWORD -->
+
+      <!-- LINE -->
+      <hr/>
+
+      <!-- SUBMIT BUTTON -->
+      <button type="submit" class="btn btn-primary">Registrar</button>
+    </form><!-- END OF FORM TO REGISTER -->
+  </div><!-- END OF CENTER SIDE -->
+
+  <!-- RIGHT SIDE -->
+  <div class="col col-md right side">
+
+  </div><!-- END OF RIGHT SIDE -->
+</div><!-- END OF CONTENT OF SECTION -->

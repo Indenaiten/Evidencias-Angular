@@ -1,5 +1,6 @@
 //IMPORTS
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import * as firebase from 'firebase';
 
 //APP COMPONENT
 @Component({
@@ -7,6 +8,16 @@ import { Component } from '@angular/core';
   templateUrl: "./app.component.html", //NAME OF TEMPLATE OF COMPONENT
   styleUrls: [ "./app.component.css" ] //NAMES OF STYLESHEETS OF COMPONENT
 })
-export class AppComponent{
-  //public title:string = "Curso Definitivo de Angular";
+export class AppComponent implements OnInit{
+  //ATTRIBUTES
+
+  //METHODS
+  //INIT METHOD
+  public ngOnInit():void{
+    //INITIALIZE FIREBASE APP
+    firebase.initializeApp({
+      apiKey: "AIzaSyDgHvUfinzGB3raStV3MG9SBvADizzbs78",
+      authDomain: "comprasapp-e1b05.firebaseapp.com",
+    });
+  }//END OF INIT METHOD
 }//END OF APP COMPONENT

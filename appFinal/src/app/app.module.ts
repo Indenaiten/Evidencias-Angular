@@ -15,10 +15,12 @@ import { AddProveedorComponent } from './components/proveedores/add-proveedor/ad
 import { AddPresupuestoComponent } from './components/presupuestos/add-presupuesto/add-presupuesto.component';
 import { PresupuestosComponent } from './components/presupuestos/presupuestos/presupuestos.component';
 import { EditPresupuestoComponent } from './components/presupuestos/edit-presupuesto/edit-presupuesto.component';
+import { RegistroComponent } from './components/auth/registro/registro.component';
 
 //SERVICES
 import { ProveedoresService } from './services/proveedores.service';
 import { PresupuestosService } from './services/presupuestos.service';
+import { AuthService } from './services/auth.service';
 
 //ROUTES
 const routes:Routes = [
@@ -28,6 +30,7 @@ const routes:Routes = [
   { path: 'presupuestos', component: PresupuestosComponent },
   { path: 'addpres', component: AddPresupuestoComponent },
   { path: 'editpres/:id', component: EditPresupuestoComponent },
+  { path: 'registro', component: RegistroComponent },
   { path: '**', component: InicioComponent } //** SIGNIFICA CUALQUIER PÁGINA QUE NO EXISTA
 ];
 
@@ -41,7 +44,8 @@ const routes:Routes = [
     AddProveedorComponent,
     AddPresupuestoComponent,
     PresupuestosComponent,
-    EditPresupuestoComponent
+    EditPresupuestoComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +56,8 @@ const routes:Routes = [
   ],
   providers: [
     ProveedoresService,
-    PresupuestosService
+    PresupuestosService,
+    AuthService
   ],
   bootstrap: [ AppComponent ]
 })
