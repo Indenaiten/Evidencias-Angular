@@ -17,8 +17,15 @@
         <!-- NAME -->
         <label for="inputEmail">*Email</label>
 
+        <!-- ICONS OF VALIDATE -->
+        <i class="fa fa-check-circle check" *ngIf="registroForm.controls.email.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck" *ngIf="registroForm.controls.email.invalid && registroForm.controls.email.touched"></i>
+
         <!-- INPUT -->
         <input type="mail" class="form-control" id="inputEmail" autofocus formControlName="email"/>
+
+        <!-- MESSAGE OF ERROR -->
+        <p class="alert alert-danger" *ngIf="erroresForm.email">{{ erroresForm.email }}</p>
       </div><!-- END OF FIELD OF EMAIL -->
 
       <!-- FIELD OF PASSWORD -->
@@ -26,15 +33,22 @@
         <!-- NAME -->
         <label for="inputPassword">*Password</label>
 
+        <!-- ICONS OF VALIDATE -->
+        <i class="fa fa-check-circle check" *ngIf="registroForm.controls.password.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck" *ngIf="registroForm.controls.password.invalid && registroForm.controls.password.touched"></i>
+
         <!-- INPUT -->
         <input type="password" class="form-control" id="inputPassword" formControlName="password"/>
+
+        <!-- MESSAGE OF ERROR -->
+        <p class="alert alert-danger" *ngIf="erroresForm.password">{{ erroresForm.password }}</p>
       </div><!-- END OF FIELD OF PASSWORD -->
 
       <!-- LINE -->
       <hr/>
 
       <!-- SUBMIT BUTTON -->
-      <button type="submit" class="btn btn-primary">Registrar</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!registroForm.valid">Registrar</button>
     </form><!-- END OF FORM TO REGISTER -->
   </div><!-- END OF CENTER SIDE -->
 
