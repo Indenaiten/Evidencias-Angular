@@ -56,6 +56,7 @@ Estas evidencias estan creadas con las siguientes versiones de las herramientas 
     * [DELETE](https://github.com/Indenaiten/Evidencias-Angular#delete)  
   * [015 - Authenticación](https://github.com/Indenaiten/Evidencias-Angular#015---authenticaci%C3%B3n)  
     * [Registro de Usuarios mediante email/contraseña](https://github.com/Indenaiten/Evidencias-Angular#registro-de-usuarios-mediante-emailcontrase%C3%B1a)  
+    * [Login de Usuarios mediante email/contraseña](https://github.com/Indenaiten/Evidencias-Angular#login-de-usuarios-mediante-emailcontrase%C3%B1a)  
 
 
 
@@ -935,5 +936,28 @@ Crearemos en el servicio de autentificación el método para guardar un usuario 
         //SHOW IN CONSOLE
         console.log( error );
       });
+  }
+  ~~~  
+
+
+
+#### Login de Usuarios mediante email/contraseña  
+  _**[Commit c5d112b]()**_  
+
+Crearemos en el servicio de autentificación el método para autentificar a un usuario de **Firebase** mediante email y passowrd:
+  ~~~
+  public login( userData:any ){
+    //AUTHENTICATE USER FROM FIREBASE
+    firebase.auth().signInWithEmailAndPassword( userData.email, userData.password )
+    .then( ( response ) => {
+      //SHOW IN CONSOLE
+      console.log( "SERVICIO" );
+      console.log( response );
+    })
+    .catch( ( error ) => {
+      //SHOW IN CONSOLE
+      console.log( "SERVICIO" );
+      console.log( error );
+    });
   }
   ~~~  
