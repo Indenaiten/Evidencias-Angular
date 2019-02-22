@@ -4,15 +4,15 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
-//REGISTRO COMPONENT
+//LOGIN COMPONENT
 @Component({
-  selector: "app-registro", //NAME OF COMPONENT
-  templateUrl: "./registro.component.html", //NAME OF TEMPLATE OF COMPONENT
-  styleUrls: [ "./registro.component.css" ] //NAMES OF STYLESHEET OF COMPONENT
+  selector: "app-login", //NAME OF COMPONENT
+  templateUrl: "./login.component.html", //NAME OF TEMPLATE OF COMPONENT
+  styleUrls: [ "./login.component.css" ] //NAMES OF STYLESHEETS OF COMPONENT
 })
-export class RegistroComponent implements OnInit{
+export class LoginComponent implements OnInit{
   //ATTRIBUTES
-  public registroForm:FormGroup;
+  public loginForm:FormGroup;
   public userData:any
   public erroresForm:any = {
     'email': '',
@@ -26,9 +26,7 @@ export class RegistroComponent implements OnInit{
     },
 
     'password': {
-      'required': "Contraseña obligatoria",
-      'pattern': "La contraseña debe tener al menos un número y una letra",
-      'minlength': "y más de 6 caracteres"
+      'required': "Contraseña obligatoria"
     }
   }
 
@@ -46,13 +44,13 @@ export class RegistroComponent implements OnInit{
   //INIT METHOD
   public ngOnInit():void{
     //CREATE FORM GROUP
-    this.registroForm = this.formBuilder.group({
+    this.loginForm = this.formBuilder.group({
       'email': [ '', [ Validators.required, Validators.email ] ],
-      'password': [ '', [ Validators.required, Validators.pattern( "^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$" ), Validators.minLength( 6 ) ] ]
+      'password': [ '', [ Validators.required ] ]
     });
 
     //SET MESSAGES OF ERROR WHEN VALUES CHANGED
-    this.registroForm.valueChanges.subscribe( ( data ) => this.onValueChanged( data ) );
+    this.loginForm.valueChanges.subscribe( ( data ) => this.onValueChanged( data ) );
     this.onValueChanged(); //CLEAR MESSAGES
   }//END OF INIT METHOD
 
@@ -60,12 +58,12 @@ export class RegistroComponent implements OnInit{
   public onSubmit():void{
     //CREATE USER DATA
     this.userData = {
-      email: this.registroForm.get( "email" ).value,
-      password: this.registroForm.get( "password" ).value
+      email: this.loginForm.get( "email" ).value,
+      password: this.loginForm.get( "password" ).value
     };
 
-    //REGISTER USER IN FIREBASE
-    this.authService.registerUser( this.userData );
+    //AUTHENTICATE USER FROM FIREBASE
+    this.authService.login( this.userData );
 
     //REDIRECT TO HOME
     this.router.navigate([ "/" ]);
@@ -74,10 +72,10 @@ export class RegistroComponent implements OnInit{
   //ON VALUE CHANGED
   public onValueChanged( data?:any ){
     //CHECK IF EXISTS A FORM
-    if( !this.registroForm ){ return; }
+    if( !this.loginForm ){ return; }
 
     //GET FORM
-    var form = this.registroForm;
+    var form = this.loginForm;
 
     //BROWSE erroresForm
     for( var field in this.erroresForm ){
@@ -100,4 +98,4 @@ export class RegistroComponent implements OnInit{
       }
     }
   }//END OF ON VALUE CHANGED
-}//END OF REGISTRO COMPONENT
+}//END OF LOGIN COMPONENT

@@ -1,0 +1,59 @@
+<!-- CONTENT OF SECTION -->
+<div class="row">
+  <!-- LEFT SIDE -->
+  <div class="col col-md left side">
+
+  </div><!-- END OF LEFT SIDE -->
+
+  <!-- CENTER SIDE -->
+  <div class="col-10 col-md-6 center side">
+    <!-- FORM TO LOGIN -->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <!-- TITLE OF FORM -->
+      <h4>Log In</h4>
+
+      <!-- FIELD OF EMAIL -->
+      <div class="form-group">
+        <!-- NAME -->
+        <label for="inputEmail">*Email</label>
+
+        <!-- ICONS OF VALIDATE -->
+        <i class="fa fa-check-circle check" *ngIf="loginForm.controls.email.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck" *ngIf="loginForm.controls.email.invalid && loginForm.controls.email.touched"></i>
+
+        <!-- INPUT -->
+        <input type="mail" class="form-control" id="inputEmail" autofocus formControlName="email"/>
+
+        <!-- MESSAGE OF ERROR -->
+        <p class="alert alert-danger" *ngIf="erroresForm.email">{{ erroresForm.email }}</p>
+      </div><!-- END OF FIELD OF EMAIL -->
+
+      <!-- FIELD OF PASSWORD -->
+      <div class="form-group">
+        <!-- NAME -->
+        <label for="inputPassword">*Password</label>
+
+        <!-- ICONS OF VALIDATE -->
+        <i class="fa fa-check-circle check" *ngIf="loginForm.controls.password.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck" *ngIf="loginForm.controls.password.invalid && loginForm.controls.password.touched"></i>
+
+        <!-- INPUT -->
+        <input type="password" class="form-control" id="inputPassword" formControlName="password"/>
+
+        <!-- MESSAGE OF ERROR -->
+        <p class="alert alert-danger" *ngIf="erroresForm.password">{{ erroresForm.password }}</p>
+      </div><!-- END OF FIELD OF PASSWORD -->
+
+      <!-- LINE -->
+      <hr/>
+
+      <!-- SUBMIT BUTTON -->
+      <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Log In</button>
+    </form><!-- END OF FORM TO LOGIN -->
+  </div><!-- END OF CENTER SIDE -->
+
+  <!-- RIGHT SIDE -->
+  <div class="col col-md right side">
+
+  </div><!-- END OF RIGHT SIDE -->
+</div><!-- END OF CONTENT OF SECTION -->

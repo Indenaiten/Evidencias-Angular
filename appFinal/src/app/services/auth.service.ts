@@ -24,4 +24,20 @@ export class AuthService{
         console.log( error );
       });
   }//END OF REGISTER USER METHOD
+
+  //LOGIN METHOD
+  public login( userData:any ){
+    //AUTHENTICATE USER FROM FIREBASE
+    firebase.auth().signInWithEmailAndPassword( userData.email, userData.password )
+    .then( ( response ) => {
+      //SHOW IN CONSOLE
+      console.log( "SERVICIO" );
+      console.log( response );
+    })
+    .catch( ( error ) => {
+      //SHOW IN CONSOLE
+      console.log( "SERVICIO" );
+      console.log( error );
+    });
+  }//END OF LOGIN METHOD
 }//END OF AUTH SERVICE
