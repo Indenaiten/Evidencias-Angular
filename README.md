@@ -57,7 +57,7 @@ Estas evidencias estan creadas con las siguientes versiones de las herramientas 
   * [015 - Authenticación](https://github.com/Indenaiten/Evidencias-Angular#015---authenticaci%C3%B3n)  
     * [Registro de Usuarios mediante email/contraseña](https://github.com/Indenaiten/Evidencias-Angular#registro-de-usuarios-mediante-emailcontrase%C3%B1a)  
     * [Login de Usuarios mediante email/contraseña](https://github.com/Indenaiten/Evidencias-Angular#login-de-usuarios-mediante-emailcontrase%C3%B1a)  
-    * [Comprobar si el usuario esta autentificado]()  
+    * [Comprobar si el usuario esta autentificado](https://github.com/Indenaiten/Evidencias-Angular#comprobar-si-el-usuario-esta-autentificado)  
 
 
 
@@ -966,7 +966,7 @@ Crearemos en el servicio de autentificación el método para autentificar a un u
 
 
 #### Comprobar si el usuario esta autentificado
-  _**[Commit e6fa565]()**_  
+  _**[Commit e6fa565](https://github.com/Indenaiten/Evidencias-Angular/blob/e6fa5657ddbf5f4ca55b908f0ff27e1a17b76a61/appFinal/src/app/services/auth.service.ts)**_  
 
 Para comprobar si el usuario esta autentificado, necesitaremos crear el siguiente método en el servicio de autentificación:  
   ~~~
