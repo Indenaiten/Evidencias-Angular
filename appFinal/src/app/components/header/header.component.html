@@ -27,6 +27,11 @@
         <a class="nav-link" routerLink="/presupuestos">Presupuestos</a>
       </li><!-- END OF PRESUPUESTOS OPTION -->
 
+      <!-- LOGOUT OPTION -->
+      <li class="nav-item" routerLinkActive="active" *ngIf="isAuth()">
+        <button class="nav-link" class="btn btn-primary" style="margin-right: 10px;" (click)="logout()">Log out</button>
+      </li><!-- END OF LOGOUT OPTION -->
+
       <!-- LOGIN OPTION -->
       <li class="nav-item" routerLinkActive="active" *ngIf="!isAuth()">
         <a class="nav-link" class="btn btn-primary" role="btn" style="margin-right: 10px;" routerLink="/login">Log in</a>

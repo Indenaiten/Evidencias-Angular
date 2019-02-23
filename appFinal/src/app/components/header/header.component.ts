@@ -1,6 +1,7 @@
 //IMPORTS
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 //HEADER COMPONENT
 @Component({
@@ -14,7 +15,8 @@ export class HeaderComponent implements OnInit{
   //METHODS
   //CONSTRUCT
   public constructor(
-    private authService:AuthService
+    private authService:AuthService,
+    private router:Router
   ){
 
   }//END OF CONSTRUCT
@@ -29,4 +31,13 @@ export class HeaderComponent implements OnInit{
     //RETURN RESULT
     return this.authService.iAuth();
   }//END OF IS AUTH METHOD
+
+  //IS LOGOUT METHOD
+  public logout():void{
+    //LOGOUT
+    this.authService.logout();
+
+    //REDIRECT TO INDEX
+    this.router.navigate([ "/" ]);
+  }//END OF IS LOGOUT METHOD
 }//END OF HEADER COMPONENT

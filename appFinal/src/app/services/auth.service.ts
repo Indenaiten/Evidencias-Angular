@@ -56,4 +56,10 @@ export class AuthService{
     //RETURN RESULT
     return result;
   }//END OF IS AUTH METHOD
+
+  //LOGOUT METHOD
+  public logout():void{
+    //LOGOUT
+    firebase.auth().signOut();
+  }//END OF LOGOUT METHOD
 }//END OF AUTH SERVICE
