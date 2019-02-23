@@ -59,6 +59,7 @@ Estas evidencias estan creadas con las siguientes versiones de las herramientas 
     * [Login de Usuarios mediante email/contraseña](https://github.com/Indenaiten/Evidencias-Angular#login-de-usuarios-mediante-emailcontrase%C3%B1a---índice)  
     * [Comprobar si el usuario esta autentificado](https://github.com/Indenaiten/Evidencias-Angular#comprobar-si-el-usuario-esta-autentificado---índice)  
     * [Desloguearse](https://github.com/Indenaiten/Evidencias-Angular#desloguearse---índice)  
+    * [Protección de las rutas]()
 
 
 
@@ -998,4 +999,20 @@ Para desloguearse, necesitaremos crear el siguiente método en el servicio de au
     //LOGOUT
     firebase.auth().signOut();
   }
+  ~~~  
+  
+  
+  
+#### Protección de las Rutas - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
+  _**[Commit ]()**_  
+  
+Para proteger nuestras rutas crearemos un nuevo servicio que implementará la clase _**"CanActivate"**_ (este servicio suele llamarse _**"GuardService"**_). Al implementar esta clase, tendremos que crear el método _**"canActivate()"**_ y en éste devolveremos si el usuario está autentificado o no.  
   ~~~
+  public canActivate(){
+    //RETURN
+    return this.authService.iAuth();
+  }
+  ~~~  
+  
+Ahora, en _**"app.module.ts"**_ protegeremos las rutas que queramos de la siguiente manera:  
+  ``{ path: 'ruta', component: NameOfComponent, canActivate: [GuardService] },``

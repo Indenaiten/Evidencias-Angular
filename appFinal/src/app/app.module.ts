@@ -22,15 +22,17 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { ProveedoresService } from './services/proveedores.service';
 import { PresupuestosService } from './services/presupuestos.service';
 import { AuthService } from './services/auth.service';
+import { GuardService } from './services/guard.service';
+
 
 //ROUTES
 const routes:Routes = [
   { path: '', component: InicioComponent },
-  { path: 'proveedores', component: ProveedoresComponent },
-  { path: 'addprovee', component: AddProveedorComponent },
-  { path: 'presupuestos', component: PresupuestosComponent },
-  { path: 'addpres', component: AddPresupuestoComponent },
-  { path: 'editpres/:id', component: EditPresupuestoComponent },
+  { path: 'proveedores', component: ProveedoresComponent, canActivate: [GuardService] },
+  { path: 'addprovee', component: AddProveedorComponent, canActivate: [GuardService] },
+  { path: 'presupuestos', component: PresupuestosComponent, canActivate: [GuardService] },
+  { path: 'addpres', component: AddPresupuestoComponent, canActivate: [GuardService] },
+  { path: 'editpres/:id', component: EditPresupuestoComponent, canActivate: [GuardService] },
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
   { path: '**', component: InicioComponent } //** SIGNIFICA CUALQUIER PÁGINA QUE NO EXISTA
@@ -60,7 +62,8 @@ const routes:Routes = [
   providers: [
     ProveedoresService,
     PresupuestosService,
-    AuthService
+    AuthService,
+    GuardService
   ],
   bootstrap: [ AppComponent ]
 })
