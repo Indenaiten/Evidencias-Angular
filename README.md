@@ -990,5 +990,12 @@ Para comprobar si el usuario esta autentificado, necesitaremos crear el siguient
   
   
 #### Desloguearse - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
-  _**[Commit ]()**_  
+  _**[Commit 961afd6](https://github.com/Indenaiten/Evidencias-Angular/tree/961afd6c20432a153fee7ef4eae1cc07eda1e8c8)**_  
   
+Para desloguearse, necesitaremos crear el siguiente método en el servicio de autentificación: 
+  ~~~
+  public logout():void{
+    //LOGOUT
+    firebase.auth().signOut();
+  }
+  ~~~
