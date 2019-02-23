@@ -58,11 +58,12 @@ Estas evidencias estan creadas con las siguientes versiones de las herramientas 
     * [Registro de Usuarios mediante email/contraseña](https://github.com/Indenaiten/Evidencias-Angular#registro-de-usuarios-mediante-emailcontrase%C3%B1a)  
     * [Login de Usuarios mediante email/contraseña](https://github.com/Indenaiten/Evidencias-Angular#login-de-usuarios-mediante-emailcontrase%C3%B1a)  
     * [Comprobar si el usuario esta autentificado](https://github.com/Indenaiten/Evidencias-Angular#comprobar-si-el-usuario-esta-autentificado)  
+    * [Desloguearse](https://github.com/Indenaiten/Evidencias-Angular#desloguearse)  
 
 
 
 
-### 001 - Herramientas necesarias
+### 001 - Herramientas necesarias - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
 1. Necesitaremos instalar **[NodeJs](https://nodejs.org/es/)**.  
 
     * Después de la instalación, comprobamos que este instalado **NodeJs** y **npm** ejecutando los siguientes comandos:  
@@ -101,7 +102,7 @@ Estas evidencias estan creadas con las siguientes versiones de las herramientas 
 
 
 
-### 002 - Generar un nuevo proyecto Angular
+### 002 - Generar un nuevo proyecto Angular - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
 _**[Commit a919576](https://github.com/Indenaiten/Evidencias-Angular/tree/a9195760086b8d688a7e91e9749dc21caeb4bd2f)**_
 
 Para **generar el cliente Angular**, abriremos la **terminal** y ejecutaremos el siguiente comando:  
@@ -123,7 +124,7 @@ Si lanzamos el siguiente comando, nos **lanzará la aplicación, además de abri
 
 
 
-### 003 - Crear un nuevo componente
+### 003 - Crear un nuevo componente - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
 _**[Commit 5666b18](https://github.com/Indenaiten/Evidencias-Angular/tree/5666b189d6e1e997f383852e4d5e1a59e847fb22)**_  
 _**[Commit 1a533b5](https://github.com/Indenaiten/Evidencias-Angular/tree/1a533b568a9c16571b7aed513edbeec646fe7cbe)**_
 
@@ -152,7 +153,7 @@ En la carpeta **"/assets"** van situados todos los **recursos globales** de nues
 
 
 
-### 004 - Data Binding
+### 004 - Data Binding - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
 _**[Commit c4aedf4](https://github.com/Indenaiten/Evidencias-Angular/tree/c4aedf4032bab4cc35b9182e2f59887c0615de6b)**_  
 _Enlazar datos en el componente_
 
@@ -163,7 +164,7 @@ Hay varias técnicas:
   4. **Two Way Binding**: De la fuente de datos a la vista y viceversa (_**Two Way Binding**_).  
 
 
-#### Interpolación
+#### Interpolación - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
 
 Para pasar datos por **interpolación**, tendremos los datos declarados en la clase del componente como atributos de ésta, y para acceder a ellos desde la vista utilizaremos la **sintaxis "mustache"**:  
   * **Dato simple**: ``{{ nameOfAttribute }}``  
@@ -171,13 +172,13 @@ Para pasar datos por **interpolación**, tendremos los datos declarados en la cl
   * **Método**: ``{{ nameOfMethod() }}``  
 
 
-#### Property Binding  
+#### Property Binding - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
 
 Para pasar datos por **property binding**, tendremos los datos declarados en la clase del componente como atributos de ésta, y para acceder a ellos desde la vista utilizaremos la siguiente sintaxis:  
   ``<input type="text" [placeholder]="nameOfAttribute"/>``  
 
 
-#### Event Binding
+#### Event Binding - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
 
 Sirve para **ejecutar un método** a partir de un **evento** en el **HTML**.  
   ~~~
@@ -185,7 +186,7 @@ Sirve para **ejecutar un método** a partir de un **evento** en el **HTML**.
   <h5 id="textEventBinding1">{{ text }}</h5>
   ~~~
 
-#### Two Way Binding
+#### Two Way Binding - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
 
 Sirve para enviar y recibir datos desde la fuente de datos a la vista y viceversa:
   ~~~
@@ -194,7 +195,7 @@ Sirve para enviar y recibir datos desde la fuente de datos a la vista y vicevers
   ~~~  
 
 
-### 005 - Algunas Directivas
+### 005 - Algunas Directivas - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
 
 Las directivas pueden ser de 3 tipos, _**componentes**_, _**estructurales**_ o de _**atributo**_.  
 
@@ -220,7 +221,7 @@ Las **directivas de atributo van entre corchetes "[]"**.
   ~~~  
 
 
-#### NgStyle _(Atributo)_  
+#### NgStyle _(Atributo)_ - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit a0022b4](https://github.com/Indenaiten/Evidencias-Angular/tree/a0022b44440c089c27d9597f9200d2b567ce69a6/appCurso/src/app/components/ej-directiva-ng-style)**_  
 
   ~~~
@@ -231,7 +232,7 @@ Las **directivas de atributo van entre corchetes "[]"**.
   ~~~  
 
 
-#### NgClass _(Atributo)_  
+#### NgClass _(Atributo)_ - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit fb21d68](https://github.com/Indenaiten/Evidencias-Angular/tree/fb21d6899cc4465209dd88ea14d20a9a7b8050e8/appCurso/src/app/components/ej-directiva-ng-class)**_  
 
   ~~~
@@ -239,7 +240,7 @@ Las **directivas de atributo van entre corchetes "[]"**.
   ~~~
 
 
-#### NgFor _(Estructural)_  
+#### NgFor _(Estructural)_ - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit ea767e9](https://github.com/Indenaiten/Evidencias-Angular/tree/ea767e921aebfa6ba428953f849d903497beaddb/appCurso/src/app/components/ej-directiva-ng-for)**_
 
   ~~~
@@ -269,7 +270,7 @@ Las **directivas de atributo van entre corchetes "[]"**.
   ~~~  
 
 
-#### NgSwitch
+#### NgSwitch - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit 6b4547a](https://github.com/Indenaiten/Evidencias-Angular/tree/6b4547ac52ab618a16fd1cc404fac1478e9a4e6a/appCurso/src/app/components/ej-directiva-ng-switch)**_  
 
   ~~~
@@ -281,7 +282,7 @@ Las **directivas de atributo van entre corchetes "[]"**.
   ~~~  
 
 
-### 006 - Crear Directivas
+### 006 - Crear Directivas - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit edbb929](https://github.com/Indenaiten/Evidencias-Angular/tree/edbb9294d99b08082425b29193f8be041e348a88)**_  
 
 Para crear una directiva ejecutaremos el siguiente comando:  
@@ -292,19 +293,19 @@ Para crear una directiva ejecutaremos el siguiente comando:
 **[Componente](https://github.com/Indenaiten/Evidencias-Angular/tree/edbb9294d99b08082425b29193f8be041e348a88/appCurso/src/app/components/ej-mi-directiva1)**  
 
 
-### 007 - Pasar datos entre componentes
-  #### @Input  
-   _**[Commit 6787852](https://github.com/Indenaiten/Evidencias-Angular/tree/678785294f58918128be145fe3601c554db41e1d/appCurso/src/app/components/data)**_  
+### 007 - Pasar datos entre componentes - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
+  #### @Input - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
+     _**[Commit 6787852](https://github.com/Indenaiten/Evidencias-Angular/tree/678785294f58918128be145fe3601c554db41e1d/appCurso/src/app/components/data)**_  
 
 
-  #### @Output  
-   _**[Commit ca5e5a3](https://github.com/Indenaiten/Evidencias-Angular/tree/ca5e5a3200028053cf1901fdee6dbf2a98fb6a2e/appCurso/src/app/components/data)**_  
+  #### @Output - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
+     _**[Commit ca5e5a3](https://github.com/Indenaiten/Evidencias-Angular/tree/ca5e5a3200028053cf1901fdee6dbf2a98fb6a2e/appCurso/src/app/components/data)**_  
 
 
 
-### 008 - Algunos Pipes  
+### 008 - Algunos Pipes - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
 
-#### Date
+#### Date - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit 0f0ea86](https://github.com/Indenaiten/Evidencias-Angular/tree/0f0ea86e707c6fbd1da251757ddb050bbd274af2/appCurso/src/app/components/pipes/date)**_  
 
   ~~~
@@ -312,7 +313,7 @@ Para crear una directiva ejecutaremos el siguiente comando:
   ~~~  
 
 
-#### Uppercase y Lowercase
+#### Uppercase y Lowercase - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit 52937f5](https://github.com/Indenaiten/Evidencias-Angular/tree/52937f5fb21c360a5343dcb8f727de0dd312e981/appCurso/src/app/components/pipes/upper-lower)**_  
 
   ~~~
@@ -320,7 +321,7 @@ Para crear una directiva ejecutaremos el siguiente comando:
   ~~~  
 
 
-#### Decimal
+#### Decimal - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit 2f5b0b3](https://github.com/Indenaiten/Evidencias-Angular/tree/2f5b0b30ace97d32e413a8d7c0890fbadf997bd4/appCurso/src/app/components/pipes/decimal)**_  
 
   ~~~
@@ -328,7 +329,7 @@ Para crear una directiva ejecutaremos el siguiente comando:
   ~~~  
 
 
-#### Currency
+#### Currency - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit cc9a2c2](https://github.com/Indenaiten/Evidencias-Angular/tree/cc9a2c23b9203e6e859703b3f4f15dd9c1ba4a30/appCurso/src/app/components/pipes/currency)**_  
 
   ~~~
@@ -336,7 +337,7 @@ Para crear una directiva ejecutaremos el siguiente comando:
   ~~~  
 
 
-#### i18nSelect
+#### i18nSelect - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit 86ef7d9](https://github.com/Indenaiten/Evidencias-Angular/tree/86ef7d909bc766c7033651a0b87ac9034923f8f1/appCurso/src/app/components/pipes/i18n-select)**_    
 
   ~~~
@@ -344,7 +345,7 @@ Para crear una directiva ejecutaremos el siguiente comando:
   ~~~  
 
 
-#### JSON  
+#### JSON - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit b7d33d1](https://github.com/Indenaiten/Evidencias-Angular/tree/b7d33d1c7b81a4a3f9afa7802b419d59b852863b/appCurso/src/app/components/pipes/json)**_    
 
   ~~~
@@ -352,7 +353,7 @@ Para crear una directiva ejecutaremos el siguiente comando:
   ~~~  
 
 
-### 009 - Crear Pipes
+### 009 - Crear Pipes - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit 8ba7630](https://github.com/Indenaiten/Evidencias-Angular/tree/8ba7630bb21fabca58dc452f7f27ae0c6c7dc566)**_  
 
 Para crear un pipe ejecutaremos el siguiente comando:  
@@ -363,7 +364,7 @@ Para crear un pipe ejecutaremos el siguiente comando:
 **[Componente](https://github.com/Indenaiten/Evidencias-Angular/tree/8ba7630bb21fabca58dc452f7f27ae0c6c7dc566/appCurso/src/app/components/pipes/custom-pipe)**  
 
 
-### 010 - Crear Servicios  
+### 010 - Crear Servicios - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit 71e33fe](https://github.com/Indenaiten/Evidencias-Angular/tree/71e33fe2f53084649c5003aeaabee5362126ff0e)**_  
   _**[Commit 680a8a2](https://github.com/Indenaiten/Evidencias-Angular/tree/680a8a2f2ba835f63cfd4ae0010cb6a758b4913f)**_
 
@@ -374,7 +375,7 @@ Para crear un servicio ejecutaremos el siguiente comando:
 Una vez generado, tendrémos que registrarlo en _**app.module.ts**_ en el array de _**providers**_.  
 
 
-### 011 - Routing  
+### 011 - Routing - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit 8ecc2b0](https://github.com/Indenaiten/Evidencias-Angular/tree/8ecc2b0b4d57c00c8ff218d11f495caa4d4d6110)**_  
 
 Para crear el _**routing**_ nos dirigiremos a _**app.module.ts**_ y allí importaremos los siguientes elementos:  
@@ -412,9 +413,9 @@ Ej.:
   ~~~  
 
 
-### 012 - Formularios  
+### 012 - Formularios - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
 
-#### FormsModule  
+#### FormsModule - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit 337806a](https://github.com/Indenaiten/Evidencias-Angular/tree/337806afcb600f0cba7453729e8ed15aedd67d7d)**_  
 
 Para utilizar el módulo de formularios de Angular, necesitaremos importar el siguiente módulo en el _**app.module.ts**_ y registrarlo en el array de imports.  
@@ -450,7 +451,7 @@ Una vez preparado todo esto, crearemos el método al que le especificamos al for
   ~~~  
 
 
-#### Validaciones HTML5 y Angular
+#### Validaciones HTML5 y Angular - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit 2a53e65](https://github.com/Indenaiten/Evidencias-Angular/tree/2a53e6596f424e26469fa09e31a094c15189a33b)**_   
   _**[Commit b1d6642](https://github.com/Indenaiten/Evidencias-Angular/tree/b1d6642cdc55d1c59f648fad2aae6ffc224e1528)**_  
 
@@ -469,7 +470,7 @@ Estos estados estan asociados con unas clases CSS de Angular, lo que nos permite
   ``ng-invalid``  
 
 
-#### Reactive Forms
+#### Reactive Forms - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit 4270ae4](https://github.com/Indenaiten/Evidencias-Angular/tree/4270ae40c63985f26a5dc0cc2220f7e976129d8d)**_  
 
 Esto es otra técnica para manipular formularios con Angular. Para poder trabajar con "_**ReactiveForms**_" necesitaremos ir a "_**app.module.ts**_" e importar el siguiente modulo y agregar la clase al array de "_**imports**_":  
@@ -618,7 +619,7 @@ Ahora en el método _**"ngOnInit()"**_ añadimos el siguiente código:
 
 
 
-### 013 - Configurar la base de datos de Firebase  
+### 013 - Configurar la base de datos de Firebase - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit 6cd7e30](https://github.com/Indenaiten/Evidencias-Angular/tree/6cd7e30d66cf90ca7bb559a0961588a7ce1da59a)**_  
 
 Nos dirigimos a [https://firebase.google.com](https://firebase.google.com). Una vez allí nos dirigimos a la opción **"ir a la consola"** y en la pantalla resultante le damos a **"añadir proyecto"**.  
@@ -649,7 +650,7 @@ El link que aparece donde la pestaña **"datos"** dentro de nuesta base de datos
 
 
 
-### 014 - Hacer un C.R.U.D. con Firebase  
+### 014 - Hacer un C.R.U.D. con Firebase - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit 6cd7e30](https://github.com/Indenaiten/Evidencias-Angular/blob/6cd7e30d66cf90ca7bb559a0961588a7ce1da59a/appFinal/src/app/app.module.ts)**_  
 
 Para poder hacer peticiones **http** necesitaremos importar en el archivo _**app.module.ts**_ los siguientes módulos:  
@@ -673,7 +674,7 @@ Por último, inyectamos en el constructor del servicio el objeto **HttpClient** 
 
 
 
-#### POST  
+#### POST - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit 6cd7e30](https://github.com/Indenaiten/Evidencias-Angular/blob/6cd7e30d66cf90ca7bb559a0961588a7ce1da59a/appFinal/src/app/services/presupuestos.service.ts)**_  
 
 Para guardar datos, crearemos un método que va a recibir un objeto **JSON** como parámetro (el objeto que queramos guardar).  
@@ -698,7 +699,7 @@ En el método convertimos el objeto a texto y creamos las cabeceras de la petici
 
 
 
-#### GET  
+#### GET - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit 58ad081](https://github.com/Indenaiten/Evidencias-Angular/tree/58ad08107ec8bea6a3488d5a5db926ed42f3e7ee)**_  
 
 Para recuperar datos, crearemos un método que va a retornarnos el resultado de la petición **"GET"**. Este resultado será una lista de objetos **"JSON"** de la colección de **Firebase** indicada.  
@@ -743,7 +744,7 @@ Para usar éste método recién creado en un componente, lo haremos de la siguie
 
 
 
-#### PUT  
+#### PUT - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit 5d37d4d](https://github.com/Indenaiten/Evidencias-Angular/tree/5d37d4d6c0acb9b4a258de83d0d68b06a38c6d69)**_  
 
 Para actualizar datos, crearemos un método que va a recibir como parametros el elemento actualizado en formato **JSON** y la id correspondiente a ese elemento, estos 2 elementos serán enviados a **Firebase** a través de una petición **"PUT"**. La url correspondiente estará formada de la siguiente manera:  
@@ -848,7 +849,7 @@ Por último en el método que se ejecuta cuando se envía el formulario, irá lo
 
 
 
-#### DELETE  
+#### DELETE - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit 809cc90](https://github.com/Indenaiten/Evidencias-Angular/tree/809cc90cce856952f8312908cf80a5b7567266f7)**_  
 
 Para borrar datos, crearemos un método que va a recibir como parámetro la id correspondiente a ese elemento, éste elemento será enviado a **Firebase** a través de una petición **"DELETE"**. La url correspondiente estará formada de la siguiente manera:  
@@ -874,7 +875,7 @@ El método del servicio se verá algo así:
 
 
 
-### 015 - Authenticación  
+### 015 - Authenticación - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit 5af7229](https://github.com/Indenaiten/Evidencias-Angular/tree/5af7229a5449cb6fccb29277b9d26b2961aa3a32)**_  
 
 Para poder establecer un authenticación con usuarios guardados en nuestra base de datos de **Firebase**, necesitaremos configurar nuestro método de inicio de sesión en **Firebase**.  
@@ -925,7 +926,7 @@ La configuración se encuentra en el apartado de _**"Autenticatión"**_, en _**"
 
 
 
-#### Registro de Usuarios mediante email/contraseña  
+#### Registro de Usuarios mediante email/contraseña - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit 5af7229](https://github.com/Indenaiten/Evidencias-Angular/tree/5af7229a5449cb6fccb29277b9d26b2961aa3a32)**_  
 
 Crearemos en el servicio de autentificación el método para guardar un usuario en **Firebase** que se va autenticar mediante email y passowrd:  
@@ -942,7 +943,7 @@ Crearemos en el servicio de autentificación el método para guardar un usuario 
 
 
 
-#### Login de Usuarios mediante email/contraseña  
+#### Login de Usuarios mediante email/contraseña - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit c5d112b](https://github.com/Indenaiten/Evidencias-Angular/tree/c5d112b49830e8b8e594f0e915dfb658d1c0db06)**_  
 
 Crearemos en el servicio de autentificación el método para autentificar a un usuario de **Firebase** mediante email y passowrd:
@@ -965,7 +966,7 @@ Crearemos en el servicio de autentificación el método para autentificar a un u
 
 
 
-#### Comprobar si el usuario esta autentificado
+#### Comprobar si el usuario esta autentificado - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit e6fa565](https://github.com/Indenaiten/Evidencias-Angular/blob/e6fa5657ddbf5f4ca55b908f0ff27e1a17b76a61/appFinal/src/app/services/auth.service.ts)**_  
 
 Para comprobar si el usuario esta autentificado, necesitaremos crear el siguiente método en el servicio de autentificación:  
@@ -984,4 +985,10 @@ Para comprobar si el usuario esta autentificado, necesitaremos crear el siguient
     //RETURN RESULT
     return result;
   }
-  ~~~
+  ~~~  
+  
+  
+  
+#### Desloguearse - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
+  _**[Commit ]()**_  
+  
