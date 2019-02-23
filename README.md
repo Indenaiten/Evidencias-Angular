@@ -59,7 +59,7 @@ Estas evidencias estan creadas con las siguientes versiones de las herramientas 
     * [Login de Usuarios mediante email/contraseña](https://github.com/Indenaiten/Evidencias-Angular#login-de-usuarios-mediante-emailcontrase%C3%B1a---índice)  
     * [Comprobar si el usuario esta autentificado](https://github.com/Indenaiten/Evidencias-Angular#comprobar-si-el-usuario-esta-autentificado---índice)  
     * [Desloguearse](https://github.com/Indenaiten/Evidencias-Angular#desloguearse---índice)  
-    * [Protección de las rutas]()
+    * [Protección de las rutas](https://github.com/Indenaiten/Evidencias-Angular#protecci%C3%B3n-de-las-rutas---%C3%ADndice)
 
 
 
@@ -1004,7 +1004,7 @@ Para desloguearse, necesitaremos crear el siguiente método en el servicio de au
   
   
 #### Protección de las Rutas - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
-  _**[Commit ]()**_  
+  _**[Commit be34979](https://github.com/Indenaiten/Evidencias-Angular/tree/be34979fdc3d50435b1eb758b7d584f14d1d636b)**_  
   
 Para proteger nuestras rutas crearemos un nuevo servicio que implementará la clase _**"CanActivate"**_ (este servicio suele llamarse _**"GuardService"**_). Al implementar esta clase, tendremos que crear el método _**"canActivate()"**_ y en éste devolveremos si el usuario está autentificado o no.  
   ~~~
