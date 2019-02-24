@@ -60,7 +60,7 @@ Estas evidencias estan creadas con las siguientes versiones de las herramientas 
     * [Comprobar si el usuario esta autentificado](https://github.com/Indenaiten/Evidencias-Angular#comprobar-si-el-usuario-esta-autentificado---índice)  
     * [Desloguearse](https://github.com/Indenaiten/Evidencias-Angular#desloguearse---índice)  
     * [Protección de las rutas](https://github.com/Indenaiten/Evidencias-Angular#protecci%C3%B3n-de-las-rutas---%C3%ADndice)  
-  * [016 - Crear un módulo]()
+  * [016 - Crear un módulo](https://github.com/Indenaiten/Evidencias-Angular#016---crear-un-m%C3%B3dulo)
 
 
 
@@ -1021,7 +1021,7 @@ Ahora, en _**"app.module.ts"**_ protegeremos las rutas que queramos de la siguie
   
   
 ### 016 - Crear un módulo  
-  _**[Commit ]()**_  
+  _**[Commit fd1a35a](https://github.com/Indenaiten/Evidencias-Angular/tree/fd1a35aed1d14bfc6520093781b47ac1508364ee)**_  
   
 Para crear un módulo, en nuestra terminal ejecutaremos el siguiente comando:  
   ``ng generate module nameOfModule``  
