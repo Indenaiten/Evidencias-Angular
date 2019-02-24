@@ -11,6 +11,7 @@ import { ProveedoresService } from '../../../services/proveedores.service';
 export class ProveedoresComponent implements OnInit{
   //ATTRIBUTES
   public proveedores:any[] = [];
+  public loading:boolean = true;
 
   //METHODS
   //CONSTRUCTOR
@@ -46,6 +47,9 @@ export class ProveedoresComponent implements OnInit{
           //SAVE PROVEEDOR IN ARRAY
           this.proveedores.push( proveedor );
         }
+
+        //SET LOADING IN FALSE
+        this.loading = false;
       });
   }//END OF GET PROVEEDORES METHOD
 

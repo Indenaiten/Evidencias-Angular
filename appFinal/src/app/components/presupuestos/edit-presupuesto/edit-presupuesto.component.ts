@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PresupuestosService } from '../../../services/presupuestos.service';
+import { ProveedoresService } from '../../../services/proveedores.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 //EDIT PRESUPUESTO COMPONENTº
@@ -14,6 +15,7 @@ export class EditPresupuestoComponent implements OnInit{
   //ATTRIBUTES
   public presupuestoForm:FormGroup;
   public presupuesto:any;
+  public proveedores:any[] = [];
   public iva:any = 0;
   public total:any = 0;
   public id:string;
@@ -23,6 +25,7 @@ export class EditPresupuestoComponent implements OnInit{
   public constructor(
     private pf:FormBuilder,
     private presupuestosService:PresupuestosService,
+    private proveedoresService:ProveedoresService,
     private router:Router,
     private activatedRoute:ActivatedRoute
   ){
@@ -42,6 +45,26 @@ export class EditPresupuestoComponent implements OnInit{
             //SAVE PRESUPUESTO
             this.presupuesto = response;
           });
+      });
+
+    //GET PROVEEDORES
+    this.proveedoresService.getProveedores()
+      .subscribe( ( response ) => {
+        //SHOW IN CONSOLE
+        console.log( "COMPONENT" );
+        console.log( response );
+
+        //BROWSE RESPONSE
+        for( var id in response ){
+          //GET PROVEEDOR
+          var proveedor = response[ id ];
+
+          //SET ID OF PROVEEDOR
+          proveedor.id = id;
+
+          //SAVE PROVEEDOR IN ARRAY
+          this.proveedores.push( proveedor );
+        }
       });
   }//END OF CONSTRUCT
 

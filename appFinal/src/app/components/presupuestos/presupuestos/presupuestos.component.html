@@ -6,8 +6,14 @@
 
 <br/>
 
+<!-- LOADING -->
+<div class="col-12 d-flex justify-content-center align-items-center" *ngIf="loading">
+  <!-- IMG -->
+  <img src="../../../../assets/img/spinner.gif" alt="Loaging"/>
+</div><!-- END OF LOADING -->
+
 <!-- TABLE OF PRESUPUESTOS -->
-<table class="table table-bordered table-striped" style="margin-top: 40px;">
+<table class="table table-bordered table-striped" style="margin-top: 40px;" *ngIf="!loading">
   <!-- HEAD OF TABLE -->
   <thead>
     <!-- ROW OF FILTERS -->

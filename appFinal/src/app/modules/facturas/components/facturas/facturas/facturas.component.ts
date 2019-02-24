@@ -11,6 +11,7 @@ import { FacturasService } from '../../../services/facturas.service';
 export class FacturasComponent implements OnInit{
 	//ATTRIBUTES
 	public facturas:any[] = [];
+	public loading:boolean = true;
 
 	//METHODS
 	//CONSTRUCT
@@ -19,6 +20,9 @@ export class FacturasComponent implements OnInit{
 	){
 		//GET FACTURAS
 		this.getFacturas();
+
+		//SET LOADING IN FALSE
+		this.loading = false;
 	}//END OF CONSTRUCT
 
 	//INIT METHOD

@@ -11,12 +11,16 @@ import { PresupuestosService } from '../../../services/presupuestos.service';
 export class PresupuestosComponent implements OnInit{
   //ATTRIBUTES
   public presupuestos:any[] = [];
+  public loading:boolean = true;
 
   //METHODS
   //CONSTRUCT
   public constructor( private presupuestosService:PresupuestosService ){
     //GET PRESUPUESTOS
     this.getPresupuestos();
+
+    //SET LOADING IN FALSE
+    this.loading = false;
   }//END OF CONSTRUCT
 
   //INIT METHOD
