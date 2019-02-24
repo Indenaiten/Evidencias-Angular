@@ -24,6 +24,8 @@ import { PresupuestosService } from './services/presupuestos.service';
 import { AuthService } from './services/auth.service';
 import { GuardService } from './services/guard.service';
 
+//MODULES
+import { FacturasModule } from './modules/facturas/facturas.module';
 
 //ROUTES
 const routes:Routes = [
@@ -57,7 +59,8 @@ const routes:Routes = [
     RouterModule.forRoot( routes ),
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FacturasModule
   ],
   providers: [
     ProveedoresService,

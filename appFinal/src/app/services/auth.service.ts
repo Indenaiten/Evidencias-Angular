@@ -26,7 +26,7 @@ export class AuthService{
   }//END OF REGISTER USER METHOD
 
   //LOGIN METHOD
-  public login( userData:any ){
+  public login( userData:any ):void{
     //AUTHENTICATE USER FROM FIREBASE
     firebase.auth().signInWithEmailAndPassword( userData.email, userData.password )
     .then( ( response ) => {

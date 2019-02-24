@@ -59,7 +59,8 @@ Estas evidencias estan creadas con las siguientes versiones de las herramientas 
     * [Login de Usuarios mediante email/contraseña](https://github.com/Indenaiten/Evidencias-Angular#login-de-usuarios-mediante-emailcontrase%C3%B1a---índice)  
     * [Comprobar si el usuario esta autentificado](https://github.com/Indenaiten/Evidencias-Angular#comprobar-si-el-usuario-esta-autentificado---índice)  
     * [Desloguearse](https://github.com/Indenaiten/Evidencias-Angular#desloguearse---índice)  
-    * [Protección de las rutas](https://github.com/Indenaiten/Evidencias-Angular#protecci%C3%B3n-de-las-rutas---%C3%ADndice)
+    * [Protección de las rutas](https://github.com/Indenaiten/Evidencias-Angular#protecci%C3%B3n-de-las-rutas---%C3%ADndice)  
+  * [016 - Crear un módulo]()
 
 
 
@@ -1015,4 +1016,16 @@ Para proteger nuestras rutas crearemos un nuevo servicio que implementará la cl
   ~~~  
   
 Ahora, en _**"app.module.ts"**_ protegeremos las rutas que queramos de la siguiente manera:  
-  ``{ path: 'ruta', component: NameOfComponent, canActivate: [GuardService] },``
+  ``{ path: 'ruta', component: NameOfComponent, canActivate: [GuardService] },``  
+  
+  
+  
+### 016 - Crear un módulo  
+  _**[Commit ]()**_  
+  
+Para crear un módulo, en nuestra terminal ejecutaremos el siguiente comando:  
+  ``ng generate module nameOfModule``  
+  ``ng g module nameOfModule``  
+  
+Para crear un componente para el nuevo módulo, bastará con crearlo dentro de la carpeta del módulo.  
+Ahora para poder utilizar el módulo en nuestra aplicación, tendrémos que importarlo en el archivo _**"app.module.ts"**_ y registrarlo en el array de _**imports**_.

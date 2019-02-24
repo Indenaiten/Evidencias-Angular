@@ -103,14 +103,14 @@
         <p class="alert alert-danger" *ngIf="presupuestoForm.controls.tipo.invalid && presupuestoForm.controls.tipo.touched">El campo tipo de iva es obligatorio</p>
       </div><!-- END OF FIELD OF TIPO DE IVA -->
 
-      <!-- FIELD OF IMPORTE SIN IVA -->
+      <!-- FIELD OF IMPORTE IVA -->
       <div class="form-group">
         <!-- NAME -->
-        <label for="inputIva">*Importe sin IVA</label>
+        <label for="inputIva">*Importe IVA</label>
 
         <!-- INPUT -->
         <input type="number" class="form-control" id="inputIva" disabled formControlName="iva" [(ngModel)]="presupuestoForm.value.iva"/>
-      </div><!-- END OF FIELD OF IMPORTE SIN IVA -->
+      </div><!-- END OF FIELD OF IMPORTE IVA -->
 
       <!-- END OF FIELD OF TOTAL PRESUPUESTO -->
       <div class="form-group">

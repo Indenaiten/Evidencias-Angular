@@ -19,7 +19,7 @@ export class GuardService implements CanActivate{
 	}//END OF CONSTRUCT
 
 	//CAN ACTIVATE METHOD
-	public canActivate(){
+	public canActivate():any{
 		//RETURN
 		return this.authService.iAuth();
 	}//END OF CAN ACTIVATE METHOD

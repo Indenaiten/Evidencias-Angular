@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit{
   }//END OF ON SUBMIT METHOD
 
   //ON VALUE CHANGED
-  public onValueChanged( data?:any ){
+  public onValueChanged( data?:any ):void{
     //CHECK IF EXISTS A FORM
     if( !this.loginForm ){ return; }
 

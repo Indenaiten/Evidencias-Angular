@@ -1,0 +1,139 @@
+<!-- CONTENT OF FORM -->
+<div class="row">
+  <!-- LEFT SIDE -->
+  <div class="col col-md">
+
+  </div><!-- END OF LEFT SIDE -->
+
+  <!-- CENTER SIDE -->
+  <div class="col-10 col-md-8">
+    <!-- TITLE OF SECTION -->
+    <h2>Editar Factura</h2>
+
+    <!-- BUTTON TO GO TO LIST OF PRESUPUESTOS -->
+    <a href="#" class="btn btn-primary float-md-right" role="btn" routerLink="/facturas">Ver Facturas</a>
+
+    <br/>
+
+    <!-- FORM TO EDIT FACTURA -->
+    <form [formGroup]="facturaForm" (ngSubmit)="onSubmit()">
+      <!-- FIELD OF PROVEEDOR -->
+      <div class="form-group">
+        <!-- NAME -->
+        <label for="inputProveedor">*Proveedor</label>
+
+        <!-- ICONS OF VALIDATE -->
+        <i class="fa fa-check-circle check" *ngIf="facturaForm.controls.proveedor.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck" *ngIf="facturaForm.controls.proveedor.invalid && facturaForm.controls.proveedor.touched"></i>
+
+        <!-- INPUT -->
+        <input type="text" class="form-control" id="inputProveedor" formControlName="proveedor" [(ngModel)]="factura.proveedor"/>
+
+        <!-- MESSAGE OF ERROR -->
+        <p class="alert alert-danger" *ngIf="facturaForm.controls.proveedor.invalid && facturaForm.controls.proveedor.touched">El campo proveedor es obligatorio</p>
+      </div><!-- END OF FIELD OF PROVEEDOR -->
+
+      <!-- FIELD OF FECHA -->
+      <div class="form-group">
+        <!-- NAME -->
+        <label for="inputFecha">*Fecha</label>
+
+        <!-- ICONS OF VALIDATE -->
+        <i class="fa fa-check-circle check" *ngIf="facturaForm.controls.fecha.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck" *ngIf="facturaForm.controls.fecha.invalid && facturaForm.controls.fecha.touched"></i>
+
+        <!-- INPUT -->
+        <input type="date" class="form-control" id="inputFecha" formControlName="fecha" [(ngModel)]="factura.fecha"/>
+
+        <!-- MESSAGE OF ERROR -->
+        <p class="alert alert-danger" *ngIf="facturaForm.controls.fecha.invalid && facturaForm.controls.fecha.touched">El campo fecha es obligatorio</p>
+      </div><!-- END OF FIELD OF FECHA -->
+
+      <!-- FIELD OF NUMBER OF FACTURA/CONCEPTO -->
+      <div class="form-group">
+        <!-- NAME -->
+        <label for="inputNumFacConcepto">*Nº de Factura/Concepto</label>
+
+        <!-- ICONS OF VALIDATE -->
+        <i class="fa fa-check-circle check" *ngIf="facturaForm.controls.numFacConcepto.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck" *ngIf="facturaForm.controls.numFacConcepto.invalid && facturaForm.controls.numFacConcepto.touched"></i>
+
+        <!-- INPUT -->
+        <input type="text" class="form-control" id="inputNumFacConcepto" formControlName="numFacConcepto" [(ngModel)]="factura.numFacConcepto"/>
+
+        <!-- MESSAGE OF ERROR -->
+        <p class="alert alert-danger" *ngIf="facturaForm.controls.numFacConcepto.invalid && facturaForm.controls.numFacConcepto.touched">El nº de Factura y Concepto es obligatorio y debe tener más de 10 caracteres.</p>
+      </div><!-- END OF FIELD OF NUMBER OF FACTURA/CONCEPTO -->
+
+      <!-- FIELD OF BASE IMPONIBLE -->
+      <div class="form-group">
+        <!-- NAME -->
+        <label for="inputBase">*Base Imponible</label>
+
+        <!-- ICONS OF VALIDATE -->
+        <i class="fa fa-check-circle check" *ngIf="facturaForm.controls.base.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck" *ngIf="facturaForm.controls.base.invalid && facturaForm.controls.base.touched"></i>
+
+        <!-- INPUT -->
+        <input type="number" class="form-control" id="inputBase" formControlName="base" [(ngModel)]="factura.base"/>
+
+        <!-- MESSAGE OF ERROR -->
+        <p class="alert alert-danger" *ngIf="facturaForm.controls.base.invalid && facturaForm.controls.base.touched">El campo base es obligatorio</p>
+      </div><!-- END OF FIELD OF BASE IMPONIBLE -->
+
+      <!-- FIELD OF TIPO DE IVA -->
+      <div class="form-group">
+        <!-- NAME -->
+        <label for="inputTipoIva">*Tipo de IVA</label>
+
+        <!-- ICONS OF VALIDATE -->
+        <i class="fa fa-check-circle check" *ngIf="facturaForm.controls.tipo.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck" *ngIf="facturaForm.controls.tipo.invalid && facturaForm.controls.tipo.touched"></i>
+
+        <!-- SELECT -->
+        <select class="form-control" id="inputTipoIva"  formControlName="tipo" [(ngModel)]="factura.tipo">
+          <option value="">Seleccione...</option>
+          <option value=0>0 %</option>
+          <option value=0.04>4 %</option>
+          <option value=0.1>10 %</option>
+          <option value=0.21>21 %</option>
+        </select><!-- END OF SELECT -->
+
+        <!-- MESSAGE OF ERROR -->
+        <p class="alert alert-danger" *ngIf="facturaForm.controls.tipo.invalid && facturaForm.controls.tipo.touched">El campo tipo de iva es obligatorio</p>
+      </div><!-- END OF FIELD OF TIPO DE IVA -->
+
+      <!-- FIELD OF IMPORTE IVA -->
+      <div class="form-group">
+        <!-- NAME -->
+        <label for="inputIva">*Importe IVA</label>
+
+        <!-- INPUT -->
+        <input type="number" class="form-control" id="inputIva" disabled formControlName="iva" [(ngModel)]="facturaForm.value.iva"/>
+      </div><!-- END OF FIELD OF IMPORTE IVA -->
+
+      <!-- END OF FIELD OF TOTAL FACTURA -->
+      <div class="form-group">
+        <!-- NAME -->
+        <label for="inputTotal">*Total Factura</label>
+
+        <!-- INPUT -->
+        <input type="number" class="form-control" id="inputTotal" disabled formControlName="total" [(ngModel)]="facturaForm.value.total"/>
+      </div><!-- END OF FIELD OF TOTAL FACTURA -->
+
+      <!-- SUBMIT BUTTON -->
+      <button type="submit" class="btn btn-primary" [disabled]="!facturaForm.valid">Editar Factura</button>
+
+      <!-- MESSAGE OF INFORMATION -->
+      <p class="alert alert-danger" *ngIf="!facturaForm.valid">Por favor complete todos los campos obligatorios</p>
+
+      <!-- BUTTON TO CANCEL -->
+      <a href="#" class="btn btn-danger float-md-right" role="btn" routerLink="/facturas">Cancelar</a>
+    </form><!-- END OF FORM TO EDIT FACTURA -->
+  </div><!-- END OF CENTER SIDE -->
+
+  <!-- RIGHT SIDE -->
+  <div class="col col-md">
+
+  </div><!-- END OF RIGHT SIDE -->
+</div><!-- END OF CONTENT OF FORM -->

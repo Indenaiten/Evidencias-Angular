@@ -1,0 +1,41 @@
+<!-- TITLE OF SECTION -->
+<h3>Listado de Facturas</h3>
+
+<!-- BUTTON TO ADD NEW FACTURA -->
+<a href="#" class="btn btn-primary float-md-right" role="btn" routerLink="/addfac">Añadir Nueva Factura</a>
+
+<br/>
+
+<!-- TABLE OF FACTURAS -->
+<table class="table table-bordered table-striped" style="margin-top: 40px;">
+  <!-- HEAD OF TABLE -->
+  <thead>
+    <!-- ROW OF FILTERS -->
+    <tr class="filters">
+      <th>Proveedor</th>
+      <th>Fecha</th>
+      <th>Nº de Factura/Concepto</th>
+      <th>Importe sin IVA</th>
+      <th>IVA</th>
+      <th>Total</th>
+      <th class="text-center">Acciones</th>
+    </tr><!-- END OF ROW OF FILTERS -->
+  </thead><!-- END OF HEAD OF TABLE -->
+
+  <!-- BODY OF TABLE -->
+  <tbody>
+    <!-- ROW OF FACTURAS -->
+    <tr *ngFor="let factura of facturas">
+      <td>{{ factura.proveedor }}</td>
+      <td>{{ factura.fecha }}</td>
+      <td>{{ factura.numFacConcepto }}</td>
+      <td>{{ factura.base }}</td>
+      <td>{{ factura.iva }}</td>
+      <td>{{ factura.total }}</td>
+      <td class="d-flex justify-content-center align-items-center">
+        <a href="#" class="btn btn-success" style="margin-right:10px;" role="btn" routerLink="/editfac/{{ factura.id }}">Editar</a>
+        <button class="btn btn-danger" (click)="deleteFactura( factura.id )">Eliminar</button>
+      </td>
+    </tr><!-- END OF ROW OF FACTURAS -->
+  </tbody><!-- END OF BODY OF TABLE -->
+</table><!-- END OF TABLE OF FACTURAS -->

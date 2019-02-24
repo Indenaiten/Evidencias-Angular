@@ -40,7 +40,7 @@ export class ProveedoresService{
   }//END OF CONSTRUCTOR
 
   //GET PROVEEDORES METHOD
-  public getProveedores(){
+  public getProveedores():any{
     //RETURN
     return this.proveedores;
   }//END OF PROVEEDORES METHOD

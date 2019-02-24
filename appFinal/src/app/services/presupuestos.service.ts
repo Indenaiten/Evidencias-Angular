@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 
 //PRESUPUESTOS SERVICE
 @Injectable({
-  providedIn: 'root' //NAME OF SERVICE
+  providedIn: 'root'
 })
 export class PresupuestosService{
   //ATTRIBUTES
@@ -19,7 +19,7 @@ export class PresupuestosService{
   }//END OF CONSTRUCT
 
   //POST PRESUPUESTO METHOD
-  public postPresupuesto( presupuesto:any ){
+  public postPresupuesto( presupuesto:any ):any{
     //VARIABLES
     var newPres:string = JSON.stringify( presupuesto ); //CONVERT PRESUPUESTO TO STRING
     var headers:any = new HttpHeaders({ //CREATE HEADERS
@@ -39,7 +39,7 @@ export class PresupuestosService{
   }//END OF POST PRESUPUESTO METHOD
 
   //GET PRESUPUESTOS METHOD
-  public getPresupuestos(){
+  public getPresupuestos():any{
     //RETURN
     return this.http.get( this.url )
       .pipe( map( ( response:any ) => {
@@ -53,7 +53,7 @@ export class PresupuestosService{
   }//END OF GET PRESUPUESTOS METHOD
 
   //GET PRESUPUESTO METHOD
-  public getPresupuesto( id:string ){
+  public getPresupuesto( id:string ):any{
     //VARIABLES
     var url = `${this.urlId}/${id}.json`;
 
@@ -70,7 +70,7 @@ export class PresupuestosService{
   }//END OF GET PRESUPUESTO METHOD
 
   //PUT PRESUPUESTO METHOD
-  public putPresupuesto( presupuesto:any, id:string ){
+  public putPresupuesto( presupuesto:any, id:string ):any{
     //VARIABLES
     var newPres:string = JSON.stringify( presupuesto ); //CONVERT PRESUPUESTO TO STRING
     var headers:any = new HttpHeaders({ //CREATE HEADERS
@@ -91,7 +91,7 @@ export class PresupuestosService{
   }//END OF PUT PRESUPUESTO METHOD
 
   //DELETE PRESUPUESTO METHOD
-  public deletePresupuesto( id:string ){
+  public deletePresupuesto( id:string ):any{
     //VARIABLES
     var url = `${this.urlId}/${id}.json`;
 
