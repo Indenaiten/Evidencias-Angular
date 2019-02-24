@@ -50,8 +50,14 @@
       <!-- LINE -->
       <hr/>
 
-      <!-- SUBMIT BUTTON -->
-      <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Log In</button>
+      <!-- SUBMIT BUTTON WHEN IT'S NOT AUTHENTICATING -->
+      <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid" *ngIf="!authenticating">Log In</button>
+      
+      <!-- SUBMIT BUTTON WHEN IT'S AUTHENTICATING -->
+      <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid" *ngIf="authenticating">Autenticando Usuario</button>
+
+      <!-- ERROR OF CREDENTIALS -->
+      <p class="alert alert-danger" *ngIf="errorCredentials">Usuario o contraseña incorrectos</p>
       
       <!-- LINE -->
       <hr/>

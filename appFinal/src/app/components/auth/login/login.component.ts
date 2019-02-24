@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit{
   //ATTRIBUTES
   public loginForm:FormGroup;
   public userData:any
+  public authenticating:boolean = false;
+  public errorCredentials:boolean = false;
   public erroresForm:any = {
     'email': '',
     'password': ''
@@ -56,6 +58,9 @@ export class LoginComponent implements OnInit{
 
   //ON SUBMIT METHOD
   public onSubmit():void{
+    //SET authenticating IN TRUE
+    this.authenticating = true;
+
     //CREATE USER DATA
     this.userData = {
       email: this.loginForm.get( "email" ).value,
@@ -65,8 +70,21 @@ export class LoginComponent implements OnInit{
     //AUTHENTICATE USER FROM FIREBASE
     this.authService.login( this.userData );
 
-    //REDIRECT TO HOME
-    this.router.navigate([ "/" ]);
+    //SET TIMEOUT
+    setTimeout( () => {
+      //CHECK AUTHENTICATION
+      if( !this.authService.iAuth() ){ //IF IT'S NOT AUTHENTICATED
+        //SET errorCredentials IN TRUE
+        this.errorCredentials = true;
+
+        //SET authenticating IN FALSE
+        this.authenticating = false;
+      }
+      else{ //IF IT'S AUTHENTICATED
+        //REDIRECT TO HOME
+        this.router.navigate([ "/" ]);
+      }
+    }, 2000 );
   }//END OF ON SUBMIT METHOD
 
   //ON VALUE CHANGED
