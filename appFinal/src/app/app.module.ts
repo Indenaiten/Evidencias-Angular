@@ -12,6 +12,7 @@ import { ProveedoresComponent } from './components/proveedores/proveedores/prove
 import { InicioComponent } from './components/inicio/inicio.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AddProveedorComponent } from './components/proveedores/add-proveedor/add-proveedor.component';
+import { EditProveedorComponent } from './components/proveedores/edit-proveedor/edit-proveedor.component';
 import { AddPresupuestoComponent } from './components/presupuestos/add-presupuesto/add-presupuesto.component';
 import { PresupuestosComponent } from './components/presupuestos/presupuestos/presupuestos.component';
 import { EditPresupuestoComponent } from './components/presupuestos/edit-presupuesto/edit-presupuesto.component';
@@ -30,13 +31,18 @@ import { FacturasModule } from './modules/facturas/facturas.module';
 //ROUTES
 const routes:Routes = [
   { path: '', component: InicioComponent },
+
   { path: 'proveedores', component: ProveedoresComponent, canActivate: [GuardService] },
-  { path: 'addprovee', component: AddProveedorComponent, canActivate: [GuardService] },
+  { path: 'addpro', component: AddProveedorComponent, canActivate: [GuardService] },
+  { path: 'editpro/:id', component: EditProveedorComponent, canActivate: [GuardService] },
+
   { path: 'presupuestos', component: PresupuestosComponent, canActivate: [GuardService] },
   { path: 'addpres', component: AddPresupuestoComponent, canActivate: [GuardService] },
   { path: 'editpres/:id', component: EditPresupuestoComponent, canActivate: [GuardService] },
+
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
+
   { path: '**', component: InicioComponent } //** SIGNIFICA CUALQUIER PÁGINA QUE NO EXISTA
 ];
 
@@ -48,6 +54,7 @@ const routes:Routes = [
     InicioComponent,
     HeaderComponent,
     AddProveedorComponent,
+    EditProveedorComponent,
     AddPresupuestoComponent,
     PresupuestosComponent,
     EditPresupuestoComponent,

@@ -8,14 +8,14 @@
   <!-- CENTER SIDE -->
   <div class="col-10 col-md-8">
     <!-- TITLE OF SECTION -->
-    <h2>Añadir nuevo Proveedor</h2>
+    <h2>Editar Proveedor</h2>
 
     <!-- BUTTON TO GO TO LIST OF PROVEEDORES -->
     <a href="#" class="btn btn-primary float-md-right" role="btn" routerLink="/proveedores">Ver Proveedores</a>
 
     <br/>
 
-    <!-- FORM TO ADD PROVEEDOR -->
+    <!-- FORM TO EDIT PROVEEDOR -->
     <form [formGroup]="proveedoresForm" (ngSubmit)="onSubmit()">
       <!-- FIELD OF NOMBRE -->
       <div class="form-group">
@@ -27,7 +27,7 @@
         <i class="fa fa-exclamation-circle uncheck" *ngIf="proveedoresForm.controls.nombre.invalid && proveedoresForm.controls.nombre.touched"></i>
         
         <!-- INPUT -->
-        <input type="text" class="form-control" id="inputNombre" formControlName="nombre"/>
+        <input type="text" class="form-control" id="inputNombre" formControlName="nombre" [(ngModel)]="proveedor.nombre"/>
         
         <!-- MESSAGE OF ERROR -->
         <p class="alert alert-danger" *ngIf="proveedoresForm.controls.nombre.invalid && proveedoresForm.controls.nombre.touched">El campo nombre es obligatorio</p>
@@ -43,7 +43,7 @@
         <i class="fa fa-exclamation-circle uncheck" *ngIf="proveedoresForm.controls.cif.invalid && proveedoresForm.controls.cif.touched"></i>
 
         <!-- INPUT -->
-        <input type="text" class="form-control" id="inputCif" formControlName="cif"/>
+        <input type="text" class="form-control" id="inputCif" formControlName="cif" [(ngModel)]="proveedor.cif"/>
 
         <!-- MESSAGE OF ERROR -->
         <p class="alert alert-danger" *ngIf="proveedoresForm.controls.cif.invalid && proveedoresForm.controls.cif.touched">El campo cif es obligatorio</p>
@@ -59,7 +59,7 @@
         <i class="fa fa-exclamation-circle uncheck" *ngIf="proveedoresForm.controls.direccion.invalid && proveedoresForm.controls.direccion.touched"></i>
 
         <!-- INPUT -->
-        <input type="text" class="form-control" id="inputDireccion" formControlName="direccion"/>
+        <input type="text" class="form-control" id="inputDireccion" formControlName="direccion" [(ngModel)]="proveedor.direccion"/>
 
         <!-- MESSAGE OF ERROR -->
         <p class="alert alert-danger" *ngIf="proveedoresForm.controls.direccion.invalid && proveedoresForm.controls.direccion.touched">El campo direccion es obligatorio</p>
@@ -75,7 +75,7 @@
         <i class="fa fa-exclamation-circle uncheck" *ngIf="proveedoresForm.controls.codigoPostal.invalid && proveedoresForm.controls.codigoPostal.touched"></i>
 
         <!-- INPUT -->
-        <input type="text" class="form-control" id="inputCp" formControlName="codigoPostal"/>
+        <input type="text" class="form-control" id="inputCp" formControlName="codigoPostal" [(ngModel)]="proveedor.codigoPostal"/>
 
         <!-- MESSAGE OF ERROR -->
         <p class="alert alert-danger" *ngIf="proveedoresForm.controls.codigoPostal.invalid && proveedoresForm.controls.codigoPostal.touched">El campo código postal es obligatorio</p>
@@ -91,7 +91,7 @@
         <i class="fa fa-exclamation-circle uncheck" *ngIf="proveedoresForm.controls.localidad.invalid && proveedoresForm.controls.localidad.touched"></i>
 
         <!-- INPUT -->
-        <input type="text" class="form-control" id="inputLocalidad" formControlName="localidad"/>
+        <input type="text" class="form-control" id="inputLocalidad" formControlName="localidad" [(ngModel)]="proveedor.localidad"/>
 
         <!-- MESSAGE OF ERROR -->
         <p class="alert alert-danger" *ngIf="proveedoresForm.controls.localidad.invalid && proveedoresForm.controls.localidad.touched">El campo localidad es obligatorio</p>
@@ -107,7 +107,7 @@
         <i class="fa fa-exclamation-circle uncheck" *ngIf="proveedoresForm.controls.provincia.invalid && proveedoresForm.controls.provincia.touched"></i>
 
         <!-- SELECT -->
-        <select id="inputProvincia" class="form-control" formControlName="provincia">
+        <select id="inputProvincia" class="form-control" formControlName="provincia" [(ngModel)]="proveedor.provincia">
           <option value="">Seleccione la provincia</option>
           <option *ngFor="let provincia of provincias" [value]="provincia">{{ provincia }}</option>
         </select><!-- END OF SELECT -->
@@ -126,7 +126,7 @@
         <i class="fa fa-exclamation-circle uncheck" *ngIf="proveedoresForm.controls.telefono.invalid && proveedoresForm.controls.telefono.touched"></i>
 
         <!-- INPUT -->
-        <input type="number" class="form-control" id="inputTelefono" formControlName="telefono"/>
+        <input type="number" class="form-control" id="inputTelefono" formControlName="telefono" [(ngModel)]="proveedor.telefono"/>
 
         <!-- MESSAGE OF ERROR -->
         <p class="alert alert-danger" *ngIf="proveedoresForm.controls.telefono.invalid && proveedoresForm.controls.telefono.touched">El campo telefono es obligatorio</p>
@@ -142,7 +142,7 @@
         <i class="fa fa-exclamation-circle uncheck" *ngIf="proveedoresForm.controls.email.invalid && proveedoresForm.controls.email.touched"></i>
 
         <!-- INPUT -->
-        <input type="email" class="form-control" id="inputEmail" formControlName="email"/>
+        <input type="email" class="form-control" id="inputEmail" formControlName="email" [(ngModel)]="proveedor.email"/>
 
         <!-- MESSAGE OF ERROR -->
         <p class="alert alert-danger" *ngIf="proveedoresForm.controls.email.invalid && proveedoresForm.controls.email.touched">El campo email es obligatorio</p>
@@ -158,21 +158,21 @@
         <i class="fa fa-exclamation-circle uncheck" *ngIf="proveedoresForm.controls.contacto.invalid && proveedoresForm.controls.contacto.touched"></i>
 
         <!-- INPUT -->
-        <input type="text" class="form-control" id="inputContacto" formControlName="contacto"/>
+        <input type="text" class="form-control" id="inputContacto" formControlName="contacto" [(ngModel)]="proveedor.contacto"/>
 
         <!-- MESSAGE OF ERROR -->
         <p class="alert alert-danger" *ngIf="proveedoresForm.controls.contacto.invalid && proveedoresForm.controls.contacto.touched">El campo persona de contacto es obligatorio</p>
       </div><!-- END OF FIELD OF PERSONA DE CONTACTO -->
 
       <!-- SUBMIT BUTTON -->
-      <button type="submit" class="btn btn-success" [disabled]="!proveedoresForm.valid">Añadir Proveedor</button>
+      <button type="submit" class="btn btn-success" [disabled]="!proveedoresForm.valid">Editar Proveedor</button>
 
       <!-- MESSAGE OF INFORMATION -->
       <p class="alert alert-danger" *ngIf="!proveedoresForm.valid">Por favor complete todos los campos obligatorios</p>
 
       <!-- BUTTON TO CANCEL -->
       <a href="#" class="btn btn-danger float-md-right" role="btn" routerLink="/proveedores">Cancelar</a>
-    </form><!-- END OF FORM TO ADD PROVEEDOR -->
+    </form><!-- END OF FORM TO EDIT PROVEEDOR -->
   </div><!-- END OF CENTER SIDE -->
 
   <!-- RIGHT SIDE -->

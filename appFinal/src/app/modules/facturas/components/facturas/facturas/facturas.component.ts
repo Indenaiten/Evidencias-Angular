@@ -26,7 +26,7 @@ export class FacturasComponent implements OnInit{
 
 	}//END OF INIT METHOD
 
-	//GET FACTURAS
+	//GET FACTURAS METHOD
 	private getFacturas():void{
 	  //GET FACTURAS
 	  this.facturasService.getFacturas()
@@ -48,7 +48,7 @@ export class FacturasComponent implements OnInit{
 	    		}
       		}
       	);
-  	}//END OF GET PRESUPUESTOS
+  	}//END OF GET FACTURAS METHOD
 
   	//DELETE FACTURA METHOD
 	public deleteFactura( id:string ):void{

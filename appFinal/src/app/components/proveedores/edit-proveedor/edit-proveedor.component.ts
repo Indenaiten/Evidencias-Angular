@@ -2,17 +2,19 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ProveedoresService } from '../../../services/proveedores.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
-//ADD PROVEEDOR COMPONENT
+//EDIT PROVEEDOR COMPONENT
 @Component({
-  selector: "app-add-proveedor", //NAME OF COMPONENT
-  templateUrl: "./add-proveedor.component.html", //NAME OF TEMPLATE OF COMPONENT
-  styleUrls: [ "./add-proveedor.component.css" ] //NAMES OF STYLESHEETS OF COMPONENT
+  selector: "app-edit-proveedor", //NAME OF COMPONENT
+  templateUrl: "./edit-proveedor.component.html", //NAME OF TEMPLATE OF COMPONENT
+  styleUrls: [ "./edit-proveedor.component.css" ] //NAMES OF STYLESHEETS OF COMPONENT
 })
-export class AddProveedorComponent implements OnInit{
+export class EditProveedorComponent implements OnInit{
   //ATTRIBUTES
   public proveedoresForm:FormGroup;
   public proveedor:any;
+  public id:string;
   public provincias:string[] = [ 'Álava','Albacete','Alicante','Almería','Asturias','Ávila','Badajoz',
      'Barcelona','Burgos', 'Cáceres', 'Cádiz','Cantabria','Castellón','Ciudad Real','Córdoba',
      'La Coruña','Cuenca','Gerona','Granada','Guadalajara', 'Guipúzcoa','Huelva','Huesca',
@@ -25,9 +27,27 @@ export class AddProveedorComponent implements OnInit{
   //CONSTRUCT
   public constructor(
     private pf:FormBuilder,
-    private proveedoresService:ProveedoresService
+    private proveedoresService:ProveedoresService,
+    private router:Router,
+    private activatedRoute:ActivatedRoute
   ){
-    
+    //GET ACTIVATED ROUTE
+    this.activatedRoute.params
+      .subscribe( ( parameters:any ) => {
+        //SAVE ID
+        this.id = parameters[ 'id' ];
+
+        //GET PROVEEDOR
+        this.proveedoresService.getProveedor( this.id )
+          .subscribe( ( response:any ) => {
+            //SHOW IN CONSOLE
+            console.log( "COMPONENT" );
+            console.log( response );
+
+            //SAVE PROVEEDOR
+            this.proveedor = response;
+          });
+      });
   }//END OF CONSTRUCT
 
   //INIT METHOD
@@ -43,7 +63,7 @@ export class AddProveedorComponent implements OnInit{
       telefono: [ "", Validators.required ],
       email: [ "", [ Validators.required, Validators.email ] ],
       contacto: [ "", Validators.required ]
-    });console.log( this.proveedoresForm );
+    });
   }//END OF INIT METHOD
 
   //ON SUBMIT METHOD
@@ -62,14 +82,17 @@ export class AddProveedorComponent implements OnInit{
     };
 
     //PERSIST
-    this.proveedoresService.postProveedor( this.proveedor )
+    this.proveedoresService.putProveedor( this.proveedor, this.id )
       .subscribe( ( response ) => {
         //SHOW IN CONSOLE
         console.log( "COMPONENT" );
         console.log( response );
+
+        //REDIRECT
+        this.router.navigate([ "/proveedores" ]);
       });
 
     //RESET FORM
     this.proveedoresForm.reset();
   }//END OF ON SUBMIT METHOD
-}//END OF ADD PROVEEDOR COMPONENT
+}//END OF EDIT PROVEEDOR COMPONENT

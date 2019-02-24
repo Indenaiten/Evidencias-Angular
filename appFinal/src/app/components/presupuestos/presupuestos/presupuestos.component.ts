@@ -24,7 +24,7 @@ export class PresupuestosComponent implements OnInit{
 
   }//END OF INIT METHOD
 
-  //GET PRESUPUESTOS
+  //GET PRESUPUESTOS METHOD
   private getPresupuestos():void{
     //GET PRESUPUESTOS
     this.presupuestosService.getPresupuestos()
@@ -45,7 +45,7 @@ export class PresupuestosComponent implements OnInit{
           this.presupuestos.push( presupuesto );
         }
       });
-  }//END OF GET PRESUPUESTOS
+  }//END OF GET PRESUPUESTOS METHOD
 
   //DELETE PRESUPUESTO METHOD
   public deletePresupuesto( id:string ):void{

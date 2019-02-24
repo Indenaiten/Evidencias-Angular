@@ -2,19 +2,25 @@
 <h3>Listado de Proveedores</h3>
 
 <!-- BUTTON TO ADD NEW PROVEEDOR -->
-<a href="#" class="btn btn-primary float-md-right" routerLink="/addprovee">Añadir Nuevo Proveedor</a>
+<a href="#" class="btn btn-primary float-md-right" routerLink="/addpro">Añadir Nuevo Proveedor</a>
 
 <br/>
 
-<!-- TABLE OF PROVEEORES -->
+<!-- TABLE OF PROVEEDORES -->
 <table class="table table-bordered table-striped" style="margin-top: 40px;">
   <!-- HEAD OF TABLE -->
   <thead>
     <!-- ROW OF FILTERS -->
     <tr class="filters">
       <th>Nombre</th>
-      <th>Correo</th>
+      <th>Dirección</th>
+      <th>Código Postal</th>
+      <th>Localidad</th>
+      <th>Provincia</th>
       <th>Teléfono</th>
+      <th>Correo</th>
+      <th>Contacto</th>
+      <th class="text-center">Acciones</th>
     </tr><!-- END OF ROW OF FILTERS -->
   </thead><!-- END OF HEAD OF TABLE -->
 
@@ -23,8 +29,17 @@
     <!-- ROW OF PROVEEDOR -->
     <tr *ngFor="let proveedor of proveedores">
       <td>{{ proveedor.nombre }}</td>
-      <td><a href="mailto:{{ proveedor.email }}">{{ proveedor.email }}</a></td>
-      <th>{{ proveedor.telefono }}</th>
+      <td>{{ proveedor.direccion }}</td>
+      <td>{{ proveedor.codigoPostal }}</td>
+      <td>{{ proveedor.localidad }}</td>
+      <td>{{ proveedor.provincia }}</td>
+      <td>{{ proveedor.telefono }}</td>
+      <td>{{ proveedor.email }}</td>
+      <td>{{ proveedor.contacto }}</td>
+      <td class="d-flex justify-content-center align-items-center">
+        <a href="#" class="btn btn-success" style="margin-right:10px;" role="btn" routerLink="/editpro/{{ proveedor.id }}">Editar</a>
+        <button class="btn btn-danger" (click)="deleteProveedor( proveedor.id )">Eliminar</button>
+      </td>
     </tr><!-- END OF ROW OF PROVEEDOR -->
   </tbody><!-- END OF BODY OF TABLE -->
-</table><!-- END OF TABLE OF PROVEEORES -->
+</table><!-- END OF TABLE OF PROVEEDORES -->
