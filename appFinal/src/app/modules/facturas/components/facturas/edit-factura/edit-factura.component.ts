@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FacturasService } from '../../../services/facturas.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ProveedoresService } from '../../../../../services/proveedores.service';
 
 //EDIT FACTURA COMPONENT
 @Component({
@@ -14,6 +15,7 @@ export class EditFacturaComponent implements OnInit{
 	//ATTRIBUTES
 	public facturaForm:FormGroup;
 	public factura:any;
+  public proveedores:any[] = [];
 	public iva:any = 0;
 	public total:any = 0;
 	public id:string;
@@ -24,7 +26,8 @@ export class EditFacturaComponent implements OnInit{
 		private ff:FormBuilder,
 		private facturasService:FacturasService,
 		private router:Router,
-		private activatedRoute:ActivatedRoute
+		private activatedRoute:ActivatedRoute,
+    private proveedoresService:ProveedoresService
 	){
 		//GET ACTIVATED ROUTE
 		this.activatedRoute.params
@@ -45,6 +48,26 @@ export class EditFacturaComponent implements OnInit{
 		    );
 			}
 		);
+
+    //GET PROVEEDORES
+    this.proveedoresService.getProveedores()
+      .subscribe( ( response ) => {
+        //SHOW IN CONSOLE
+        console.log( "COMPONENT" );
+        console.log( response );
+
+        //BROWSE RESPONSE
+        for( var id in response ){
+          //GET PROVEEDOR
+          var proveedor = response[ id ];
+
+          //SET ID OF PROVEEDOR
+          proveedor.id = id;
+
+          //SAVE PROVEEDOR IN ARRAY
+          this.proveedores.push( proveedor );
+        }
+      });
 	}//END OF CONSTRUCT
 
 	//INIT METHOD

@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FacturasService } from '../../../services/facturas.service';
+import { ProveedoresService } from '../../../../../services/proveedores.service';
 
 //ADD FACTURA COMPONENT
 @Component({
@@ -13,6 +14,7 @@ export class AddFacturaComponent implements OnInit{
   //ATTRBUTES
   public facturaForm:FormGroup;
   public factura:any;
+  public proveedores:any[] = [];
   public iva:any = 0;
   public total:any = 0;
 
@@ -20,9 +22,28 @@ export class AddFacturaComponent implements OnInit{
   //CONSTRUCT
   public constructor(
     private ff:FormBuilder,
-    private facturasService:FacturasService
+    private facturasService:FacturasService,
+    private proveedoresService:ProveedoresService
   ){
+    //GET PROVEEDORES
+    this.proveedoresService.getProveedores()
+      .subscribe( ( response ) => {
+        //SHOW IN CONSOLE
+        console.log( "COMPONENT" );
+        console.log( response );
 
+        //BROWSE RESPONSE
+        for( var id in response ){
+          //GET PROVEEDOR
+          var proveedor = response[ id ];
+
+          //SET ID OF PROVEEDOR
+          proveedor.id = id;
+
+          //SAVE PROVEEDOR IN ARRAY
+          this.proveedores.push( proveedor );
+        }
+      });
   }//END OF CONSTRUCT
 
   //INIT METHOD

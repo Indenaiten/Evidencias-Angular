@@ -14,6 +14,7 @@ import { FacturasComponent } from './components/facturas/facturas/facturas.compo
 
 //SERVICES
 import { FacturasService } from './services/facturas.service';
+import { ProveedoresService } from '../../services/proveedores.service';
 import { AuthService } from '../../services/auth.service';
 import { GuardService } from '../../services/guard.service';
 
@@ -42,7 +43,8 @@ const routes:Routes = [
   providers: [
     FacturasService,
     AuthService,
-    GuardService
+    GuardService,
+    ProveedoresService
   ]
 })
 export class FacturasModule{
