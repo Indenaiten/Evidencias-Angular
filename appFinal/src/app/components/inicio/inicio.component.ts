@@ -1,5 +1,6 @@
 //IMPORTS
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 //INICIO COMPONENT
 @Component({
@@ -12,7 +13,9 @@ export class InicioComponent implements OnInit{
 
   //METHODS
   //CONSTRUCT
-  public constructor(){
+  public constructor(
+    private authService:AuthService
+  ){
 
   }//END OF CONSTRUCT
 
@@ -20,4 +23,10 @@ export class InicioComponent implements OnInit{
   public ngOnInit():void{
 
   }//END OF INIT METHOD
+
+  //IS AUTH METHOD
+  public isAuth():boolean{
+    //RETURN RESULT
+    return this.authService.iAuth();
+  }//END OF IS AUTH METHOD
 }//END OF INICIO COMPONENT

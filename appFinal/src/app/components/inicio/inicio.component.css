@@ -2,6 +2,65 @@
 /*---| INICIO COMPONENT CSS |------------------------------------------------*/
 /*---------------------------------------------------------------------------*/
 
+#contOptionsOfHome{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.rectangle-blue {
+    width: 200px;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 35px;
+    margin: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.rectangle-blue:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
+}
+
+.rectangle-green {
+    background-color: #12ea6f;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+}
+
+.rectangle-green:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
+}
+
+.rectangle-violet {
+    background-color: #b412ea;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+}
+
+.rectangle-violet:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
+}
+
+.rectangle-pink {
+    background-color: #ea1261;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+}
+
+.rectangle-pink:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
+}
 
 /*---------------------------------------------------------------------------*/
 /*---| END OF INICIO COMPONENT CSS |-----------------------------------------*/

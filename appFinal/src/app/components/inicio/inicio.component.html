@@ -1,2 +1,50 @@
-<!-- TITLE OF SECTION -->
-<h3>Bienvenido a nuestra aplicación Compras App</h3>
+<!-- CONTAINER OF MESSAGE OF WELCOME -->
+<div class="text-center" style="margin: 40px;">
+  <!-- MESSAGE OF WELCOME-->
+  <h3>Bienvenido a nuestra aplicación Compras App</h3>
+</div><!-- END OF CONTAINER OF MESSAGE OF WELCOME -->
+
+<!-- CONTAINER OF MESSAGE IF THE USER IT'S NOT AUTHENTICATED -->
+<div class="text-center" style="margin: 20px;" *ngIf="!isAuth()">
+  <!-- MESSAGE IF THE USER IT'S NOT AUTHENTICATED -->
+  <h4>Inicie sesión para acceder</h4>
+</div><!-- END OF CONTAINER OF MESSAGE IF THE USER IT'S NOT AUTHENTICATED -->
+
+<!-- CONTAINER OF OPTIONS -->
+<div id="contOptionsOfHome" *ngIf="isAuth()">
+  <!-- LINK OF OPTION -->
+  <a href="" routerLink="/proveedores" style="text-decoration: none">
+    <!-- BOX OF OPTION -->
+    <div class="rectangle-blue">
+      <!-- ICON -->
+      <i class="fa fa-address-book" style="font-size:60px;"></i>
+
+      <!-- NAME -->
+      <p style="font-size: 24px; padding-top: 15px;">Proveedores</p>
+    </div><!-- END OF BOX OF OPTION -->
+  </a><!-- END OF LINK OF OPTION -->
+
+  <!-- LINK OF OPTION -->
+  <a href="" routerLink="/presupuestos" style="text-decoration: none">
+    <!-- BOX OF OPTION -->
+    <div class="rectangle-blue">
+      <!-- ICON -->
+      <i class="fa fa-address-book" style="font-size:60px;"></i>
+
+      <!-- NAME -->
+      <p style="font-size: 24px; padding-top: 15px;">Presupuestos</p>
+    </div><!-- END OF BOX OF OPTION -->
+  </a><!-- END OF LINK OF OPTION -->
+
+  <!-- LINK OF OPTION -->
+  <a href="" routerLink="/facturas" style="text-decoration: none">
+    <!-- BOX OF OPTION -->
+    <div class="rectangle-blue">
+      <!-- ICON -->
+      <i class="fa fa-address-book" style="font-size:60px;"></i>
+
+      <!-- NAME -->
+      <p style="font-size: 24px; padding-top: 15px;">Facturas</p>
+    </div><!-- END OF BOX OF OPTION -->
+  </a><!-- END OF LINK OF OPTION -->
+</div><!--END OF CONTAINER OF OPTIONS -->
