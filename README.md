@@ -62,6 +62,7 @@ Estas evidencias estan creadas con las siguientes versiones de las herramientas 
     * [Protección de las rutas](https://github.com/Indenaiten/Evidencias-Angular#protecci%C3%B3n-de-las-rutas---%C3%ADndice)  
   * [016 - Crear un módulo](https://github.com/Indenaiten/Evidencias-Angular#016---crear-un-m%C3%B3dulo---%C3%ADndice)  
   * [017 - Crear Buscador](https://github.com/Indenaiten/Evidencias-Angular#017---crear-buscador---%C3%ADndice)  
+  * [018 - Subida de Archivos a Firebase]()  
 
 
 
@@ -1160,4 +1161,296 @@ Para que la anterior búsqueda funcione, deberemos establecer unas reglas en nue
     }
   ~~~  
 
-![017-001](https://github.com/Indenaiten/Evidencias-Angular/blob/master/img/017-001.PNG)
+![017-001](https://github.com/Indenaiten/Evidencias-Angular/blob/master/img/017-001.PNG)  
+
+
+
+### 018 - Subida de Archivos a Firebase - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
+  _**[Commit fd0bdad]()**_  
+
+Para poder subir archivos a **Firebase**, lo primero que tenemos que hacer es configurar nuestro _**storage**_ de **Firebase**.  
+Seleccionamos la opción _**Storage**_ de **Firebase** y en la pantalla resultante pulsaremos en _**comenzar**_.  
+
+![018-001](https://github.com/Indenaiten/Evidencias-Angular/blob/master/img/018-001.PNG)  
+
+
+Ahora, iremos a la pestaña de _**reglas**_ y ahí modificaremos la regla para que podamos acceder sin autentificación.  
+
+![018-002](https://github.com/Indenaiten/Evidencias-Angular/blob/master/img/018-002.PNG)  
+
+![018-003](https://github.com/Indenaiten/Evidencias-Angular/blob/master/img/018-003.PNG)  
+
+
+Una vez establecidas estas reglas, crearemos una carpeta llamada _**"config"**_ dentro de la carpeta _**"app"**_ de nuestro proyecto. Dentro de esta carpeta crearemos el archivo _**"firebase.config.ts"**_ y en él escribiremos lo siguiente:  
+  _**[Commit fd0bdad](https://github.com/Indenaiten/Evidencias-Angular/blob/fd0bdad53e62a0f86122cb16b8809982b8b95d3c/appFinal/src/app/config/firebase.config.ts)**_   
+  ~~~
+  export const enviroment = {
+    production: false,
+    firebase: {
+      apiKey: "KIzUSyDgHiUfinzGm3raSrV3pG4SBvEDiztby71",
+      authDomain: "comprasapp-a1v06.firebaseapp.com",
+      databaseURL: "https://comprasapp-e1b05.firebaseio.com",
+      projectId: "comprasapp-e1b05",
+      storageBucket: "comprasapp-a1v06.appspot.com",
+      messagingSenderId: "124394616582"
+    }
+  }
+  ~~~  
+
+La información anterior la podremos obtener en **Firebase** pinchando en _**"Project Overview"**_ y en la pantalla resultante iremos a la opción _**"Añadir Aplicación"**_.  
+
+![018-004](https://github.com/Indenaiten/Evidencias-Angular/blob/master/img/018-004.PNG)  
+
+
+Ahora de los iconos que aparecen, pincharemos en el tercero y aparecerá una ventana emergente con toda la información lista para copiar.  
+
+![018-005](https://github.com/Indenaiten/Evidencias-Angular/blob/master/img/018-005.PNG)  
+
+![018-006](https://github.com/Indenaiten/Evidencias-Angular/blob/master/img/018-006.PNG)  
+
+
+Una vez configurado todo lo anterior, en el archivo _**"app.module.ts"**_ haremos los siguientes _**imports**_:  
+  ``import { AngularFireModule } from 'angularfire2';``  
+  ``import { AngularFireDatabaseModule } from 'angularfire2/database';``  
+  ``import { AngularFireAuthModule } from 'angularfire2/auth';``  
+  ``import { enviroment } from './config/firebase.config';``  
+
+Ahora los añadimos al array de _**imports**_ (excepto el _**"enviroment"**_) y _**"AngularFireModule"**_ lo añadiremos al array de la siguiente manera:  
+  ``AngularFireModule.initializeApp( enviroment )``  
+
+También no olvidemos de añadir toda la información del archivo _**"firebase.config.ts"**_ en el archivo _**"app.component.ts"**_.  
+  _**[Commit fd0bdad](https://github.com/Indenaiten/Evidencias-Angular/blob/fd0bdad53e62a0f86122cb16b8809982b8b95d3c/appFinal/src/app/app.component.ts)**_  
+  ~~~
+  import { Component, OnInit } from '@angular/core';
+  import * as firebase from 'firebase';
+
+  //APP COMPONENT
+  @Component({
+    selector: "app-root", //NAME OF COMPONENT
+    templateUrl: "./app.component.html", //NAME OF TEMPLATE OF COMPONENT
+    styleUrls: [ "./app.component.css" ] //NAMES OF STYLESHEETS OF COMPONENT
+  })
+  export class AppComponent implements OnInit{
+    //ATTRIBUTES
+
+    //METHODS
+    //INIT METHOD
+    public ngOnInit():void{
+      //INITIALIZE FIREBASE APP
+      firebase.initializeApp({
+        apiKey: "KIzUSyDgHiUfinzGm3raSrV3pG4SBvEDiztby71",
+        authDomain: "comprasapp-a1v06.firebaseapp.com",
+        databaseURL: "https://comprasapp-e1b05.firebaseio.com",
+        projectId: "comprasapp-e1b05",
+        storageBucket: "comprasapp-a1v06.appspot.com",
+        messagingSenderId: "124394616582"
+      });
+    }//END OF INIT METHOD
+  }//END OF APP COMPONENT
+  ~~~  
+
+Ya configurada nuestra aplicación, crearemos un componente nuevo y una clase (_**"file.modal.ts"**_). En esta clase pondrémos lo siguiente:  
+  _**[Commit fd0bdad](https://github.com/Indenaiten/Evidencias-Angular/blob/fd0bdad53e62a0f86122cb16b8809982b8b95d3c/appFinal/src/app/components/uploads/file.modal.ts)**_   
+  ~~~
+  export class Archive{
+    //ATTRIBUTES
+    public key:string;
+    public file:File;
+    public name:string;
+    public url:string;
+    public progress:number;
+    public createdAt:Date = new Date();
+
+    //METHODS
+    //CONSTRUCT
+    public construct( file:File ){
+      this.file = file;
+    }//END OF CONSTRUCT
+  }
+  ~~~  
+
+Ahora crearemos un servicio para poder realizar la subida de archivos.  
+  _**[Commit fd0bdad](https://github.com/Indenaiten/Evidencias-Angular/blob/fd0bdad53e62a0f86122cb16b8809982b8b95d3c/appFinal/src/app/services/loadfile.service.ts)**_  
+  ~~~
+  //IMPORTS
+  import { Injectable } from '@angular/core';
+  import { AngularFireDatabase, AngularFireObject, AngularFireList } from 'angularfire2/database';
+  import * as firebase from 'firebase';
+  import { Archive } from '../components/uploads/file.modal';
+
+  //LOADFILE SERVICE
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class LoadfileService{
+    //ATTRIBUTES
+    private basePath:string = "/uploads";
+    public uploads:AngularFireList<Archive[]>;
+
+    //METHODS
+    //CONSTRUCT
+    public constructor(
+      public angularFireDatabase:AngularFireDatabase
+    ){
+
+    }//END OF CONSTRUCT
+
+    //PUSH UPLOAD METHOD
+    public pushUpload( upload:Archive ){
+      //VARIABLES
+      var storageRef = firebase.storage().ref();
+      var uploadTask = storageRef.child( `${this.basePath}/${upload.file.name}` ).put( upload.file );
+
+      //UPLOAD FILE
+      uploadTask.on( firebase.storage.TaskEvent.STATE_CHANGED, ( snapshot ) => {
+        //GET PROGRESSS
+        upload.progress = ( snapshot[ "bytesTransferred" ] / snapshot[ "totalBytes" ] * 100 );
+      },
+        ( error ) => {
+          //SHOW IN CONSOLE
+          console.log( "SERVICE" );
+          console.log( error );
+        },
+        () => {
+          uploadTask.snapshot.ref.getDownloadURL().then(
+            ( downloadURL ) => {
+              //GET INFO OF FILE
+              upload.url = uploadTask.snapshot.downloadURL;
+              upload.name = upload.file.name;
+              delete upload.progress;
+
+              //SAVE FILE
+              this.saveFileData( upload );
+            }
+          );
+        }
+      );
+    }//END OF PUSH UPLOAD METHOD
+
+    //SAVE FILE DATA METHOD
+    private saveFileData( upload:Archive ){
+      //SAVE
+      this.angularFireDatabase.list( `${this.basePath}/` ).push( upload );
+    }//END OF SAVE FILE DATA METHOD
+  }//END OF LOADFILE SERVICE
+  ~~~  
+
+Y por último creamos el componente para poder subir archivos.  
+  _**[Commit fd0bdad](https://github.com/Indenaiten/Evidencias-Angular/tree/fd0bdad53e62a0f86122cb16b8809982b8b95d3c/appFinal/src/app/components/uploads/upload)**_  
+  **ARCHIVO TYPESCRIPT**  
+  ~~~
+  import { Component, OnInit } from '@angular/core';
+  import { LoadfileService } from '../../../services/loadfile.service';
+  import { Archive } from '../file.modal';
+  import * as _ from 'lodash';
+
+  //UPLOADCOMPONENT
+  @Component({
+    selector: "app-upload", //NAME OF COMPONENT
+    templateUrl: "./upload.component.html", //NAME OF TEMPLATE OF COMPONENT
+    styleUrls: [ "./upload.component.css" ] //NAMES OF STYLESHEETS OF COMPONENT
+  })
+  export class UploadComponent implements OnInit{
+    //ATTRIBUTES
+    public selectedFiles:FileList;
+    public currentUpload:Archive;
+    public loading:boolean = false;
+
+    //METHODS
+    //CONSTRUCT
+    public constructor(
+      private loadfileService:LoadfileService
+    ){
+
+    }//END OF CONSTRUCT
+
+    //INIT
+    public ngOnInit():void{
+
+    }//END OF INIT
+
+    //DETECT FILES METHOD
+    public detectFiles( event ){
+      //GET FILES
+      this.selectedFiles = event.target.files;
+    }//END OF DETECT FILES METHOD
+
+    //UPLOAD SINGLE METHOD
+    public uploadSingle(){
+      //VARIABLES
+      var file = this.selectedFiles[ 0 ];
+
+      //SET loading IN TRUE
+      this.loading = true;
+
+      //SAVE FILE
+      this.currentUpload = new Archive( file );
+
+      //UPLOAD FILE
+      this.loadfileService.pushUpload( this.currentUpload );
+    }//END OF UPLOAD SINGLE METHOD
+  }//END OF UPLOAD COMPONENT
+  ~~~   
+
+  **ARCHIVO HTML**  
+  ~~~
+  <!-- CONTAINER OF TITLE -->
+  <div class="row">
+    <!-- TITLE -->
+    <h3>Contratos</h3>
+  </div><!-- ENF OF CONTAINER OF TITLE -->
+
+  <hr/>
+
+  <!-- CONTAINER OF FORM OF UPLOADS FILE -->
+  <div class="row">
+    <!-- LEFT SIDE -->
+    <div class="col-md-2 left side">
+
+    </div><!-- END OF LEFT SIDE -->
+
+    <!-- CENTER SIDE -->
+    <div class="col-md-8 center side">
+      <!-- UPLOADER -->
+      <div class="uploader">
+        <!-- ICONS -->
+        <p style="font-size:40px;">
+          <i class="fa fa-file-pdf" style="padding-left: 20px;"></i>
+          <i class="fa fa-file-word" style="padding-left: 20px;"></i>
+          <i class="fa fa-file-excel" style="padding-left: 20px;"></i>
+          <i class="fa fa-file-word" style="padding-left: 20px;"></i>
+        </p><!-- ENF OF ICONS -->
+
+        <!-- INPUT -->
+        <input type="file" (change)="detectFiles( $event )"/>
+      </div><!-- END OF UPLOADER -->
+
+      <!-- CONTAINER OF BUTTONS -->
+      <div class="text-center" style="margin-top:25px;">
+        <!-- UPLOAD BUTTON -->
+        <button type="button" class="btn btn-success" [disabled]="!selectedFiles" (click)="uploadSingle()">Subir Archivo</button>
+
+        <!-- CANCEL BUTTON -->
+        <a href="" class="btn btn-danger" role="btn" routerLink="/">Cancelar</a>
+      </div><!-- END OF CONTAINER OF BUTTONS -->
+
+      <hr/>
+
+      <!-- CONTAINER OF LOADING -->
+      <div *ngIf="loading">
+        <div class="progress" style="position:relative;">
+          <!-- BAR PROGRESS -->
+          <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': currentUpload?.progress + '%' }"></div>
+
+          <!-- TEXT OF BAR PROGRESS -->
+          <p style="position:absolute;left:10px;">Subiendo {{ currentUpload?.name }} {{currentUpload?.progress | number: '1.2-2'}} % Completado</p>
+        </div>
+      </div><!-- END OF CONTAINER OF LOADING -->
+    </div><!-- END OF CENTER SIDE -->
+
+    <!-- RIGHT SIDE -->
+    <div class="col-md-2 right side">
+
+    </div><!-- END OF RIGHT SIDE -->
+  </div><!-- ENF OF CONTAINER OF FORM OF UPLOADS FILE -->
+  ~~~
