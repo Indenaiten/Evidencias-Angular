@@ -2,18 +2,19 @@
 <h3>Listado de Facturas</h3>
 
 <!-- BUTTON TO ADD NEW FACTURA -->
-<a href="#" class="btn btn-primary float-md-right" role="btn" routerLink="/addfac">Añadir Nueva Factura</a>
+<a href="#" class="btn btn-primary float-md-right" role="btn" style="margin-bottom:25px" routerLink="/addfac">Añadir Nueva Factura</a>
 
-<br/>
+<!-- SEARCH -->
+<input type="search" class="form-control" placeholder="Buscar factura por proveedor..." style="margin-bottom:15px" [formControl]="searchForm"/>
 
 <!-- LOADING -->
 <div class="col-12 d-flex justify-content-center align-items-center" *ngIf="loading">
   <!-- IMG -->
-  <img src="../../../../../../assets/img/spinner.gif" alt="Loaging"/>
+  <img src="../../../../assets/img/spinner.gif" alt="Loading"/>
 </div><!-- END OF LOADING -->
 
 <!-- TABLE OF FACTURAS -->
-<table class="table table-bordered table-striped" style="margin-top: 40px;" *ngIf="!loading">
+<table class="table table-bordered table-striped" *ngIf="!loading && results">
   <!-- HEAD OF TABLE -->
   <thead>
     <!-- ROW OF FILTERS -->
@@ -45,3 +46,6 @@
     </tr><!-- END OF ROW OF FACTURAS -->
   </tbody><!-- END OF BODY OF TABLE -->
 </table><!-- END OF TABLE OF FACTURAS -->
+
+<!-- RESULTS MESSAGE -->
+<p class="alert alert-danger" *ngIf="!loading && !results">No existen resultados</p>

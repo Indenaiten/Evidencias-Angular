@@ -1,5 +1,6 @@
 //IMPORTS
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { ProveedoresService } from '../../../services/proveedores.service';
 
 //PROVEEDORES COMPONENT
@@ -10,6 +11,9 @@ import { ProveedoresService } from '../../../services/proveedores.service';
 })
 export class ProveedoresComponent implements OnInit{
   //ATTRIBUTES
+  public searchForm:FormControl;
+  public search:string;
+  public results:boolean = false;
   public proveedores:any[] = [];
   public loading:boolean = true;
 
@@ -24,8 +28,81 @@ export class ProveedoresComponent implements OnInit{
 
   //INIT METHOD
   public ngOnInit():void{
-
+    //SEARCH PROVEEDORES
+    this.searchProveedores();
   }//END OF INIT METHOD
+
+  //SEARCH PROVEEDORES METHOD
+  private searchProveedores():void{
+    //CREATE FORM GROUP
+    this.searchForm = new FormControl();
+
+    //VALUE CHANGES
+    this.searchForm.valueChanges
+      .subscribe( ( search ) => {
+        //SAVE SARCH
+        this.search = search
+
+        //CLEAR ARRAY OF proveedores
+        this.proveedores = [];
+
+        //SET results IN FALSE
+        this.results = false;
+
+        //CHECK THIS search
+        if( this.search.length != 0 ){ //IF THE search EXITS
+          //SET loading IN TRUE
+          this.loading = true
+
+          //SEARCH
+          this.proveedoresService.search( this.search )
+            .subscribe( ( response ) => {
+              //SHOW IN CONSOLE
+              console.log( "COMPONENT" );
+              console.log( response );
+
+              //BROWSE RESPONSE
+              for( var id in response ){
+                //GET PROVEEDOR
+                var proveedor = response[ id ];
+
+                //SET ID OF PROVEEDOR
+                proveedor.id = id;
+
+                //SAVE PROVEEDOR IN ARRAY
+                this.proveedores.push( proveedor );
+              }
+
+              //SET loading IN FALSE
+              this.loading = false;
+
+              //SET RESULTS OF PROVEEDORES
+              this.results = this.checkResultsOfProveedores();
+            }
+          );
+        }
+        else{ //IF THE search NO EXITS
+          //GET PROVEEDORES
+          this.getProveedores();
+        }
+      }
+    );
+  }//END OF SEARCH PROVEEDORES METHOD
+
+  //CHECK RESULTS OF PROVEEDORES METHOD
+  private checkResultsOfProveedores():boolean{
+    //VARIABLES
+    var result:boolean = false;
+
+    //CHECK RESULTS
+    if( this.proveedores.length > 0 ){ //IF THERE ARE RESULTS
+      //SET result IN TRUE
+      result = true;
+    }
+
+    //RETURN
+    return result;
+  }//END OF CHECK RESULTS OF PROVEEDORES METHOD
 
   //GET PROVEEDORES METHOD
   private getProveedores():void{
@@ -50,6 +127,9 @@ export class ProveedoresComponent implements OnInit{
 
         //SET LOADING IN FALSE
         this.loading = false;
+
+        //SET RESULTS OF PROVEEDORES
+        this.results = this.checkResultsOfProveedores();
       });
   }//END OF GET PROVEEDORES METHOD
 

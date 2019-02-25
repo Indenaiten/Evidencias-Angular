@@ -108,4 +108,22 @@ export class ProveedoresService{
         return response;
       }));
   }//END OF DELETE PROVEEDOR METHOD
+
+  //SEARCH METHOD
+  public search( search:string ):any{
+    //VARIABLES
+    var url = `${this.url}?orderBy="nombre"&startAt="${search}"&endAt="${search}\uf8ff"`;
+
+    //RETURN
+    return this.http.get( url )
+      .pipe( map( ( response ) => {
+        //SHOW IN CONSOLE
+        console.log( "SERVICE" );
+        console.log( response );
+
+        //RETURN
+        return response;
+      })
+    );
+  }//END OF SEARCH METHOD
 }//END OF PROVEEDORES SERVICE

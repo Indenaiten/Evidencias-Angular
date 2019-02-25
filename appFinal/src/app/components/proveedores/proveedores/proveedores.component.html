@@ -2,18 +2,19 @@
 <h3>Listado de Proveedores</h3>
 
 <!-- BUTTON TO ADD NEW PROVEEDOR -->
-<a href="#" class="btn btn-primary float-md-right" routerLink="/addpro">Añadir Nuevo Proveedor</a>
+<a href="#" class="btn btn-primary float-md-right" style="margin-bottom:25px;" routerLink="/addpro">Añadir Nuevo Proveedor</a>
 
-<br/>
+<!-- SEARCH -->
+<input type="search" class="form-control" placeholder="Buscar proveedor por nombre..." [formControl]="searchForm" style="margin-bottom: 15px;"/>
 
 <!-- LOADING -->
 <div class="col-12 d-flex justify-content-center align-items-center" *ngIf="loading">
   <!-- IMG -->
-  <img src="../../../../assets/img/spinner.gif" alt="Loaging"/>
+  <img src="../../../../assets/img/spinner.gif" alt="Loading"/>
 </div><!-- END OF LOADING -->
 
 <!-- TABLE OF PROVEEDORES -->
-<table class="table table-bordered table-striped" style="margin-top: 40px;" *ngIf="!loading">
+<table class="table table-bordered table-striped" *ngIf="!loading && results">
   <!-- HEAD OF TABLE -->
   <thead>
     <!-- ROW OF FILTERS -->
@@ -49,3 +50,6 @@
     </tr><!-- END OF ROW OF PROVEEDOR -->
   </tbody><!-- END OF BODY OF TABLE -->
 </table><!-- END OF TABLE OF PROVEEDORES -->
+
+<!-- RESULTS MESSAGE -->
+<p class="alert alert-danger" *ngIf="!loading && !results">No existen resultados</p>

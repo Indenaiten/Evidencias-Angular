@@ -106,4 +106,22 @@ export class PresupuestosService{
         return response;
       }));
   }//END OF DELETE PRESUPUESTO METHOD
+
+  //SEARCH METHOD
+  public search( search:string ):any{
+    //VARIABLES
+    var url = `${this.url}?orderBy="proveedor"&startAt="${search}"&endAt="${search}\uf8ff"`;
+
+    //RETURN
+    return this.http.get( url )
+      .pipe( map( ( response ) => {
+        //SHOW IN CONSOLE
+        console.log( "SERVICE" );
+        console.log( response );
+
+        //RETURN
+        return response;
+      })
+    );
+  }//END OF SEARCH METHOD
 }//END OF PRESUPUESTOS SERVICE
