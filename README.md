@@ -60,8 +60,8 @@ Estas evidencias estan creadas con las siguientes versiones de las herramientas 
     * [Comprobar si el usuario esta autentificado](https://github.com/Indenaiten/Evidencias-Angular#comprobar-si-el-usuario-esta-autentificado---índice)  
     * [Desloguearse](https://github.com/Indenaiten/Evidencias-Angular#desloguearse---índice)  
     * [Protección de las rutas](https://github.com/Indenaiten/Evidencias-Angular#protecci%C3%B3n-de-las-rutas---%C3%ADndice)  
-  * [016 - Crear un módulo](https://github.com/Indenaiten/Evidencias-Angular#016---crear-un-m%C3%B3dulo)  
-  * [017 - Crear Buscador]()  
+  * [016 - Crear un módulo](https://github.com/Indenaiten/Evidencias-Angular#016---crear-un-m%C3%B3dulo---%C3%ADndice)  
+  * [017 - Crear Buscador](https://github.com/Indenaiten/Evidencias-Angular#017---crear-buscador---%C3%ADndice)  
 
 
 
@@ -1034,7 +1034,7 @@ Ahora para poder utilizar el módulo en nuestra aplicación, tendrémos que impo
 
 
 ### 017 - Crear Buscador - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
-  _**[Commit 12026b3]()**_  
+  _**[Commit 12026b3](https://github.com/Indenaiten/Evidencias-Angular/tree/12026b3f28fbf463da2aa5cba02ac60453aee553)**_  
 
 Para realizar un búscador, lo primero que haremos es añadirlo a la plantilla.  
   ~~~
@@ -1160,4 +1160,4 @@ Para que la anterior búsqueda funcione, deberemos establecer unas reglas en nue
     }
   ~~~  
 
-![017-001]()
+![017-001](https://github.com/Indenaiten/Evidencias-Angular/blob/master/img/017-001.PNG)
