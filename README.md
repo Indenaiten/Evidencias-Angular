@@ -60,7 +60,8 @@ Estas evidencias estan creadas con las siguientes versiones de las herramientas 
     * [Comprobar si el usuario esta autentificado](https://github.com/Indenaiten/Evidencias-Angular#comprobar-si-el-usuario-esta-autentificado---índice)  
     * [Desloguearse](https://github.com/Indenaiten/Evidencias-Angular#desloguearse---índice)  
     * [Protección de las rutas](https://github.com/Indenaiten/Evidencias-Angular#protecci%C3%B3n-de-las-rutas---%C3%ADndice)  
-  * [016 - Crear un módulo](https://github.com/Indenaiten/Evidencias-Angular#016---crear-un-m%C3%B3dulo)
+  * [016 - Crear un módulo](https://github.com/Indenaiten/Evidencias-Angular#016---crear-un-m%C3%B3dulo)  
+  * [017 - Crear Buscador]()  
 
 
 
@@ -988,25 +989,25 @@ Para comprobar si el usuario esta autentificado, necesitaremos crear el siguient
     return result;
   }
   ~~~  
-  
-  
-  
+
+
+
 #### Desloguearse - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit 961afd6](https://github.com/Indenaiten/Evidencias-Angular/tree/961afd6c20432a153fee7ef4eae1cc07eda1e8c8)**_  
-  
-Para desloguearse, necesitaremos crear el siguiente método en el servicio de autentificación: 
+
+Para desloguearse, necesitaremos crear el siguiente método en el servicio de autentificación:
   ~~~
   public logout():void{
     //LOGOUT
     firebase.auth().signOut();
   }
   ~~~  
-  
-  
-  
+
+
+
 #### Protección de las Rutas - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit be34979](https://github.com/Indenaiten/Evidencias-Angular/tree/be34979fdc3d50435b1eb758b7d584f14d1d636b)**_  
-  
+
 Para proteger nuestras rutas crearemos un nuevo servicio que implementará la clase _**"CanActivate"**_ (este servicio suele llamarse _**"GuardService"**_). Al implementar esta clase, tendremos que crear el método _**"canActivate()"**_ y en éste devolveremos si el usuario está autentificado o no.  
   ~~~
   public canActivate(){
@@ -1014,18 +1015,149 @@ Para proteger nuestras rutas crearemos un nuevo servicio que implementará la cl
     return this.authService.iAuth();
   }
   ~~~  
-  
+
 Ahora, en _**"app.module.ts"**_ protegeremos las rutas que queramos de la siguiente manera:  
   ``{ path: 'ruta', component: NameOfComponent, canActivate: [GuardService] },``  
-  
-  
-  
+
+
+
 ### 016 - Crear un módulo - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
   _**[Commit fd1a35a](https://github.com/Indenaiten/Evidencias-Angular/tree/fd1a35aed1d14bfc6520093781b47ac1508364ee)**_  
-  
+
 Para crear un módulo, en nuestra terminal ejecutaremos el siguiente comando:  
   ``ng generate module nameOfModule``  
   ``ng g module nameOfModule``  
-  
+
 Para crear un componente para el nuevo módulo, bastará con crearlo dentro de la carpeta del módulo.  
-Ahora para poder utilizar el módulo en nuestra aplicación, tendrémos que importarlo en el archivo _**"app.module.ts"**_ y registrarlo en el array de _**imports**_.
+Ahora para poder utilizar el módulo en nuestra aplicación, tendrémos que importarlo en el archivo _**"app.module.ts"**_ y registrarlo en el array de _**imports**_.  
+
+
+
+### 017 - Crear Buscador - **[[ÍNDICE]](https://github.com/Indenaiten/Evidencias-Angular#000---%C3%ADndice)**  
+  _**[Commit 12026b3]()**_  
+
+Para realizar un búscador, lo primero que haremos es añadirlo a la plantilla.  
+  ~~~
+  <!-- SEARCH -->
+  <input type="search" class="form-control" placeholder="Buscar..." [formControl]="searchForm"/>
+  ~~~  
+
+También añadiremos un mensaje que indique que no a encontrado resultados si es así.  
+  ~~~
+  <!-- RESULTS MESSAGE -->
+  <p class="alert alert-danger" *ngIf="!results">No existen resultados</p>
+  ~~~  
+
+Ahora en el componente, importaremos la siguiente clase:  
+  ``import { FormControl } from '@angular/forms';``  
+
+También añadiremos las siguientes propiedades a la clase:  
+  ~~~
+  public searchForm:FormControl;
+  public search:string;
+  public results:boolean = false;
+  ~~~  
+
+Ahora en el método _**ngOnInit()**_ recuperaremos el valor del campo de búsqueda y haremos la consulta a la base de datos de **Firebase**.  
+  ~~~
+  //INIT
+  public ngOnInit():void{
+    //CREATE FORM GROUP
+    this.searchForm = new FormControl();
+
+    //VALUE CHANGES
+    this.searchForm.valueChanges
+      .subscribe( ( search ) => {
+        //SAVE SARCH
+        this.search = search
+
+        //CLEAR ARRAY OF elementsJSON
+        this.elementsJSON = [];
+
+        //SET results IN FALSE
+        this.results = false;
+
+        //CHECK THIS search
+        if( this.search.length != 0 ){ //IF THE search EXITS
+          //SEARCH
+          this.nameOfService.search( this.search )
+            .subscribe( ( response ) => {
+              //BROWSE RESPONSE
+              for( var id in response ){
+                //GET ELEMENTS
+                var elementJSON = response[ id ];
+
+                //SET ID OF ELEMENT
+                elementJSON.id = id;
+
+                //SAVE ELEMENT IN ARRAY
+                this.elementsJSON.push( elementJSON );
+              }
+
+              //CHECK RESULTS
+              if( this.elementsJSON.length > 0 ){ //IF THERE ARE RESULTS
+                //SET THIS result IN TRUE
+                this.result = true;
+              }
+            }
+          );
+        }
+        else{ //IF THE search NO EXITS
+          //GET ELEMENTS
+          this.getElementsJSON();
+        }
+      }
+    );
+  }
+
+  //GET ELEMENTS JSON
+  private getElementsJSON():void{
+    //GET ELEMENTS
+    this.nameOfService.getElementsJSON()
+      .subscribe( ( response:any ) => {
+        //BROWSE RESPONSE
+        for( var id in response ){
+          //GET ELEMENTS
+          var elementJSON = response[ id ];
+
+          //SET ID OF ELEMENT
+          elementJSON.id = id;
+
+          //SAVE ELEMENT IN ARRAY
+          this.elementsJSON.push( elementJSON );
+        }
+
+        //CHECK RESULTS
+        if( this.elementsJSON.length > 0 ){ //IF THERE ARE RESULTS
+          //SET THIS result IN TRUE
+          this.result = true;
+        }
+      }
+    );
+  }
+  ~~~  
+
+Ahora tendremos que crear el método _**search()**_ en el servicio. En la url, el parametro _**"orderBy"**_ va el nombre de la columna por la que se va a buscar.  
+  ~~~
+  public search( search:string ):any{
+    //VARIABLES
+    var url = `${this.url}?orderBy="nameOfRow"&startAt="${search}"&endAt="${search}\uf8ff"`;
+
+    //RETURN
+    return this.http.get( url )
+      .pipe( map( ( response ) => {
+        //RETURN
+        return response;
+      })
+    );
+  }
+  ~~~  
+
+Para que la anterior búsqueda funcione, deberemos establecer unas reglas en nuestra base de datos de _**Firebase**_.  
+  ~~~
+  "collectionOfElements": {
+      ".indexOn": [ "nameOfRoww" ]
+    }
+  ~~~  
+
+![017-001]()
