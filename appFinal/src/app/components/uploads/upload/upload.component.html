@@ -1,0 +1,59 @@
+<!-- CONTAINER OF TITLE -->
+<div class="row">
+  <!-- TITLE -->
+  <h3>Contratos</h3>
+</div><!-- ENF OF CONTAINER OF TITLE -->
+
+<hr/>
+
+<!-- CONTAINER OF FORM OF UPLOADS FILE -->
+<div class="row">
+  <!-- LEFT SIDE -->
+  <div class="col-md-2 left side">
+
+  </div><!-- END OF LEFT SIDE -->
+
+  <!-- CENTER SIDE -->
+  <div class="col-md-8 center side">
+    <!-- UPLOADER -->
+    <div class="uploader">
+      <!-- ICONS -->
+      <p style="font-size:40px;">
+        <i class="fa fa-file-pdf" style="padding-left: 20px;"></i>
+        <i class="fa fa-file-word" style="padding-left: 20px;"></i>
+        <i class="fa fa-file-excel" style="padding-left: 20px;"></i>
+        <i class="fa fa-file-word" style="padding-left: 20px;"></i>
+      </p><!-- ENF OF ICONS -->
+
+      <!-- INPUT -->
+      <input type="file" (change)="detectFiles( $event )"/>
+    </div><!-- END OF UPLOADER -->
+
+    <!-- CONTAINER OF BUTTONS -->
+    <div class="text-center" style="margin-top:25px;">
+      <!-- UPLOAD BUTTON -->
+      <button type="button" class="btn btn-success" [disabled]="!selectedFiles" (click)="uploadSingle()">Subir Archivo</button>
+
+      <!-- CANCEL BUTTON -->
+      <a href="" class="btn btn-danger" role="btn" routerLink="/">Cancelar</a>
+    </div><!-- END OF CONTAINER OF BUTTONS -->
+
+    <hr/>
+
+    <!-- CONTAINER OF LOADING -->
+    <div *ngIf="loading">
+      <div class="progress" style="position:relative;">
+        <!-- BAR PROGRESS -->
+        <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': currentUpload?.progress + '%' }"></div>
+
+        <!-- TEXT OF BAR PROGRESS -->
+        <p style="position:absolute;left:10px;">Subiendo {{ currentUpload?.name }} {{currentUpload?.progress | number: '1.2-2'}} % Completado</p>
+      </div>
+    </div><!-- END OF CONTAINER OF LOADING -->
+  </div><!-- END OF CENTER SIDE -->
+
+  <!-- RIGHT SIDE -->
+  <div class="col-md-2 right side">
+
+  </div><!-- END OF RIGHT SIDE -->
+</div><!-- ENF OF CONTAINER OF FORM OF UPLOADS FILE -->

@@ -32,6 +32,11 @@
         <a class="nav-link" routerLink="/facturas">Facturas</a>
       </li><!-- END OF FACTURAS OPTION -->
 
+      <!-- CONTRATOS OPTION -->
+      <li class="nav-item" routerLinkActive="active" *ngIf="isAuth()">
+        <a class="nav-link" routerLink="/contratosuploads">Contratos</a>
+      </li><!-- END OF CONTRATOS OPTION -->
+
       <!-- LOGOUT OPTION -->
       <li class="nav-item" routerLinkActive="active" *ngIf="isAuth()">
         <button class="nav-link" class="btn btn-primary" style="margin-right: 10px;" (click)="logout()">Log out</button>

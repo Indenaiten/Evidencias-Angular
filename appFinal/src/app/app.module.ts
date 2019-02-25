@@ -5,6 +5,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { enviroment } from './config/firebase.config';
 
 //COMPONENTS
 import { AppComponent } from './app.component';
@@ -18,12 +22,14 @@ import { PresupuestosComponent } from './components/presupuestos/presupuestos/pr
 import { EditPresupuestoComponent } from './components/presupuestos/edit-presupuesto/edit-presupuesto.component';
 import { RegistroComponent } from './components/auth/registro/registro.component';
 import { LoginComponent } from './components/auth/login/login.component';
+import { UploadComponent } from './components/uploads/upload/upload.component';
 
 //SERVICES
 import { ProveedoresService } from './services/proveedores.service';
 import { PresupuestosService } from './services/presupuestos.service';
 import { AuthService } from './services/auth.service';
 import { GuardService } from './services/guard.service';
+import { LoadfileService } from './services/loadfile.service';
 
 //MODULES
 import { FacturasModule } from './modules/facturas/facturas.module';
@@ -39,6 +45,8 @@ const routes:Routes = [
   { path: 'presupuestos', component: PresupuestosComponent, canActivate: [GuardService] },
   { path: 'addpres', component: AddPresupuestoComponent, canActivate: [GuardService] },
   { path: 'editpres/:id', component: EditPresupuestoComponent, canActivate: [GuardService] },
+
+    { path: 'contratosuploads', component: UploadComponent, canActivate: [GuardService] },
 
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
@@ -59,7 +67,8 @@ const routes:Routes = [
     PresupuestosComponent,
     EditPresupuestoComponent,
     RegistroComponent,
-    LoginComponent
+    LoginComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,
@@ -67,13 +76,17 @@ const routes:Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FacturasModule
+    FacturasModule,
+    AngularFireModule.initializeApp( enviroment ),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [
     ProveedoresService,
     PresupuestosService,
     AuthService,
-    GuardService
+    GuardService,
+    LoadfileService
   ],
   bootstrap: [ AppComponent ]
 })
