@@ -18,9 +18,6 @@ export class PresupuestosComponent implements OnInit{
   public constructor( private presupuestosService:PresupuestosService ){
     //GET PRESUPUESTOS
     this.getPresupuestos();
-
-    //SET LOADING IN FALSE
-    this.loading = false;
   }//END OF CONSTRUCT
 
   //INIT METHOD
@@ -48,6 +45,9 @@ export class PresupuestosComponent implements OnInit{
           //SAVE PRESUPUESTO IN ARRAY
           this.presupuestos.push( presupuesto );
         }
+
+        //SET LOADING IN FALSE
+        this.loading = false;
       });
   }//END OF GET PRESUPUESTOS METHOD
 

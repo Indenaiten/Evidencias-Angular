@@ -20,9 +20,6 @@ export class FacturasComponent implements OnInit{
 	){
 		//GET FACTURAS
 		this.getFacturas();
-
-		//SET LOADING IN FALSE
-		this.loading = false;
 	}//END OF CONSTRUCT
 
 	//INIT METHOD
@@ -35,21 +32,24 @@ export class FacturasComponent implements OnInit{
 	  //GET FACTURAS
 	  this.facturasService.getFacturas()
 			.subscribe( ( response:any ) => {
-	    		//SHOW IN CONSOLE
-	    		console.log( "COMPONENT" );
-	    		console.log( response );
+  	    		//SHOW IN CONSOLE
+  	    		console.log( "COMPONENT" );
+  	    		console.log( response );
 
-	    		//BROWSE RESPONSE
-	    		for( var id in response ){
-	    		  //GET PRESUPUESTO
-	    		  var factura = response[ id ];
+  	    		//BROWSE RESPONSE
+  	    		for( var id in response ){
+  	    		  //GET PRESUPUESTO
+  	    		  var factura = response[ id ];
 
-	    		  //SET ID OF FACTURA
-	    		  factura.id = id;
+  	    		  //SET ID OF FACTURA
+  	    		  factura.id = id;
 
-	    		  //SAVE FACTURA IN ARRAY
-	    		  this.facturas.push( factura );
-	    		}
+  	    		  //SAVE FACTURA IN ARRAY
+  	    		  this.facturas.push( factura );
+  	    		}
+
+            //SET LOADING IN FALSE
+        		this.loading = false;
       		}
       	);
   	}//END OF GET FACTURAS METHOD

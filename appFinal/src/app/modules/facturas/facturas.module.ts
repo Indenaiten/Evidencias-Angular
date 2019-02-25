@@ -14,12 +14,14 @@ import { FacturasComponent } from './components/facturas/facturas/facturas.compo
 
 //SERVICES
 import { FacturasService } from './services/facturas.service';
+import { AuthService } from '../../services/auth.service';
+import { GuardService } from '../../services/guard.service';
 
 //ROUTES
 const routes:Routes = [
-  { path: 'facturas', component: FacturasComponent },
-  { path: 'addfac', component: AddFacturaComponent },
-  { path: 'editfac/:id', component: EditFacturaComponent }
+  { path: 'facturas', component: FacturasComponent, canActivate: [GuardService] },
+  { path: 'addfac', component: AddFacturaComponent, canActivate: [GuardService] },
+  { path: 'editfac/:id', component: EditFacturaComponent, canActivate: [GuardService] }
 ];
 
 //FACTURAS MODULE
@@ -38,7 +40,9 @@ const routes:Routes = [
     RouterModule.forRoot( routes )
   ],
   providers: [
-    FacturasService
+    FacturasService,
+    AuthService,
+    GuardService
   ]
 })
 export class FacturasModule{
