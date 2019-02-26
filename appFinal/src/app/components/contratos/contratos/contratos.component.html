@@ -1,0 +1,11 @@
+<!-- TITLE OF SECTION -->
+<h3>Listado de Contratos</h3>
+
+<!-- BUTTON TO ADD NEW PRESUPUESTO -->
+<a href="#" class="btn btn-primary float-md-right" role="btn" style="margin-bottom: 25px;" routerLink="/contratosuploads">Subir Nuevo Contrato</a>
+
+<!-- UPLOAD -->
+<div *ngFor="let upload of uploads">
+  <!-- DETAILS -->
+  <app-detalles [upload]="upload"></app-detalles>
+</div><!-- END OF UPLOAD -->

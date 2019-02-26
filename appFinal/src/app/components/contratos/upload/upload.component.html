@@ -1,7 +1,10 @@
 <!-- CONTAINER OF TITLE -->
-<div class="row">
+<div class="row d-flex justify-content-between">
   <!-- TITLE -->
-  <h3>Contratos</h3>
+  <h3>Subir Contratos</h3>
+
+  <!-- BUTTON TO GO TO LIST OF CONTRATOS -->
+  <a href="#" class="btn btn-primary" role="btn"  style="margin-bottom: 25px;" routerLink="/contratos">Ver Contratos</a>
 </div><!-- ENF OF CONTAINER OF TITLE -->
 
 <hr/>
@@ -32,10 +35,10 @@
     <!-- CONTAINER OF BUTTONS -->
     <div class="text-center" style="margin-top:25px;">
       <!-- UPLOAD BUTTON -->
-      <button type="button" class="btn btn-success" [disabled]="!selectedFiles" (click)="uploadSingle()">Subir Archivo</button>
+      <button type="button" class="btn btn-success" style="margin-right:15px;" [disabled]="!selectedFiles" (click)="uploadSingle()">Subir Archivo</button>
 
       <!-- CANCEL BUTTON -->
-      <a href="" class="btn btn-danger" role="btn" routerLink="/">Cancelar</a>
+      <a href="" class="btn btn-danger" role="btn" routerLink="/contratos">Cancelar</a>
     </div><!-- END OF CONTAINER OF BUTTONS -->
 
     <hr/>

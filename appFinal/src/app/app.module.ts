@@ -22,7 +22,9 @@ import { PresupuestosComponent } from './components/presupuestos/presupuestos/pr
 import { EditPresupuestoComponent } from './components/presupuestos/edit-presupuesto/edit-presupuesto.component';
 import { RegistroComponent } from './components/auth/registro/registro.component';
 import { LoginComponent } from './components/auth/login/login.component';
-import { UploadComponent } from './components/uploads/upload/upload.component';
+import { UploadComponent } from './components/contratos/upload/upload.component';
+import { ContratosComponent } from './components/contratos/contratos/contratos.component';
+import { DetallesComponent } from './components/contratos/detalles/detalles.component';
 
 //SERVICES
 import { ProveedoresService } from './services/proveedores.service';
@@ -46,7 +48,8 @@ const routes:Routes = [
   { path: 'addpres', component: AddPresupuestoComponent, canActivate: [GuardService] },
   { path: 'editpres/:id', component: EditPresupuestoComponent, canActivate: [GuardService] },
 
-    { path: 'contratosuploads', component: UploadComponent, canActivate: [GuardService] },
+  { path: 'contratos', component: ContratosComponent, canActivate: [GuardService] },
+  { path: 'contratosuploads', component: UploadComponent, canActivate: [GuardService] },
 
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
@@ -68,7 +71,9 @@ const routes:Routes = [
     EditPresupuestoComponent,
     RegistroComponent,
     LoginComponent,
-    UploadComponent
+    UploadComponent,
+    ContratosComponent,
+    DetallesComponent
   ],
   imports: [
     BrowserModule,
