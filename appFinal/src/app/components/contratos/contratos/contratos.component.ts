@@ -28,8 +28,8 @@ export class ContratosComponent implements OnInit{
     this.loadfileService.getUploads()
       .subscribe( ( response ) => {
         //CLEAR UPLOADS
-        this.uploads = [];console.log("AQUÍ ABAJO [RESPONSE OF getUploads()]");console.log( response )
-
+        this.uploads = [];
+        
         //BROWSE RESPONSE
         for( const id in response ){
           //VARIABLES

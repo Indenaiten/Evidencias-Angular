@@ -28,8 +28,8 @@ export class DetallesComponent implements OnInit{
   }//END OF INIT METHOD
 
   //DELETE METHOD
-  public delete( name:String ){
+  public delete( upload:Archive ){
     //DELETE
-    this.loadfileService.delete( name );
+    this.loadfileService.delete( this.upload );
   }//END OF DELETE METHOD
 }//END OF DETALLES COMPONENT
